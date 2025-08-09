@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "admissions": "Admissions",
+    "academics": "Academics",
+    "research": "Research",
+    "campus": "Campus",
+    "news": "News"
+  },
+  "hero": {
+    "title": "The Next Answer",
+    "subtitle": "Leading the Future at Taejae University",
+    "cta": "Learn More"
+  },
+  "imperatives": {
+    "title": "Taejae",
+    "subtitle": "Imperatives",
+    "learnMore": "Learn more",
+    "items": [
+      {
+        "symbol": "∞",
+        "description": "Explore an infinite range of possibilities. At Taejae, design your interdisciplinary major as unique as you are. Discover how our customizable programs empower you to shape your own academic journey."
+      },
+      {
+        "symbol": "7",
+        "description": "The world is your classroom and the earth is your syllabus. Explore our seven campuses around the world and grow endlessly."
+      },
+      {
+        "symbol": "3",
+        "description": "Are you an innovative problem solver? Are you an empathetic global leader? Are you an adaptable and forward-thinking visionary? Then join us!"
+      },
+      {
+        "symbol": "100",
+        "description": "Be 100% YOU!\nAt Taejae University, you'll not only grow academically but also embrace your true self. Experience cultural exchanges, engage in extracurricular activities, and fully express who you are!"
+      },
+      {
+        "symbol": "1",
+        "description": "Taejae is Korea's first fully hybrid university, pioneering a new model of global, flexible education."
+      }
+    ]
+  },
+  "campus": {
+    "title": "Global Campuses",
+    "subtitle": "Taejae University Worldwide",
+    "korea": "Korea Main Campus"
+  },
+  "voice": {
+    "title": "The Voice of Taejae Squad",
+    "subtitle": "Stories from Our Community"
+  },
+  "news": {
+    "title": "Taejae Now",
+    "subtitle": "Latest News",
+    "more": "View More"
+  },
+  "footer": {
+    "address": "Address",
+    "tel": "Tel",
+    "email": "Email",
+    "copyright": "© 2024 Taejae University. All rights reserved.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact"
+  }
+}

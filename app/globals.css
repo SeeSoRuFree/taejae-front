@@ -1,0 +1,299 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ========================================
+       Color System - CSS Variables
+       ======================================== */
+
+    /* Primary Colors */
+    --color-primary: 0 188 212; /* #00BCD4 */
+    --color-primary-50: 224 247 250;
+    --color-primary-100: 178 235 242;
+    --color-primary-200: 128 222 234;
+    --color-primary-300: 77 208 225;
+    --color-primary-400: 38 198 218;
+    --color-primary-500: 0 188 212;
+    --color-primary-600: 0 172 193;
+    --color-primary-700: 0 151 167;
+    --color-primary-800: 0 131 143;
+    --color-primary-900: 0 96 100;
+
+    /* Secondary Colors */
+    --color-secondary: 156 39 176; /* #9C27B0 */
+    --color-secondary-50: 243 229 245;
+    --color-secondary-100: 225 190 231;
+    --color-secondary-200: 206 147 216;
+    --color-secondary-300: 186 104 200;
+    --color-secondary-400: 171 71 188;
+    --color-secondary-500: 156 39 176;
+    --color-secondary-600: 142 36 170;
+    --color-secondary-700: 123 31 162;
+    --color-secondary-800: 106 27 154;
+    --color-secondary-900: 74 20 140;
+
+    /* Base Colors */
+    --color-white: 255 255 255;
+    --color-black: 0 0 0;
+    --color-background: 255 255 255;
+    --color-background-secondary: 250 250 250;
+
+    /* Text Colors */
+    --color-text-primary: 0 0 0;
+    --color-text-secondary: 74 74 74;
+    --color-text-tertiary: 107 107 107;
+    --color-text-disabled: 158 158 158;
+
+    /* ========================================
+       Typography System
+       ======================================== */
+
+    /* Font Weights */
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Font Sizes Desktop */
+    --text-h1: 64px;
+    --text-h2: 48px;
+    --text-h3: 30px;
+    --text-h4: 22px;
+    --text-h5: 18px;
+    --text-h6: 16px;
+    --text-body-lg: 18px;
+    --text-body: 16px;
+    --text-body-sm: 14px;
+    --text-body-xs: 12px;
+
+    /* Line Heights */
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.6;
+
+    /* ========================================
+       Spacing System
+       ======================================== */
+
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+    --spacing-4xl: 96px;
+
+    /* ========================================
+       Border Radius
+       ======================================== */
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+
+    /* ========================================
+       Shadows
+       ======================================== */
+
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.12);
+    --shadow-cyan: 0 10px 40px rgba(0, 188, 212, 0.2);
+    --shadow-purple: 0 10px 40px rgba(156, 39, 176, 0.2);
+
+    /* ========================================
+       Transitions
+       ======================================== */
+
+    --transition-fast: 150ms;
+    --transition-base: 250ms;
+    --transition-slow: 350ms;
+    --transition-slower: 500ms;
+
+    /* ========================================
+       Z-Index Scale
+       ======================================== */
+
+    --z-dropdown: 10;
+    --z-modal-backdrop: 40;
+    --z-modal: 50;
+    --z-sticky: 60;
+    --z-fixed: 70;
+    --z-tooltip: 80;
+    --z-notification: 90;
+    --z-max: 100;
+  }
+
+  /* Dark mode variables (준비) */
+  [data-theme='dark'] {
+    --color-background: 17 24 39;
+    --color-background-secondary: 31 41 55;
+    --color-text-primary: 255 255 255;
+    --color-text-secondary: 209 213 219;
+    --color-text-tertiary: 156 163 175;
+    --color-text-disabled: 107 114 128;
+  }
+
+  /* ========================================
+     Global Styles
+     ======================================== */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family:
+      'Instrument Sans',
+      system-ui,
+      -apple-system,
+      sans-serif;
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-text-primary));
+    line-height: var(--leading-normal);
+  }
+
+  /* Focus Styles for Accessibility */
+  :focus-visible {
+    outline: 2px solid rgb(var(--color-primary));
+    outline-offset: 2px;
+  }
+
+  /* Selection Styles */
+  ::selection {
+    background-color: rgba(var(--color-primary), 0.2);
+    color: rgb(var(--color-text-primary));
+  }
+
+  /* Smooth Transitions for Theme Changes */
+  body,
+  body * {
+    transition:
+      background-color var(--transition-base) ease,
+      border-color var(--transition-base) ease;
+  }
+}
+
+@layer components {
+  /* ========================================
+     Utility Classes
+     ======================================== */
+
+  /* Container */
+  .container-responsive {
+    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 1920px;
+  }
+
+  /* Section Padding */
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-gradient-primary bg-clip-text text-transparent;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg;
+  }
+
+  .card-hover {
+    @apply transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  /* Button Base */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-250 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary-500 text-white hover:bg-secondary-600 focus:ring-secondary-500;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white;
+  }
+
+  /* Responsive Typography */
+  .heading-responsive {
+    @apply text-h1-mobile md:text-h2 lg:text-h1;
+  }
+
+  /* Grid System */
+  .grid-responsive {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8;
+  }
+}
+
+@layer utilities {
+  /* Custom Animations */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+
+  @keyframes gradient {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Hide Scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Glassmorphism Effect */
+  .glass {
+    @apply bg-white bg-opacity-80 backdrop-blur-lg;
+  }
+
+  /* Truncate Lines */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
