@@ -16,16 +16,16 @@ export default function EducationalVisionsGoalsPage() {
       <Header locale={locale} />
       <main className="min-h-screen bg-white relative">
         {/* Background Decoration - Responsive positioning */}
-        <img 
-          src="/assets/gradient-glass-16.png" 
-          alt="" 
+        <img
+          src="/assets/gradient-glass-16.png"
+          alt=""
           className="absolute 
             top-[550px] -right-10 w-[400px] 
             md:top-[450px] md:-right-[200px] md:w-[600px] 
             lg:-top-20 lg:-right-20 lg:w-[900px] 
             h-auto pointer-events-none z-0"
         />
-        
+
         <div className="relative">
           <VisionHero locale={locale} />
           <EducationalPurposes locale={locale} />

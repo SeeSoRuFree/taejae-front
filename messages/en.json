@@ -9,9 +9,9 @@
     "news": "News",
     "academicsSubmenu": {
       "visionsGoals": "Educational Visions & Goals",
-      "faculty": "Faculty",
-      "programs": "Academic Programs",
-      "learningMethods": "Learning Methods"
+      "whoLearnFrom": "Who do you learn from",
+      "whatLearn": "What do you learn",
+      "howLearn": "How do you learn"
     }
   },
   "hero": {
@@ -69,6 +69,18 @@
     "contact": "Contact"
   },
   "academics": {
+    "whoLearnFrom": {
+      "pageTitle": "Who do you learn from?",
+      "hero": {
+        "title": "Who do you learn from?",
+        "description1": "At Taejae University, you'll learn from some of the brightest minds in the world. Our professors are more than teachers—they're global experts, researchers, and mentors from prestigious institutions who are deeply invested in your growth.",
+        "description2": "Whether you're in an immersive online classroom or exploring real-world challenges through hands-on programs, they'll guide you every step of the way. With our flexible hybrid model, you can connect with these world-class faculty from anywhere, and experience a truly international and personal education."
+      },
+      "faculty": {
+        "title": "Meet Our World-renowned Faculty",
+        "viewMore": "View More"
+      }
+    },
     "visionsGoals": {
       "pageTitle": "Educational Visions & Goals",
       "hero": {

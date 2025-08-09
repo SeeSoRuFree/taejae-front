@@ -9,9 +9,9 @@
     "news": "뉴스",
     "academicsSubmenu": {
       "visionsGoals": "교육 비전 및 목표",
-      "faculty": "교수진",
-      "programs": "학사 프로그램",
-      "learningMethods": "학습 방법"
+      "whoLearnFrom": "누구에게 배우나",
+      "whatLearn": "무엇을 배우나",
+      "howLearn": "어떻게 배우나"
     }
   },
   "hero": {
@@ -69,6 +69,18 @@
     "contact": "연락처"
   },
   "academics": {
+    "whoLearnFrom": {
+      "pageTitle": "누구에게 배우나",
+      "hero": {
+        "title": "누구에게 배우나?",
+        "description1": "태제대학교에서는 세계 최고의 지성들로부터 배울 수 있습니다. 우리의 교수진은 단순한 교사가 아닙니다—그들은 당신의 성장에 깊이 헌신하는 명문 대학 출신의 글로벌 전문가, 연구자, 그리고 멘토입니다.",
+        "description2": "몰입형 온라인 교실에 있든, 실습 프로그램을 통해 실제 문제를 탐구하든, 그들은 모든 단계에서 당신을 안내할 것입니다. 우리의 유연한 하이브리드 모델을 통해 어디서든 이러한 세계적 수준의 교수진과 연결하고 진정으로 국제적이고 개인적인 교육을 경험할 수 있습니다."
+      },
+      "faculty": {
+        "title": "세계적인 교수진을 만나보세요",
+        "viewMore": "더 보기"
+      }
+    },
     "visionsGoals": {
       "pageTitle": "교육 비전 및 목표",
       "hero": {
