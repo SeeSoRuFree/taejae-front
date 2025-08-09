@@ -69,6 +69,14 @@
     "contact": "Contact"
   },
   "academics": {
+    "whatLearn": {
+      "pageTitle": "What do you learn?",
+      "hero": {
+        "title": "What do you learn?",
+        "description1": "At Taejae University, you'll experience a transformative, interdisciplinary education designed to equip you with the competencies needed to thrive in our rapidly changing world. Our curriculum transcends traditional boundaries, combining broad foundational knowledge with deep specialized expertise.",
+        "description2": "From mastering critical thinking and innovation foundations to exploring the frontiers of convergence studies, you'll be prepared to tackle complex challenges and create meaningful impact. With our flexible learning model, you can pursue your passions, connect disciplines, and craft your own unique educational journey."
+      }
+    },
     "whoLearnFrom": {
       "pageTitle": "Who do you learn from?",
       "hero": {

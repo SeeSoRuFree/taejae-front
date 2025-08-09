@@ -23,7 +23,7 @@ export default function WhoLearnFromPage() {
             lg:-top-[300px] lg:-right-[200px] lg:w-[989px] 
             h-auto pointer-events-none z-0"
         />
-        
+
         <div className="relative z-10">
           <FacultyHero locale={locale} />
           <FacultyGrid locale={locale} />

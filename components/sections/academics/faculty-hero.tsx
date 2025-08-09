@@ -39,15 +39,16 @@ export function FacultyHero({ locale }: FacultyHeroProps) {
               </>
             ) : (
               <>
-                At Taejae University, you&apos;ll learn from some of the brightest minds in the world. 
-                Our professors are more than teachers—they&apos;re global experts, researchers, and mentors 
-                from prestigious institutions who are deeply invested in your growth.
+                At Taejae University, you&apos;ll learn from some of the brightest minds in the
+                world. Our professors are more than teachers—they&apos;re global experts,
+                researchers, and mentors from prestigious institutions who are deeply invested in
+                your growth.
                 <br />
                 <br />
-                Whether you&apos;re in an immersive online classroom or exploring real-world challenges 
-                through hands-on programs, they&apos;ll guide you every step of the way. With our flexible 
-                hybrid model, you can connect with these world-class faculty from anywhere, and experience 
-                a truly international and personal education.
+                Whether you&apos;re in an immersive online classroom or exploring real-world
+                challenges through hands-on programs, they&apos;ll guide you every step of the way.
+                With our flexible hybrid model, you can connect with these world-class faculty from
+                anywhere, and experience a truly international and personal education.
               </>
             )}
           </p>
