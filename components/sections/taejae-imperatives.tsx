@@ -9,12 +9,12 @@ interface ImperativesProps {
   locale: Locale
 }
 
-const imgImage = 'http://localhost:3845/assets/7bc3607a58b82fcca9c26c9cc27ee46f0fce5ae4.png'
-const imgImage1 = 'http://localhost:3845/assets/de56f3fe80ce0be9ab86ec85762fac805ba9aac4.png'
-const imgImage2 = 'http://localhost:3845/assets/95fe62a361e9f3dd02ae916a345a9998abb8aa94.png'
-const imgImage3 = 'http://localhost:3845/assets/ff25121c6f60b76cd0e82a2664afe78e8ecfd73e.png'
-const imgImage4 = 'http://localhost:3845/assets/284fd9f95c2b758ba50d203238668915d84077c1.png'
-const imgVectorStroke = 'http://localhost:3845/assets/b79f2d2eda3f03cbf844ccdef8ab43eb7cc897ac.svg'
+const imgImage = '/assets/imperative-1.png'
+const imgImage1 = '/assets/imperative-2.png'
+const imgImage2 = '/assets/imperative-3.png'
+const imgImage3 = '/assets/imperative-4.png'
+const imgImage4 = '/assets/imperative-5.png'
+const imgVectorStroke = '/assets/arrow-right.svg'
 
 const imperativeImages = [imgImage, imgImage1, imgImage2, imgImage3, imgImage4]
 
@@ -46,9 +46,9 @@ export function TaejaeImperatives({ locale }: ImperativesProps) {
 
       {/* Main content area */}
       <div className="mx-auto px-4 w-full" style={{ maxWidth: `${MAX_CONTENT_WIDTH}px` }}>
-        <AdaptiveCarousel itemWidth={248} gap={20} maxWidth={MAX_CONTENT_WIDTH}>
+        <AdaptiveCarousel itemWidth={262} gap={20} maxWidth={MAX_CONTENT_WIDTH}>
           {imperativesData.map((item: any, index: number) => (
-            <div key={index} className="flex flex-col gap-2 overflow-visible relative">
+            <div key={index} className="flex flex-col gap-2 overflow-visible relative w-full">
               <div
                 className="bg-center bg-cover bg-no-repeat flex items-center justify-center h-[160px] overflow-visible relative rounded-[24px] w-full"
                 style={{ backgroundImage: `url(${imperativeImages[index]})` }}

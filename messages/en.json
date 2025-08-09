@@ -6,7 +6,13 @@
     "academics": "Academics",
     "research": "Research",
     "campus": "Campus",
-    "news": "News"
+    "news": "News",
+    "academicsSubmenu": {
+      "visionsGoals": "Educational Visions & Goals",
+      "faculty": "Faculty",
+      "programs": "Academic Programs",
+      "learningMethods": "Learning Methods"
+    }
   },
   "hero": {
     "title": "The Next Answer",
@@ -61,5 +67,57 @@
     "copyright": "© 2024 Taejae University. All rights reserved.",
     "quickLinks": "Quick Links",
     "contact": "Contact"
+  },
+  "academics": {
+    "visionsGoals": {
+      "pageTitle": "Educational Visions & Goals",
+      "hero": {
+        "title": "Educational",
+        "subtitle": "Visions & Goals",
+        "description1": "It is our educational philosophy to foster your critical and creative thinking for global harmony and sustainability. We are committed to nurturing you as global leaders equipped with the vision, agility, and integrity to navigate and shape a rapidly evolving world.",
+        "description2": "Grounded in our belief in the power of education to unite humanity, we are committed to nurturing you into a leader who bridges Eastern and Western cultures, contributes to a sustainable future, and leads with empathy and innovation.",
+        "infinityText": "Explore an infinite range of possibilities at Taejae. Shape your own academic journey. Grow exponentially."
+      },
+      "purposes": {
+        "title": "Our educational purposes",
+        "description": "We believe that education should empower you to grow with purpose, meet the challenges of a rapidly changing world, and shape a future that matters. At the heart of our mission is a commitment to nurturing your vision, creativity, and sense of responsibility—so you may leave a lasting impact across cultures and generations, becoming:",
+        "items": [
+          {
+            "title": "A global leader",
+            "description": "who contributes to the harmony between East and West"
+          },
+          {
+            "title": "A future trailblazer",
+            "description": "who builds a more sustainable society"
+          },
+          {
+            "title": "A self-driven innovator",
+            "description": "who leads the era of lifelong learning in the 21st century"
+          }
+        ]
+      },
+      "goals": {
+        "title": "Our educational goals",
+        "subtitle": "To equip you to become a global leader and changemaker.",
+        "items": [
+          {
+            "title": "Global Leadership",
+            "description": "who contributes to the harmony between East and West"
+          },
+          {
+            "title": "Communication & Collaboration",
+            "description": "who contributes to the harmony between East and West"
+          },
+          {
+            "title": "Creative & Critical Thinking",
+            "description": "who contributes to the harmony between East and West"
+          },
+          {
+            "title": "Lifelong Learning",
+            "description": "who contributes to the harmony between East and West"
+          }
+        ]
+      }
+    }
   }
 }

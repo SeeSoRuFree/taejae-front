@@ -6,10 +6,10 @@ import { ArrowRightIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { MAX_CONTENT_WIDTH } from '@/lib/constants/layout'
 
-const imgHeroImage4 = 'http://localhost:3845/assets/8e606d8ec68f5a9e31e8d1d644e69963088462fc.png'
-const imgHeroImage3 = 'http://localhost:3845/assets/cf9a71ec6c5742ae93bf5b5f2afe1c40459fe7c3.png'
-const imgHeroImage2 = 'http://localhost:3845/assets/2eac5f84e3c2238fca62dfc5cebe1df2e1cf9459.png'
-const imgHeroImage1 = 'http://localhost:3845/assets/32ed38fa3e052f1e0514f9acfca73cef93f8ebc7.png'
+const imgHeroImage4 = '/assets/hero-image-4.png'
+const imgHeroImage3 = '/assets/hero-image-3.png'
+const imgHeroImage2 = '/assets/hero-image-2.png'
+const imgHeroImage1 = '/assets/hero-image-1.png'
 
 interface HeroProps {
   locale: Locale

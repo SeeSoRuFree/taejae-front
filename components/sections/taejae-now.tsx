@@ -4,14 +4,15 @@ import Image from 'next/image'
 import { useTranslation } from '@/lib/translations'
 import { Locale } from '@/lib/types/locale'
 import { MAX_CONTENT_WIDTH } from '@/lib/constants/layout'
+import { AdaptiveCarousel } from '@/components/ui/adaptive-carousel'
 
 interface TaejaeNowProps {
   locale: Locale
 }
 
-const imgImage11 = 'http://localhost:3845/assets/793a330fa24f0707650a4133583d9f4f87b6c832.png'
-const imgImage12 = 'http://localhost:3845/assets/bd0cf68aa19df3e25d87b93c5bdd9ffc501c617b.png'
-const imgImage13 = 'http://localhost:3845/assets/7ca2789f33150ddffa017aae82a529e524ee4704.png'
+const imgImage11 = '/assets/taejae-now-1.png'
+const imgImage12 = '/assets/taejae-now-2.png'
+const imgImage13 = '/assets/taejae-now-3.png'
 
 const newsItems = [
   {
@@ -41,29 +42,51 @@ const newsItems = [
   },
 ]
 
+const NewsCard = ({ item }: { item: (typeof newsItems)[0] }) => (
+  <article className="flex flex-col gap-5 w-full">
+    <div
+      className="aspect-[450/281] rounded-3xl bg-cover bg-center w-full"
+      style={{ backgroundImage: `url(${item.image})` }}
+    />
+    <div className="flex flex-col gap-1">
+      <h3 className="text-[22px] font-['Instrument_Sans'] font-medium text-black tracking-[-0.66px] leading-[1.35]">
+        {item.title}
+      </h3>
+      <p className="text-[20px] text-[#767676] font-['Instrument_Sans'] tracking-[-1px] leading-[1.21]">
+        {item.date}
+      </p>
+    </div>
+    <p className="text-[16px] leading-[1.3] font-['Instrument_Sans'] text-black tracking-[-0.48px]">
+      {item.excerpt}
+    </p>
+  </article>
+)
+
 export function TaejaeNow({ locale }: TaejaeNowProps) {
   const { t } = useTranslation(locale)
+
+  const newsCards = newsItems.map((item) => <NewsCard key={item.id} item={item} />)
 
   return (
     <section className="py-20">
       <div className="mx-auto px-4" style={{ maxWidth: `${MAX_CONTENT_WIDTH}px` }}>
-        <h2 className="text-5xl md:text-6xl font-medium mb-12">Taejae Now</h2>
+        <h2 className="text-[64px] font-['Instrument_Sans'] font-medium text-black tracking-[-3.2px] leading-[1] mb-12">
+          Taejae Now
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {newsItems.map((item) => (
-            <article key={item.id} className="flex flex-col gap-5">
-              <div
-                className="aspect-[450/281] rounded-3xl bg-cover bg-center"
-                style={{ backgroundImage: `url(${item.image})` }}
-              />
-              <div className="flex flex-col gap-1">
-                <h3 className="text-xl font-medium leading-relaxed">{item.title}</h3>
-                <p className="text-lg text-gray-600">{item.date}</p>
-              </div>
-              <p className="text-base leading-relaxed">{item.excerpt}</p>
-            </article>
-          ))}
-        </div>
+        <AdaptiveCarousel
+          itemWidth={450}
+          gap={20}
+          maxWidth={MAX_CONTENT_WIDTH}
+          carouselOptions={{
+            align: 'start',
+            loop: false,
+            skipSnaps: false,
+            containScroll: 'trimSnaps',
+          }}
+        >
+          {newsCards}
+        </AdaptiveCarousel>
       </div>
     </section>
   )

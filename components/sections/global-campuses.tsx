@@ -2,15 +2,14 @@
 
 import { useTranslation } from '@/lib/translations'
 import { Locale } from '@/lib/types/locale'
-import Image from 'next/image'
 import { MAX_CONTENT_WIDTH } from '@/lib/constants/layout'
 
 interface GlobalCampusesProps {
   locale: Locale
 }
 
-const imgVectorWorldMap =
-  'http://localhost:3845/assets/c8ae60ac8d8e56cbec72dcfc80f8e401907843d4.png'
+// 로컬에 저장된 이미지 사용
+const imgVectorWorldMap11 = '/assets/world-map.png'
 
 export function GlobalCampuses({ locale }: GlobalCampusesProps) {
   const { t } = useTranslation(locale)
@@ -28,18 +27,21 @@ export function GlobalCampuses({ locale }: GlobalCampusesProps) {
 
         <div className="relative w-full" style={{ aspectRatio: '1410 / 799.7' }}>
           <div className="relative w-full h-full max-w-[1400px] mx-auto">
-            <Image
-              src={imgVectorWorldMap}
-              alt="World map"
-              fill
-              className="object-cover object-center"
-              priority
+            <div
+              className="bg-top bg-cover bg-no-repeat w-full h-full"
+              style={{ backgroundImage: `url('${imgVectorWorldMap11}')` }}
             />
-            <div className="absolute top-[40%] left-[55%] -translate-x-1/2 bg-[#7B7986] rounded-3xl px-8 py-6 w-[285px] shadow-lg">
-              <div className="flex flex-col gap-2">
-                <h3 className="text-white text-5xl md:text-6xl font-medium">Korea</h3>
-                <p className="text-white text-2xl md:text-3xl font-medium">Seoul</p>
-                <p className="text-gray-300 text-lg md:text-xl font-medium">Harmony & Balance</p>
+            <div className="absolute top-[25%] right-[8%] bg-[#7B7986] rounded-[24px] px-8 py-6 w-[285px] shadow-[rgba(56,38,193,0.07)_0px_119px_80px_0px,rgba(54,36,184,0.047)_0px_35.875px_48.082px_0px,rgba(64,50,171,0.047)_0px_14.901px_11.24px_0px,rgba(15,8,67,0.04)_0px_5.389px_1.02px_0px]">
+              <div className="flex flex-col gap-2 font-['Instrument_Sans'] font-medium">
+                <h3 className="text-white text-5xl md:text-6xl leading-none tracking-[-3.2px] font-medium">
+                  Korea
+                </h3>
+                <p className="text-white text-2xl md:text-3xl leading-[1.3] tracking-[-0.9px] font-medium">
+                  Seoul
+                </p>
+                <p className="text-[#DDDDDD] text-lg md:text-[22px] leading-[1.35] tracking-[-0.66px] font-medium">
+                  Harmony & Balance
+                </p>
               </div>
             </div>
           </div>

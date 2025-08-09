@@ -13,6 +13,8 @@ interface AdaptiveCarouselProps {
   carouselOptions?: EmblaOptionsType
   className?: string
   containerClassName?: string
+  showNavigation?: boolean
+  navigationPosition?: 'top' | 'bottom'
 }
 
 export function AdaptiveCarousel({

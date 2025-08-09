@@ -6,17 +6,20 @@ import { Locale } from '@/lib/types/locale'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
 import { useState } from 'react'
 import { MAX_CONTENT_WIDTH } from '@/lib/constants/layout'
+import useEmblaCarousel from 'embla-carousel-react'
+import { SquadMemberCard } from '@/components/ui/squad-member-card'
 
 interface VoiceOfSquadProps {
   locale: Locale
 }
 
-const imgImage5 = 'http://localhost:3845/assets/c313508bda138d3d0e3deb88e04ae8574a3171b9.png'
-const imgImage6 = 'http://localhost:3845/assets/00be3371a2ef2f2055e0831249468fd230d30c95.png'
-const imgImage7 = 'http://localhost:3845/assets/7d98901b4b160042798cba56a13aa9532428c212.png'
-const imgImage8 = 'http://localhost:3845/assets/01086c63e47ea12cad0d4edd37a83c6d58431899.png'
-const imgImage9 = 'http://localhost:3845/assets/5c233a7be586c7be57b4a2a05547d88b69ff1dc9.png'
-const imgImage10 = 'http://localhost:3845/assets/b09425c63da7d56d2db17fd6eb397f9448683bad.png'
+const imgImage5 = '/assets/voice-1.png'
+const imgImage6 = '/assets/voice-2.png'
+const imgImage7 = '/assets/voice-3.png'
+const imgImage8 = '/assets/voice-4.png'
+const imgImage9 = '/assets/voice-5.png'
+const imgImage10 = '/assets/voice-6.png'
+const imgArrowIcon = '/assets/arrow-left.svg'
 
 const squadMembers = [
   {
@@ -65,25 +68,30 @@ const squadMembers = [
 
 export function VoiceOfSquad({ locale }: VoiceOfSquadProps) {
   const { t } = useTranslation(locale)
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: 'start',
+    loop: false,
+    skipSnaps: false,
+    containScroll: 'trimSnaps',
+  })
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : squadMembers.length - 1))
+    if (emblaApi) emblaApi.scrollPrev()
   }
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev < squadMembers.length - 1 ? prev + 1 : 0))
+    if (emblaApi) emblaApi.scrollNext()
   }
 
   return (
     <section className="py-20">
       <div className="mx-auto px-4" style={{ maxWidth: `${MAX_CONTENT_WIDTH}px` }}>
-        <div className="flex justify-between items-end mb-12">
-          <div>
-            <h2 className="text-5xl md:text-6xl font-medium leading-tight mb-4">
+        <div className="mb-12 flex justify-between items-end">
+          <div className="max-w-[960px]">
+            <h2 className="text-5xl md:text-6xl font-medium leading-tight mb-4 font-['Instrument_Sans'] tracking-[-3.2px]">
               The Voice of Taejae Squad
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 font-['Instrument_Sans']">
               Quick moment? Meet our brightest minds and discover what it means to be a Taejaest
               under 3 minutes
             </p>
@@ -91,36 +99,31 @@ export function VoiceOfSquad({ locale }: VoiceOfSquadProps) {
           <div className="flex gap-2">
             <button
               onClick={handlePrev}
-              className="bg-gray-200/80 rounded-xl p-3 hover:bg-gray-300/80 transition-colors"
+              className="w-12 h-12 bg-[rgba(238,238,238,0.8)] rounded-[12px] flex items-center justify-center hover:bg-[rgba(238,238,238,1)] transition-colors p-[10px]"
+              aria-label="Previous"
             >
-              <ChevronLeftIcon className="w-5 h-5" />
+              <img src={imgArrowIcon} alt="Previous" className="w-5 h-5 rotate-180" />
             </button>
             <button
               onClick={handleNext}
-              className="bg-gray-200/80 rounded-xl p-3 hover:bg-gray-300/80 transition-colors"
+              className="w-12 h-12 bg-[rgba(238,238,238,0.8)] rounded-[12px] flex items-center justify-center hover:bg-[rgba(238,238,238,1)] transition-colors p-[10px]"
+              aria-label="Next"
             >
-              <ChevronRightIcon className="w-5 h-5" />
+              <img src={imgArrowIcon} alt="Next" className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        <div className="overflow-hidden">
-          <div
-            className="flex gap-5 transition-transform duration-300"
-            style={{ transform: `translateX(-${currentIndex * 282}px)` }}
-          >
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-5">
             {squadMembers.map((member) => (
-              <div key={member.id} className="flex-shrink-0 w-[262px] flex flex-col gap-5">
-                <div
-                  className="aspect-square rounded-3xl bg-cover bg-center"
-                  style={{ backgroundImage: `url(${member.image})` }}
-                />
-                <div className="flex flex-col gap-1">
-                  <h3 className="text-xl font-medium">{member.name}</h3>
-                  <p className="text-lg text-gray-600">{member.classYear}</p>
-                </div>
-                <p className="text-base leading-relaxed">{member.topic}</p>
-              </div>
+              <SquadMemberCard
+                key={member.id}
+                name={member.name}
+                classYear={member.classYear}
+                image={member.image}
+                topic={member.topic}
+              />
             ))}
           </div>
         </div>
