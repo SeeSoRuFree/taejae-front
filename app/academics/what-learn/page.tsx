@@ -131,13 +131,13 @@ function CompetenciesDiagram({ locale }: { locale: string }) {
                   />
                 </div>
                 {/* Color overlay with mask */}
-                <div 
+                <div
                   className="absolute inset-0 flex items-center justify-center"
                   style={{
                     maskImage: 'url(/assets/update-color.png)',
                     maskSize: '615px 615px',
                     maskPosition: 'center',
-                    maskRepeat: 'no-repeat'
+                    maskRepeat: 'no-repeat',
                   }}
                 >
                   <div className="w-[540px] h-[540px] rounded-full bg-[#B69FFF] mix-blend-overlay"></div>
