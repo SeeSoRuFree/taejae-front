@@ -49,14 +49,23 @@ const NewsCard = ({ item }: { item: (typeof newsItems)[0] }) => (
       style={{ backgroundImage: `url(${item.image})` }}
     />
     <div className="flex flex-col gap-1">
-      <h3 data-key={`taejae-now-card-title-${item.id}`} className="text-[22px] font-['Instrument_Sans'] font-medium text-black tracking-[-0.66px] leading-[1.35]">
+      <h3
+        data-key={`taejae-now-card-title-${item.id}`}
+        className="text-[22px] font-['Instrument_Sans'] font-medium text-black tracking-[-0.66px] leading-[1.35]"
+      >
         {item.title}
       </h3>
-      <p data-key={`taejae-now-card-date-${item.id}`} className="text-[20px] text-[#767676] font-['Instrument_Sans'] tracking-[-1px] leading-[1.21]">
+      <p
+        data-key={`taejae-now-card-date-${item.id}`}
+        className="text-[20px] text-[#767676] font-['Instrument_Sans'] tracking-[-1px] leading-[1.21]"
+      >
         {item.date}
       </p>
     </div>
-    <p data-key={`taejae-now-card-excerpt-${item.id}`} className="text-[16px] leading-[1.3] font-['Instrument_Sans'] text-black tracking-[-0.48px]">
+    <p
+      data-key={`taejae-now-card-excerpt-${item.id}`}
+      className="text-[16px] leading-[1.3] font-['Instrument_Sans'] text-black tracking-[-0.48px]"
+    >
       {item.excerpt}
     </p>
   </article>
@@ -70,7 +79,10 @@ export function TaejaeNow({ locale }: TaejaeNowProps) {
   return (
     <section className="py-20">
       <div className="mx-auto px-4" style={{ maxWidth: `${MAX_CONTENT_WIDTH}px` }}>
-        <h2 data-key="taejae-now-title" className="text-[64px] font-['Instrument_Sans'] font-medium text-black tracking-[-3.2px] leading-[1] mb-12">
+        <h2
+          data-key="taejae-now-title"
+          className="text-[64px] font-['Instrument_Sans'] font-medium text-black tracking-[-3.2px] leading-[1] mb-12"
+        >
           Taejae Now
         </h2>
 

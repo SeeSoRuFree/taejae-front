@@ -35,7 +35,10 @@ export function TaejaeImperatives({ locale }: ImperativesProps) {
       <div className="mx-auto px-4 w-full" style={{ maxWidth: `${MAX_CONTENT_WIDTH}px` }}>
         <div className="flex flex-row items-start justify-start overflow-visible py-[10px] relative w-full">
           <div className="flex flex-col gap-[44px] grow items-start justify-start max-w-[720px]">
-            <h1 data-key="imperatives-title" className="font-['Instrument_Sans'] font-medium text-4xl sm:text-5xl md:text-[64px] leading-none tracking-[-1.6px] sm:tracking-[-2.4px] md:tracking-[-3.2px] text-black">
+            <h1
+              data-key="imperatives-title"
+              className="font-['Instrument_Sans'] font-medium text-4xl sm:text-5xl md:text-[64px] leading-none tracking-[-1.6px] sm:tracking-[-2.4px] md:tracking-[-3.2px] text-black"
+            >
               {t('imperatives.title')}
               <br />
               {t('imperatives.subtitle')}
@@ -68,14 +71,20 @@ export function TaejaeImperatives({ locale }: ImperativesProps) {
               <div className="flex flex-col gap-5 items-start justify-start overflow-visible relative w-full">
                 <div className="bg-[#F3F4F6] flex flex-col h-[320px] items-start justify-between overflow-visible p-6 relative rounded-[24px] w-full">
                   <div className="flex flex-col font-['Instrument_Sans'] font-normal justify-center leading-none min-w-full relative text-black text-left">
-                    <p data-key={`imperatives-description-${index}`} className="text-[14px] sm:text-[16px] leading-[1.3] tracking-[-0.28px] sm:tracking-[-0.48px] whitespace-pre-wrap">
+                    <p
+                      data-key={`imperatives-description-${index}`}
+                      className="text-[14px] sm:text-[16px] leading-[1.3] tracking-[-0.28px] sm:tracking-[-0.48px] whitespace-pre-wrap"
+                    >
                       {item.description}
                     </p>
                   </div>
 
                   <div className="flex flex-row items-center gap-2 overflow-visible relative">
                     <button className="backdrop-blur-[3px] backdrop-filter bg-white flex flex-row items-center justify-center overflow-visible px-3 py-[11px] relative rounded-[100px] hover:bg-gray-50 transition-colors">
-                      <span data-key="imperatives-learn-more" className="font-['Instrument_Sans'] font-medium text-[14px] sm:text-[16px] leading-[1.1] text-black text-left tracking-[-0.28px] sm:tracking-[-0.48px] whitespace-nowrap">
+                      <span
+                        data-key="imperatives-learn-more"
+                        className="font-['Instrument_Sans'] font-medium text-[14px] sm:text-[16px] leading-[1.1] text-black text-left tracking-[-0.28px] sm:tracking-[-0.48px] whitespace-nowrap"
+                      >
                         {t('imperatives.learnMore')}
                       </span>
                     </button>
