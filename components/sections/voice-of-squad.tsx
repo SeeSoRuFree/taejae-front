@@ -88,10 +88,10 @@ export function VoiceOfSquad({ locale }: VoiceOfSquadProps) {
       <div className="mx-auto px-4" style={{ maxWidth: `${MAX_CONTENT_WIDTH}px` }}>
         <div className="mb-12 flex justify-between items-end">
           <div className="max-w-[960px]">
-            <h2 className="text-5xl md:text-6xl font-medium leading-tight mb-4 font-['Instrument_Sans'] tracking-[-3.2px]">
+            <h2 data-key="voice-of-squad-title" className="text-5xl md:text-6xl font-medium leading-tight mb-4 font-['Instrument_Sans'] tracking-[-3.2px]">
               The Voice of Taejae Squad
             </h2>
-            <p className="text-xl text-gray-600 font-['Instrument_Sans']">
+            <p data-key="voice-of-squad-subtitle" className="text-xl text-gray-600 font-['Instrument_Sans']">
               Quick moment? Meet our brightest minds and discover what it means to be a Taejaest
               under 3 minutes
             </p>
@@ -119,6 +119,7 @@ export function VoiceOfSquad({ locale }: VoiceOfSquadProps) {
             {squadMembers.map((member) => (
               <SquadMemberCard
                 key={member.id}
+                id={member.id}
                 name={member.name}
                 classYear={member.classYear}
                 image={member.image}

@@ -78,13 +78,14 @@ export function Hero({ locale }: HeroProps) {
         >
           {/* Text Content - positioned in lower center area */}
           <div className="flex flex-col items-center gap-6 px-4 py-10 w-full">
-            <h1 className="text-5xl md:text-6xl lg:text-[64px] font-medium text-white text-center leading-none [text-shadow:0px_4px_42px_rgba(0,0,0,0.2)]">
+            <h1 data-key="hero-title" className="text-5xl md:text-6xl lg:text-[64px] font-medium text-white text-center leading-none [text-shadow:0px_4px_42px_rgba(0,0,0,0.2)]">
               {slides[currentSlide].title}
             </h1>
             <div className="text-center text-white max-w-[484px]">
               {slides[currentSlide].subtitle.map((line, index) => (
                 <p
                   key={index}
+                  data-key={`hero-subtitle-${index}`}
                   className="text-lg md:text-xl lg:text-[22px] font-medium leading-[1.35]"
                 >
                   {line}
