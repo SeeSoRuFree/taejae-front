@@ -1,0 +1,146 @@
+name: Deploy to NCP
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deploy Environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - prod
+      description:
+        description: 'Deploy Description'
+        required: false
+        type: string
+
+  push:
+    branches:
+      - release/dev
+      - release/prod
+  
+  pull_request:
+    types: [closed]
+    branches:
+      - release/dev
+      - release/prod
+
+env:
+  NODE_VERSION: '22.18.0'
+  DOCKER_BUILDKIT: 1
+
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    runs-on: self-hosted
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set environment variables
+        run: |
+          # Handle workflow_dispatch
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            if [[ "${{ inputs.environment }}" == "dev" ]]; then
+              echo "ENVIRONMENT=dev" >> $GITHUB_ENV
+              echo "NCP_REGISTRY=cr-dev-taejae-univ-frontend.ncr.gov-ntruss.com" >> $GITHUB_ENV
+              echo "IMAGE_TAG=dev-${{ github.sha }}" >> $GITHUB_ENV
+            elif [[ "${{ inputs.environment }}" == "prod" ]]; then
+              echo "ENVIRONMENT=prod" >> $GITHUB_ENV
+              echo "NCP_REGISTRY=cr-prod-taejae-univ-frontend.ncr.gov-ntruss.com" >> $GITHUB_ENV
+              echo "IMAGE_TAG=prod-${{ github.sha }}" >> $GITHUB_ENV
+            fi
+          # Handle push and PR events
+          elif [[ "${{ github.ref }}" == "refs/heads/release/dev" ]] || [[ "${{ github.base_ref }}" == "release/dev" ]]; then
+            echo "ENVIRONMENT=dev" >> $GITHUB_ENV
+            echo "NCP_REGISTRY=cr-dev-taejae-univ-frontend.ncr.gov-ntruss.com" >> $GITHUB_ENV
+            echo "IMAGE_TAG=dev-${{ github.sha }}" >> $GITHUB_ENV
+          elif [[ "${{ github.ref }}" == "refs/heads/release/prod" ]] || [[ "${{ github.base_ref }}" == "release/prod" ]]; then
+            echo "ENVIRONMENT=prod" >> $GITHUB_ENV
+            echo "NCP_REGISTRY=cr-prod-taejae-univ-frontend.ncr.gov-ntruss.com" >> $GITHUB_ENV
+            echo "IMAGE_TAG=prod-${{ github.sha }}" >> $GITHUB_ENV
+          fi
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run tests
+        run: npm run test --if-present
+        
+      - name: Build application
+        run: |
+          if [[ "${{ env.ENVIRONMENT }}" == "dev" ]]; then
+            npm run build:dev
+          else
+            npm run build:prod
+          fi
+          
+      - name: Login to NCP Container Registry
+        run: |
+          echo "${{ secrets.NCP_REGISTRY_PASSWORD }}" | docker login \
+            --username ${{ secrets.NCP_REGISTRY_USERNAME }} \
+            --password-stdin \
+            ${{ env.NCP_REGISTRY }}
+            
+      - name: Build Docker image
+        run: |
+          docker build \
+            --build-arg NODE_ENV=${{ env.ENVIRONMENT }} \
+            --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
+            --build-arg VCS_REF=${{ github.sha }} \
+            --build-arg VERSION=${{ env.IMAGE_TAG }} \
+            -t ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }} \
+            -t ${{ env.NCP_REGISTRY }}/taejae-frontend:latest-${{ env.ENVIRONMENT }} \
+            .
+            
+      - name: Push Docker image
+        run: |
+          docker push ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
+          docker push ${{ env.NCP_REGISTRY }}/taejae-frontend:latest-${{ env.ENVIRONMENT }}
+          
+      - name: Deploy to NCP Server
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.NCP_SSH_USER }}@${{ secrets.NCP_SERVER_IP }} << 'EOF'
+            # Pull the latest image
+            docker pull ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
+            
+            # Stop and remove existing container
+            docker stop taejae-frontend-${{ env.ENVIRONMENT }} || true
+            docker rm taejae-frontend-${{ env.ENVIRONMENT }} || true
+            
+            # Run new container
+            docker run -d \
+              --name taejae-frontend-${{ env.ENVIRONMENT }} \
+              --restart unless-stopped \
+              -p ${{ env.ENVIRONMENT == 'prod' && '3000:3000' || '3001:3000' }} \
+              -e NODE_ENV=${{ env.ENVIRONMENT }} \
+              -e NEXT_PUBLIC_API_URL=${{ env.ENVIRONMENT == 'prod' && secrets.PROD_API_URL || secrets.DEV_API_URL }} \
+              ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
+              
+            # Clean up old images
+            docker image prune -f
+          EOF
+          
+      - name: Health check
+        run: |
+          sleep 10
+          PORT=${{ env.ENVIRONMENT == 'prod' && '3000' || '3001' }}
+          curl -f http://${{ secrets.NCP_SERVER_IP }}:${PORT} || exit 1
+          
+      - name: Notify deployment status
+        if: always()
+        run: |
+          if [[ "${{ job.status }}" == "success" ]]; then
+            echo "✅ Deployment to ${{ env.ENVIRONMENT }} succeeded!"
+          else
+            echo "❌ Deployment to ${{ env.ENVIRONMENT }} failed!"
+          fi
