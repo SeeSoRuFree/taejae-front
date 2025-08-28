@@ -75,14 +75,14 @@ jobs:
 
       - name: Login to NCP Container Registry
         run: |
-          echo "${{ secrets.NCP_SECRET_KEY }}" | docker login \
+          echo "${{ secrets.NCP_SECRET_KEY }}" | sudo docker login \
             ${{ env.NCP_REGISTRY }} \
             -u "${{ secrets.NCP_ACCESS_KEY }}" \
             --password-stdin
 
       - name: Build Docker image
         run: |
-          docker build \
+          sudo docker build \
             --build-arg NODE_ENV=${{ env.ENVIRONMENT }} \
             --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
             --build-arg VCS_REF=${{ github.sha }} \
@@ -93,36 +93,46 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
-          docker push ${{ env.NCP_REGISTRY }}/taejae-frontend:latest-${{ env.ENVIRONMENT }}
+          sudo docker push ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
+          sudo docker push ${{ env.NCP_REGISTRY }}/taejae-frontend:latest-${{ env.ENVIRONMENT }}
 
-      - name: Deploy to NCP Server
+      - name: Deploy Container
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.NCP_SSH_USER }}@${{ secrets.NCP_SERVER_IP }} << 'EOF'
-            # Pull the latest image
-            docker pull ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
-            
-            # Stop and remove existing container
-            docker stop taejae-frontend-${{ env.ENVIRONMENT }} || true
-            docker rm taejae-frontend-${{ env.ENVIRONMENT }} || true
-            
-            # Run new container
-            docker run -d \
-              --name taejae-frontend-${{ env.ENVIRONMENT }} \
-              --restart unless-stopped \
-              -p 3000:3000 \
-              -e NODE_ENV=${{ env.ENVIRONMENT }} \
-              -e NEXT_PUBLIC_API_URL=${{ env.ENVIRONMENT == 'prod' && 'https://taejae.ac.kr/api' || 'https://dev.taejae.ac.kr/api' }} \
-              ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
-              
-            # Clean up old images
-            docker image prune -f
-          EOF
+          container_name="taejae-frontend-${{ env.ENVIRONMENT }}"
+          echo "Deploying container: $container_name"
+          
+          # Stop and remove existing container
+          sudo docker stop $container_name 2>/dev/null || true
+          sudo docker rm $container_name 2>/dev/null || true
+          
+          # Pull latest image
+          sudo docker pull ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
+          
+          # Run new container
+          sudo docker run -d \
+            --name $container_name \
+            -p 3000:3000 \
+            --restart unless-stopped \
+            --memory=512m \
+            --memory-swap=512m \
+            --log-driver json-file \
+            --log-opt max-size=100m \
+            --log-opt max-file=5 \
+            -e NODE_ENV=${{ env.ENVIRONMENT }} \
+            -e NEXT_PUBLIC_API_URL=${{ env.ENVIRONMENT == 'prod' && 'https://taejae.ac.kr/api' || 'https://dev.taejae.ac.kr/api' }} \
+            -e DEPLOY_TIME="$(date '+%Y-%m-%d %H:%M:%S')" \
+            -e GIT_COMMIT=${{ github.sha }} \
+            ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
+          
+          echo "Container deployed successfully"
+          
+          # Clean up old images
+          sudo docker image prune -f
 
       - name: Health check
         run: |
           sleep 10
-          curl -f http://${{ secrets.NCP_SERVER_IP }}:3000/health || exit 1
+          curl -f http://localhost:3000/health || exit 1
 
       - name: Notify deployment status
         if: always()
