@@ -21,19 +21,13 @@ on:
       - release/dev
       - release/prod
 
-  pull_request:
-    types: [closed]
-    branches:
-      - release/dev
-      - release/prod
-
 env:
   NODE_VERSION: '22.18.0'
   DOCKER_BUILDKIT: 1
 
 jobs:
   deploy:
-    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push'
     runs-on: self-hosted
 
     steps:
@@ -81,10 +75,10 @@ jobs:
 
       - name: Login to NCP Container Registry
         run: |
-          echo "${{ secrets.NCP_REGISTRY_PASSWORD }}" | docker login \
-            --username ${{ secrets.NCP_REGISTRY_USERNAME }} \
-            --password-stdin \
-            ${{ env.NCP_REGISTRY }}
+          echo "${{ secrets.NCP_SECRET_KEY }}" | docker login \
+            ${{ env.NCP_REGISTRY }} \
+            -u "${{ secrets.NCP_ACCESS_KEY }}" \
+            --password-stdin
 
       - name: Build Docker image
         run: |
@@ -116,9 +110,9 @@ jobs:
             docker run -d \
               --name taejae-frontend-${{ env.ENVIRONMENT }} \
               --restart unless-stopped \
-              -p ${{ env.ENVIRONMENT == 'prod' && '3000:3000' || '3001:3000' }} \
+              -p 3000:3000 \
               -e NODE_ENV=${{ env.ENVIRONMENT }} \
-              -e NEXT_PUBLIC_API_URL=${{ env.ENVIRONMENT == 'prod' && secrets.PROD_API_URL || secrets.DEV_API_URL }} \
+              -e NEXT_PUBLIC_API_URL=${{ env.ENVIRONMENT == 'prod' && 'https://taejae.ac.kr/api' || 'https://dev.taejae.ac.kr/api' }} \
               ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
               
             # Clean up old images
@@ -128,8 +122,7 @@ jobs:
       - name: Health check
         run: |
           sleep 10
-          PORT=${{ env.ENVIRONMENT == 'prod' && '3000' || '3001' }}
-          curl -f http://${{ secrets.NCP_SERVER_IP }}:${PORT} || exit 1
+          curl -f http://${{ secrets.NCP_SERVER_IP }}:3000/health || exit 1
 
       - name: Notify deployment status
         if: always()
