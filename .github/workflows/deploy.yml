@@ -21,19 +21,13 @@ on:
       - release/dev
       - release/prod
 
-  pull_request:
-    types: [closed]
-    branches:
-      - release/dev
-      - release/prod
-
 env:
   NODE_VERSION: '22.18.0'
   DOCKER_BUILDKIT: 1
 
 jobs:
   deploy:
-    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push'
     runs-on: self-hosted
 
     steps:
