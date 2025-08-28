@@ -20,7 +20,7 @@ on:
     branches:
       - release/dev
       - release/prod
-  
+
   pull_request:
     types: [closed]
     branches:
@@ -35,11 +35,11 @@ jobs:
   deploy:
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
     runs-on: self-hosted
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+
       - name: Set environment variables
         run: |
           # Handle workflow_dispatch
@@ -63,34 +63,29 @@ jobs:
             echo "NCP_REGISTRY=cr-prod-taejae-univ-frontend.ncr.gov-ntruss.com" >> $GITHUB_ENV
             echo "IMAGE_TAG=prod-${{ github.sha }}" >> $GITHUB_ENV
           fi
-          
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          
+
       - name: Install dependencies
         run: npm ci
-        
+
       - name: Run tests
         run: npm run test --if-present
-        
+
       - name: Build application
-        run: |
-          if [[ "${{ env.ENVIRONMENT }}" == "dev" ]]; then
-            npm run build:dev
-          else
-            npm run build:prod
-          fi
-          
+        run: npm run build
+
       - name: Login to NCP Container Registry
         run: |
           echo "${{ secrets.NCP_REGISTRY_PASSWORD }}" | docker login \
             --username ${{ secrets.NCP_REGISTRY_USERNAME }} \
             --password-stdin \
             ${{ env.NCP_REGISTRY }}
-            
+
       - name: Build Docker image
         run: |
           docker build \
@@ -101,12 +96,12 @@ jobs:
             -t ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }} \
             -t ${{ env.NCP_REGISTRY }}/taejae-frontend:latest-${{ env.ENVIRONMENT }} \
             .
-            
+
       - name: Push Docker image
         run: |
           docker push ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
           docker push ${{ env.NCP_REGISTRY }}/taejae-frontend:latest-${{ env.ENVIRONMENT }}
-          
+
       - name: Deploy to NCP Server
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.NCP_SSH_USER }}@${{ secrets.NCP_SERVER_IP }} << 'EOF'
@@ -129,13 +124,13 @@ jobs:
             # Clean up old images
             docker image prune -f
           EOF
-          
+
       - name: Health check
         run: |
           sleep 10
           PORT=${{ env.ENVIRONMENT == 'prod' && '3000' || '3001' }}
           curl -f http://${{ secrets.NCP_SERVER_IP }}:${PORT} || exit 1
-          
+
       - name: Notify deployment status
         if: always()
         run: |
