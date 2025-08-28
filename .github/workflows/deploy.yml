@@ -42,20 +42,30 @@ jobs:
               echo "ENVIRONMENT=dev" >> $GITHUB_ENV
               echo "NCP_REGISTRY=cr-dev-taejae-univ-frontend.ncr.gov-ntruss.com" >> $GITHUB_ENV
               echo "IMAGE_TAG=dev-${{ github.sha }}" >> $GITHUB_ENV
+              echo "WEB_HOST=10.1.101.6" >> $GITHUB_ENV
+              echo "WEB_USER=ncloud" >> $GITHUB_ENV
             elif [[ "${{ inputs.environment }}" == "prod" ]]; then
               echo "ENVIRONMENT=prod" >> $GITHUB_ENV
               echo "NCP_REGISTRY=cr-prod-taejae-univ-frontend.ncr.gov-ntruss.com" >> $GITHUB_ENV
               echo "IMAGE_TAG=prod-${{ github.sha }}" >> $GITHUB_ENV
+              echo "WEB_HOST_1=${{ secrets.PROD_WEB_SERVER_IP_1 }}" >> $GITHUB_ENV
+              echo "WEB_HOST_2=${{ secrets.PROD_WEB_SERVER_IP_2 }}" >> $GITHUB_ENV
+              echo "WEB_USER=ncloud" >> $GITHUB_ENV
             fi
           # Handle push and PR events
           elif [[ "${{ github.ref }}" == "refs/heads/release/dev" ]] || [[ "${{ github.base_ref }}" == "release/dev" ]]; then
             echo "ENVIRONMENT=dev" >> $GITHUB_ENV
             echo "NCP_REGISTRY=cr-dev-taejae-univ-frontend.ncr.gov-ntruss.com" >> $GITHUB_ENV
             echo "IMAGE_TAG=dev-${{ github.sha }}" >> $GITHUB_ENV
+            echo "WEB_HOST=10.1.101.6" >> $GITHUB_ENV
+            echo "WEB_USER=ncloud" >> $GITHUB_ENV
           elif [[ "${{ github.ref }}" == "refs/heads/release/prod" ]] || [[ "${{ github.base_ref }}" == "release/prod" ]]; then
             echo "ENVIRONMENT=prod" >> $GITHUB_ENV
             echo "NCP_REGISTRY=cr-prod-taejae-univ-frontend.ncr.gov-ntruss.com" >> $GITHUB_ENV
             echo "IMAGE_TAG=prod-${{ github.sha }}" >> $GITHUB_ENV
+            echo "WEB_HOST_1=${{ secrets.PROD_WEB_SERVER_IP_1 }}" >> $GITHUB_ENV
+            echo "WEB_HOST_2=${{ secrets.PROD_WEB_SERVER_IP_2 }}" >> $GITHUB_ENV
+            echo "WEB_USER=ncloud" >> $GITHUB_ENV
           fi
 
       - name: Setup Node.js
@@ -96,49 +106,161 @@ jobs:
           sudo docker push ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
           sudo docker push ${{ env.NCP_REGISTRY }}/taejae-frontend:latest-${{ env.ENVIRONMENT }}
 
-      - name: Deploy Container
+      - name: Deploy Container to Web Servers
         run: |
           container_name="taejae-frontend-${{ env.ENVIRONMENT }}"
           echo "Deploying container: $container_name"
           
-          # Stop and remove existing container
-          sudo docker stop $container_name 2>/dev/null || true
-          sudo docker rm $container_name 2>/dev/null || true
+          # Define deployment function
+          deploy_to_server() {
+            local server_host=$1
+            local server_name=$2
+            
+            echo "=========================================="
+            echo "Deploying to $server_name ($server_host)"
+            echo "=========================================="
+            
+            ssh ${{ env.WEB_USER }}@$server_host << 'EOF'
+              container_name="taejae-frontend-${{ env.ENVIRONMENT }}"
+              
+              # Stop and remove existing container
+              sudo docker stop $container_name 2>/dev/null || true
+              sudo docker rm $container_name 2>/dev/null || true
+              
+              # Login to registry
+              echo "${{ secrets.NCP_SECRET_KEY }}" | sudo docker login \
+                ${{ env.NCP_REGISTRY }} \
+                -u "${{ secrets.NCP_ACCESS_KEY }}" \
+                --password-stdin
+              
+              # Pull latest image
+              sudo docker pull ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
+              
+              # Run new container
+              sudo docker run -d \
+                --name $container_name \
+                -p 3000:3000 \
+                --restart unless-stopped \
+                --memory=512m \
+                --memory-swap=512m \
+                --log-driver json-file \
+                --log-opt max-size=100m \
+                --log-opt max-file=5 \
+                -e NODE_ENV=${{ env.ENVIRONMENT }} \
+                -e NEXT_PUBLIC_API_URL=${{ env.ENVIRONMENT == 'prod' && 'https://taejae.ac.kr/api' || 'https://dev.taejae.ac.kr/api' }} \
+                -e DEPLOY_TIME="$(date '+%Y-%m-%d %H:%M:%S')" \
+                -e GIT_COMMIT=${{ github.sha }} \
+                ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
+              
+              echo "Container deployed successfully on $(hostname)"
+          EOF
+          }
           
-          # Pull latest image
-          sudo docker pull ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
-          
-          # Run new container
-          sudo docker run -d \
-            --name $container_name \
-            -p 3000:3000 \
-            --restart unless-stopped \
-            --memory=512m \
-            --memory-swap=512m \
-            --log-driver json-file \
-            --log-opt max-size=100m \
-            --log-opt max-file=5 \
-            -e NODE_ENV=${{ env.ENVIRONMENT }} \
-            -e NEXT_PUBLIC_API_URL=${{ env.ENVIRONMENT == 'prod' && 'https://taejae.ac.kr/api' || 'https://dev.taejae.ac.kr/api' }} \
-            -e DEPLOY_TIME="$(date '+%Y-%m-%d %H:%M:%S')" \
-            -e GIT_COMMIT=${{ github.sha }} \
-            ${{ env.NCP_REGISTRY }}/taejae-frontend:${{ env.IMAGE_TAG }}
-          
-          echo "Container deployed successfully"
-          
-          # Clean up old images
-          sudo docker image prune -f
-
-      - name: Health check
-        run: |
-          sleep 10
-          curl -f http://localhost:3000/health || exit 1
-
-      - name: Notify deployment status
-        if: always()
-        run: |
-          if [[ "${{ job.status }}" == "success" ]]; then
-            echo "✅ Deployment to ${{ env.ENVIRONMENT }} succeeded!"
+          # Deploy based on environment
+          if [ "${{ env.ENVIRONMENT }}" == "prod" ]; then
+            # Deploy to both production servers
+            deploy_to_server "${{ env.WEB_HOST_1 }}" "Production Server 1"
+            deploy_to_server "${{ env.WEB_HOST_2 }}" "Production Server 2"
           else
-            echo "❌ Deployment to ${{ env.ENVIRONMENT }} failed!"
+            # Deploy to single dev server
+            deploy_to_server "${{ env.WEB_HOST }}" "Development Server"
           fi
+
+      - name: Verify Deployment on Web Servers
+        run: |
+          container_name="taejae-frontend-${{ env.ENVIRONMENT }}"
+          echo "Verifying deployments..."
+          
+          # Define verification function
+          verify_server() {
+            local server_host=$1
+            local server_name=$2
+            
+            echo "=========================================="
+            echo "Verifying $server_name ($server_host)"
+            echo "=========================================="
+            
+            ssh ${{ env.WEB_USER }}@$server_host << 'EOF'
+              container_name="taejae-frontend-${{ env.ENVIRONMENT }}"
+              
+              # Wait for container to start
+              sleep 10
+              
+              # Check container status
+              if sudo docker ps | grep -q $container_name; then
+                echo "✅ Container is running on $(hostname)"
+                sudo docker stats $container_name --no-stream
+                
+                # Health check
+                if curl -f http://localhost:3000/health; then
+                  echo "✅ Health check passed on $(hostname)"
+                else
+                  echo "❌ Health check failed on $(hostname)"
+                  sudo docker logs $container_name --tail 50
+                  exit 1
+                fi
+              else
+                echo "❌ Container failed to start on $(hostname)"
+                sudo docker logs $container_name
+                exit 1
+              fi
+          EOF
+          }
+          
+          # Verify based on environment
+          if [ "${{ env.ENVIRONMENT }}" == "prod" ]; then
+            # Verify both production servers
+            verify_server "${{ env.WEB_HOST_1 }}" "Production Server 1"
+            verify_server "${{ env.WEB_HOST_2 }}" "Production Server 2"
+          else
+            # Verify single dev server
+            verify_server "${{ env.WEB_HOST }}" "Development Server"
+          fi
+
+      - name: Cleanup Old Images
+        run: |
+          echo "Cleaning up old Docker images on bastion..."
+          sudo docker image prune -f
+          echo "Bastion cleanup completed"
+          
+          # Define cleanup function
+          cleanup_server() {
+            local server_host=$1
+            local server_name=$2
+            
+            echo "Cleaning up old images on $server_name..."
+            ssh ${{ env.WEB_USER }}@$server_host << 'EOF'
+              sudo docker image prune -f
+              echo "Cleanup completed on $(hostname)"
+          EOF
+          }
+          
+          # Cleanup based on environment
+          if [ "${{ env.ENVIRONMENT }}" == "prod" ]; then
+            # Cleanup both production servers
+            cleanup_server "${{ env.WEB_HOST_1 }}" "Production Server 1"
+            cleanup_server "${{ env.WEB_HOST_2 }}" "Production Server 2"
+          else
+            # Cleanup single dev server
+            cleanup_server "${{ env.WEB_HOST }}" "Development Server"
+          fi
+
+      - name: Deployment Summary
+        run: |
+          echo "🚀 ===== DEPLOYMENT SUMMARY ====="
+          echo "Environment: ${{ env.ENVIRONMENT }}"
+          echo "Registry: ${{ env.NCP_REGISTRY }}"
+          echo "Image Tag: ${{ env.IMAGE_TAG }}"
+          echo "Memory Allocation: 512m"
+          if [ "${{ env.ENVIRONMENT }}" == "prod" ]; then
+            echo "Web Servers:"
+            echo "  - Server 1: ${{ env.WEB_HOST_1 }}"
+            echo "  - Server 2: ${{ env.WEB_HOST_2 }}"
+          else
+            echo "Web Server: ${{ env.WEB_HOST }}"
+          fi
+          echo "API URL: ${{ env.ENVIRONMENT == 'prod' && 'https://taejae.ac.kr/api' || 'https://dev.taejae.ac.kr/api' }}"
+          echo "Description: ${{ github.event.inputs.description || 'Auto deployment from branch push' }}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Deploy Time: $(date '+%Y-%m-%d %H:%M:%S')"
+          echo "================================"
