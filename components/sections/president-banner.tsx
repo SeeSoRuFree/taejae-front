@@ -3,9 +3,10 @@
 import { useTranslation } from '@/lib/translations'
 import { Locale } from '@/lib/types/locale'
 import { useState } from 'react'
+import Image from 'next/image'
 
-const imgPresidentPhoto = "http://localhost:3845/assets/57e42af2f57d23dac165321f4a3d8b4f288cc16a.png"
-const imgPlayButton = "http://localhost:3845/assets/07b92139363e82294cd356835265bf297d58bdec.svg"
+const imgPresidentPhoto = '/images/president-photo.png'
+const imgPlayButton = '/images/play-button.svg'
 
 interface PresidentBannerProps {
   locale: Locale
@@ -21,15 +22,18 @@ export function PresidentBanner({ locale }: PresidentBannerProps) {
   }
 
   return (
-    <section className="flex gap-14 items-center justify-start px-12 py-[100px] w-full max-w-[1920px] mx-auto">
+    <section className="flex gap-14 items-center justify-start px-12 py-24 w-full max-w-[1440px] mx-auto">
       <div className="basis-0 bg-[#111111] flex grow items-center justify-between min-h-px min-w-px overflow-hidden rounded-[24px] relative">
         {/* Image Section */}
         <div className="h-[328px] relative w-[594px] shrink-0">
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('${imgPresidentPhoto}')` }}
+          <Image
+            src={imgPresidentPhoto}
+            alt="President Jaeho Yeom"
+            fill
+            className="object-cover"
+            sizes="594px"
           />
-          <div className="absolute bg-gradient-to-r from-transparent to-[#111111] bottom-0 right-0 top-0 w-[200px]" />
+          <div className="absolute bg-gradient-to-r from-transparent to-[#111111] bottom-0 right-0 top-0 w-[200px] z-10" />
         </div>
 
         {/* Content Section */}
@@ -39,10 +43,10 @@ export function PresidentBanner({ locale }: PresidentBannerProps) {
               {/* Quote Text */}
               <div className="font-eb-garamond font-normal italic leading-[1.2] text-[38px] text-white tracking-[-0.76px] w-full">
                 <blockquote className="block mb-0">
-                  "Great movements often begin small,
+                  &ldquo;Great movements often begin small,
                 </blockquote>
                 <blockquote className="block">
-                  propelled by great minds and powerful ideas."
+                  propelled by great minds and powerful ideas.&rdquo;
                 </blockquote>
               </div>
 
@@ -52,7 +56,9 @@ export function PresidentBanner({ locale }: PresidentBannerProps) {
                   <h3 className="block leading-[1.3] whitespace-nowrap">Jaeho Yeom</h3>
                 </div>
                 <div className="font-inter font-medium text-[#888888] text-[15px] tracking-[-0.3px]">
-                  <p className="block leading-[1.5] whitespace-nowrap">President, Taejae University</p>
+                  <p className="block leading-[1.5] whitespace-nowrap">
+                    President, Taejae University
+                  </p>
                 </div>
               </div>
             </div>
@@ -63,7 +69,13 @@ export function PresidentBanner({ locale }: PresidentBannerProps) {
               className="absolute backdrop-blur-sm bg-[rgba(68,68,68,0.7)] bottom-14 flex items-center justify-center right-12 rounded-full w-14 h-14 hover:bg-[rgba(68,68,68,0.8)] transition-colors duration-200"
               aria-label="Play video"
             >
-              <img alt="" className="block max-w-none w-6 h-6" src={imgPlayButton} />
+              <Image
+                alt="Play button"
+                className="block w-6 h-6"
+                src={imgPlayButton}
+                width={24}
+                height={24}
+              />
             </button>
           </div>
         </div>

@@ -2,11 +2,12 @@
 
 import { useTranslation } from '@/lib/translations'
 import { Locale } from '@/lib/types/locale'
+import Image from 'next/image'
 
-const imgFooterLogo = "http://localhost:3845/assets/7b8f3d479e63dfb67f8b5b688ff18ef11e6e0a79.png"
-const imgFacebookIcon = "http://localhost:3845/assets/1945d79ea40ad6782925adfa883d841d7e7e9d16.svg"
-const imgInstagramIcon = "http://localhost:3845/assets/1a3f987200b9edafe1a2614bebb6c69447fe1888.svg"
-const imgLinkedinIcon = "http://localhost:3845/assets/aa892b36d14b32256c0a9afd553b96531b03b536.svg"
+const imgFooterLogo = '/images/footer-logo.png'
+const imgFacebookIcon = '/images/facebook-icon.svg'
+const imgInstagramIcon = '/images/instagram-icon.svg'
+const imgLinkedinIcon = '/images/linkedin-icon.svg'
 
 interface FooterProps {
   locale: Locale
@@ -18,26 +19,31 @@ export function Footer({ locale }: FooterProps) {
   const footerLinks = [
     { label: 'Academy info', href: '/academy' },
     { label: 'Privacy Policy', href: '/privacy' },
-    { label: 'Recruitment', href: '/recruitment' }
+    { label: 'Recruitment', href: '/recruitment' },
   ]
 
   const socialLinks = [
     { icon: imgFacebookIcon, href: 'https://facebook.com/taejaeuniv', label: 'Facebook' },
     { icon: imgInstagramIcon, href: 'https://instagram.com/taejaeuniv', label: 'Instagram' },
-    { icon: imgLinkedinIcon, href: 'https://linkedin.com/company/taejaeuniv', label: 'LinkedIn' }
+    { icon: imgLinkedinIcon, href: 'https://linkedin.com/company/taejaeuniv', label: 'LinkedIn' },
   ]
 
   return (
     <footer className="bg-[#545454] p-12 w-full">
-      <div className="max-w-[1920px] mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <div className="flex items-start justify-between w-full">
           {/* Left Content */}
           <div className="flex flex-col gap-10 items-start justify-start">
             {/* Logo */}
-            <div 
-              className="bg-center bg-cover bg-no-repeat h-12 w-[150px] brightness-0 invert"
-              style={{ backgroundImage: `url('${imgFooterLogo}')` }}
-            />
+            <div className="h-12 w-[150px] relative brightness-0 invert">
+              <Image
+                src={imgFooterLogo}
+                alt="Taejae University Logo"
+                fill
+                className="object-contain"
+                sizes="150px"
+              />
+            </div>
 
             {/* Links and Contact Info */}
             <div className="flex flex-col gap-1.5 items-start justify-start">
@@ -45,15 +51,13 @@ export function Footer({ locale }: FooterProps) {
               <div className="flex gap-2 items-center justify-start w-full">
                 {footerLinks.map((link, index) => (
                   <div key={link.href} className="flex gap-2 items-center">
-                    <a 
+                    <a
                       href={link.href}
                       className="font-inter font-medium text-[15px] leading-[1.5] tracking-[-0.3px] text-white whitespace-nowrap hover:text-gray-300 transition-colors"
                     >
                       {link.label}
                     </a>
-                    {index < footerLinks.length - 1 && (
-                      <div className="bg-[#888888] h-3 w-px" />
-                    )}
+                    {index < footerLinks.length - 1 && <div className="bg-[#888888] h-3 w-px" />}
                   </div>
                 ))}
               </div>
@@ -87,7 +91,13 @@ export function Footer({ locale }: FooterProps) {
                 className="w-8 h-8 hover:opacity-70 transition-opacity"
                 aria-label={social.label}
               >
-                <img alt="" className="block max-w-none w-full h-full" src={social.icon} />
+                <Image
+                  alt=""
+                  className="block w-full h-full"
+                  src={social.icon}
+                  width={32}
+                  height={32}
+                />
               </a>
             ))}
           </div>

@@ -23,21 +23,21 @@ When a user requests analysis of a Figma selection (especially with phrases like
 3. **Generate Structured Output**: Create a comprehensive Design Build Prompt with these sections:
 
    **1) 요약 (Summary)**: Screen purpose, scope, and constraints
-   
+
    **2) 디자인 토큰 추출 (Design Tokens)**: Extract colors, typography, spacing, border radius, shadows with specific values and suggested token names
-   
+
    **3) 컴포넌트 구조 트리 (Component Structure)**: Break down into meaningful units (Card, Header, Toolbar, Form, Table, etc.) with clear hierarchy
-   
+
    **4) 레이아웃 규칙 (Layout Rules)**: Grid/Flex patterns, gaps, alignment, responsive hints, min/max constraints
-   
+
    **5) 상태/인터랙션 (States/Interactions)**: Document hover, pressed, disabled, empty, loading, error states, and modal/tooltip triggers
-   
+
    **6) 접근성 요구 (Accessibility Requirements)**: Landmark roles, ARIA labels, keyboard focus flow
-   
+
    **7) 데이터 바인딩 힌트 (Data Binding Hints)**: Identify what dummy text/icons represent in terms of domain fields
-   
+
    **8) 제약/불확실성 (Constraints/Uncertainties)**: Note assumptions, ambiguous interpretations, or missing information
-   
+
    **9) 코드 제작 가이드 (Implementation Guide)**: Specify required components, libraries, and restrictions based on the project's tech stack
 
 4. **Project Context Awareness**: Always consider the project's architecture (Next.js 15.4, TypeScript, Tailwind CSS, Zustand) and existing design system when creating implementation guidance. Reference the custom color palette, typography scale, and component patterns established in the codebase.

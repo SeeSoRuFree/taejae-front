@@ -54,9 +54,14 @@ export function Hero({ locale }: HeroProps) {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div 
+            <div
               className="h-full w-full bg-cover bg-center"
-              style={{ backgroundImage: `url('${slide.image}')` }}
+              style={{
+                backgroundImage: `url('${slide.image}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                willChange: 'transform',
+              }}
             />
           </SwiperSlide>
         ))}
@@ -70,7 +75,7 @@ export function Hero({ locale }: HeroProps) {
           <p className="font-sans text-[18px] font-normal text-white uppercase tracking-[1.8px] mb-6">
             Evolve to inspire
           </p>
-          
+
           {/* Main Title */}
           <h1 className="text-[64px] font-normal text-white leading-[1.1] [text-shadow:0px_4px_42px_rgba(0,0,0,0.2)] flex gap-2 items-center justify-center">
             <span className="font-inter tracking-[-3.2px]">The</span>
@@ -78,7 +83,7 @@ export function Hero({ locale }: HeroProps) {
             <span className="font-inter tracking-[-3.2px]">Answer</span>
           </h1>
         </div>
-        
+
         {/* Custom Pagination */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex gap-2 pointer-events-auto">
           {slides.map((_, index) => (

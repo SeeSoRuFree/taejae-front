@@ -12,35 +12,40 @@ export function TaejaeImperatives({ locale }: ImperativesProps) {
 
   const imperativesData = [
     {
-      number: "1",
-      title: "TAEJAE",
-      description: "Where Boundless Learning Begins - Korea's First Hybrid University"
+      number: '1',
+      title: 'TAEJAE',
+      description: "Where Boundless Learning Begins - Korea's First Hybrid University",
     },
     {
-      number: "3", 
-      title: "TALENTS",
-      description: ["Think differently", "Feel passionately", "Change the world"]
+      number: '3',
+      title: 'TALENTS',
+      description: ['Think differently', 'Feel passionately', 'Change the world'],
     },
     {
-      number: "7",
-      title: "CAMPUSES", 
-      description: ["Travel", "Learn", "Grow", "Across Seven Campuses Around the World"]
+      number: '7',
+      title: 'CAMPUSES',
+      description: ['Travel', 'Learn', 'Grow', 'Across Seven Campuses Around the World'],
     },
     {
-      number: "100",
-      title: "ACHIEVEMENTS",
-      description: ["Discover who you are", "Dare to dream", "Claim your future", "Unleash your full potential."],
-      isFixed: true
+      number: '100',
+      title: 'ACHIEVEMENTS',
+      description: [
+        'Discover who you are',
+        'Dare to dream',
+        'Claim your future',
+        'Unleash your full potential.',
+      ],
+      isFixed: true,
     },
     {
-      number: "∞",
-      title: "EDUCATION",
-      description: ["Design your own academic paths", "Unlock infinite possibilities!"]
-    }
+      number: '∞',
+      title: 'EDUCATION',
+      description: ['Design your own academic paths', 'Unlock infinite possibilities!'],
+    },
   ]
 
   return (
-    <section className="flex flex-col gap-14 items-center justify-start px-12 py-[100px] w-full max-w-[1920px] mx-auto">
+    <section className="flex flex-col gap-14 items-center justify-start px-12 py-24 w-full max-w-[1440px] mx-auto">
       {/* Title */}
       <div className="flex flex-col gap-2.5 items-start justify-start w-full">
         <h1 className="font-eb-garamond font-normal text-[44px] leading-[1.2] tracking-[-1.32px] text-[#111111] w-full">
@@ -50,7 +55,7 @@ export function TaejaeImperatives({ locale }: ImperativesProps) {
       </div>
 
       {/* Cards Grid */}
-      <div className="flex gap-4 items-center justify-start w-full">
+      <div className="flex gap-8 items-center justify-start w-full">
         {imperativesData.map((item, index) => (
           <div
             key={index}
@@ -79,7 +84,10 @@ export function TaejaeImperatives({ locale }: ImperativesProps) {
                   <div className="font-inter font-normal text-[16px] leading-[1.5] tracking-[-0.48px] text-[#111111] w-full">
                     {Array.isArray(item.description) ? (
                       item.description.map((line, lineIndex) => (
-                        <p key={lineIndex} className={lineIndex < item.description.length - 1 ? "mb-0" : ""}>
+                        <p
+                          key={lineIndex}
+                          className={lineIndex < item.description.length - 1 ? 'mb-0' : ''}
+                        >
                           {line}
                         </p>
                       ))
@@ -88,7 +96,7 @@ export function TaejaeImperatives({ locale }: ImperativesProps) {
                     )}
                   </div>
                 </div>
-                
+
                 {/* Border top */}
                 <div className="absolute top-0 left-0 right-0 border-t border-[#111111]" />
               </div>
