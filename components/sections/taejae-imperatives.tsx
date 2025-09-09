@@ -2,104 +2,109 @@
 
 import { useTranslation } from '@/lib/translations'
 import { Locale } from '@/lib/types/locale'
-import { MAX_CONTENT_WIDTH } from '@/lib/constants/layout'
-import { AdaptiveCarousel } from '@/components/ui/adaptive-carousel'
 
 interface ImperativesProps {
   locale: Locale
 }
 
-const imgImage = '/assets/imperative-1.png'
-const imgImage1 = '/assets/imperative-2.png'
-const imgImage2 = '/assets/imperative-3.png'
-const imgImage3 = '/assets/imperative-4.png'
-const imgImage4 = '/assets/imperative-5.png'
-const imgVectorStroke = '/assets/arrow-right.svg'
-
-const imperativeImages = [imgImage, imgImage1, imgImage2, imgImage3, imgImage4]
-
-function HeroiconsSolidArrowRight() {
-  return (
-    <div className="relative size-full">
-      <img alt="arrow-right" className="block max-w-none size-full" src={imgVectorStroke} />
-    </div>
-  )
-}
-
 export function TaejaeImperatives({ locale }: ImperativesProps) {
-  const { t, messages } = useTranslation(locale)
-  const imperativesData = (messages as any).imperatives.items
+  const { t } = useTranslation(locale)
+
+  const imperativesData = [
+    {
+      number: "1",
+      title: "TAEJAE",
+      description: "Where Boundless Learning Begins - Korea's First Hybrid University"
+    },
+    {
+      number: "3", 
+      title: "TALENTS",
+      description: ["Think differently", "Feel passionately", "Change the world"]
+    },
+    {
+      number: "7",
+      title: "CAMPUSES", 
+      description: ["Travel", "Learn", "Grow", "Across Seven Campuses Around the World"]
+    },
+    {
+      number: "100",
+      title: "ACHIEVEMENTS",
+      description: ["Discover who you are", "Dare to dream", "Claim your future", "Unleash your full potential."],
+      isFixed: true
+    },
+    {
+      number: "∞",
+      title: "EDUCATION",
+      description: ["Design your own academic paths", "Unlock infinite possibilities!"]
+    }
+  ]
 
   return (
-    <section className="flex flex-col gap-12 h-full items-start justify-start pb-[100px] pt-[50px] relative w-full">
-      <div className="mx-auto px-4 w-full" style={{ maxWidth: `${MAX_CONTENT_WIDTH}px` }}>
-        <div className="flex flex-row items-start justify-start overflow-visible py-[10px] relative w-full">
-          <div className="flex flex-col gap-[44px] grow items-start justify-start max-w-[720px]">
-            <h1
-              data-key="imperatives-title"
-              className="font-['Instrument_Sans'] font-medium text-4xl sm:text-5xl md:text-[64px] leading-none tracking-[-1.6px] sm:tracking-[-2.4px] md:tracking-[-3.2px] text-black"
-            >
-              {t('imperatives.title')}
-              <br />
-              {t('imperatives.subtitle')}
-            </h1>
-          </div>
-        </div>
+    <section className="flex flex-col gap-14 items-center justify-start px-12 py-[100px] w-full max-w-[1920px] mx-auto">
+      {/* Title */}
+      <div className="flex flex-col gap-2.5 items-start justify-start w-full">
+        <h1 className="font-eb-garamond font-normal text-[44px] leading-[1.2] tracking-[-1.32px] text-[#111111] w-full">
+          <span>Taejae </span>
+          <span className="text-[#1da597]">Imperatives</span>
+        </h1>
       </div>
 
-      {/* Main content area */}
-      <div className="mx-auto px-4 w-full" style={{ maxWidth: `${MAX_CONTENT_WIDTH}px` }}>
-        <AdaptiveCarousel itemWidth={262} gap={20} maxWidth={MAX_CONTENT_WIDTH}>
-          {imperativesData.map((item: any, index: number) => (
-            <div key={index} className="flex flex-col gap-2 overflow-visible relative w-full">
-              <div
-                className="bg-center bg-cover bg-no-repeat flex items-center justify-center h-[160px] overflow-visible relative rounded-[24px] w-full"
-                style={{ backgroundImage: `url(${imperativeImages[index]})` }}
-              >
-                <p
-                  data-key={`imperatives-symbol-${index}`}
-                  className={
-                    item.symbol === '∞'
-                      ? 'font-["Noto_Sans_Math"] font-medium text-[100px] md:text-[136px] text-white tracking-[-5px] md:tracking-[-6.8px] leading-none'
-                      : 'font-["Instrument_Sans"] font-medium text-[60px] md:text-[80px] text-white tracking-[-3px] md:tracking-[-4px] leading-none'
-                  }
-                >
-                  {item.symbol}
-                </p>
+      {/* Cards Grid */}
+      <div className="flex gap-4 items-center justify-start w-full">
+        {imperativesData.map((item, index) => (
+          <div
+            key={index}
+            className={`
+              group flex flex-col justify-between items-end h-[459px] p-[24px] rounded-[24px] relative cursor-pointer
+              transition-colors duration-300 hover:bg-[#f2f2f2]
+              ${item.isFixed ? 'w-[287px]' : 'basis-0 grow min-w-0'}
+            `}
+          >
+            {/* Content */}
+            <div className="flex flex-col gap-10 items-start justify-start w-full overflow-hidden">
+              {/* Number */}
+              <div className="font-playfair text-[80px] leading-[1.1] tracking-[-1.6px] text-[#111111] whitespace-nowrap">
+                {item.number}
               </div>
 
-              <div className="flex flex-col gap-5 items-start justify-start overflow-visible relative w-full">
-                <div className="bg-[#F3F4F6] flex flex-col h-[320px] items-start justify-between overflow-visible p-6 relative rounded-[24px] w-full">
-                  <div className="flex flex-col font-['Instrument_Sans'] font-normal justify-center leading-none min-w-full relative text-black text-left">
-                    <p
-                      data-key={`imperatives-description-${index}`}
-                      className="text-[14px] sm:text-[16px] leading-[1.3] tracking-[-0.28px] sm:tracking-[-0.48px] whitespace-pre-wrap"
-                    >
-                      {item.description}
-                    </p>
+              {/* Text Content */}
+              <div className="w-full relative">
+                <div className="flex flex-col gap-8 items-start justify-start pt-4 w-full">
+                  {/* Title */}
+                  <div className="font-eb-garamond font-medium text-[29px] leading-[1.3] tracking-[-0.58px] text-[#111111] w-full">
+                    {item.title}
                   </div>
 
-                  <div className="flex flex-row items-center gap-2 overflow-visible relative">
-                    <button className="backdrop-blur-[3px] backdrop-filter bg-white flex flex-row items-center justify-center overflow-visible px-3 py-[11px] relative rounded-[100px] hover:bg-gray-50 transition-colors">
-                      <span
-                        data-key="imperatives-learn-more"
-                        className="font-['Instrument_Sans'] font-medium text-[14px] sm:text-[16px] leading-[1.1] text-black text-left tracking-[-0.28px] sm:tracking-[-0.48px] whitespace-nowrap"
-                      >
-                        {t('imperatives.learnMore')}
-                      </span>
-                    </button>
-
-                    <button className="backdrop-blur-[3px] backdrop-filter bg-white flex flex-row h-10 items-center justify-center overflow-visible p-[10px] relative rounded-[100px] w-10 hover:bg-gray-50 transition-colors">
-                      <div className="block h-5 overflow-visible relative w-5">
-                        <HeroiconsSolidArrowRight />
-                      </div>
-                    </button>
+                  {/* Description */}
+                  <div className="font-inter font-normal text-[16px] leading-[1.5] tracking-[-0.48px] text-[#111111] w-full">
+                    {Array.isArray(item.description) ? (
+                      item.description.map((line, lineIndex) => (
+                        <p key={lineIndex} className={lineIndex < item.description.length - 1 ? "mb-0" : ""}>
+                          {line}
+                        </p>
+                      ))
+                    ) : (
+                      <p>{item.description}</p>
+                    )}
                   </div>
                 </div>
+                
+                {/* Border top */}
+                <div className="absolute top-0 left-0 right-0 border-t border-[#111111]" />
               </div>
             </div>
-          ))}
-        </AdaptiveCarousel>
+
+            {/* Learn More Button (appears on hover) */}
+            <div className="bg-[#111111] rounded-[50px] relative opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex flex-col items-center justify-center px-[22px] py-2.5">
+                <div className="font-inter font-medium text-[15px] leading-[1.5] tracking-[-0.3px] text-white whitespace-nowrap">
+                  Learn more
+                </div>
+              </div>
+              <div className="absolute inset-[-0.5px] border border-[#111111] rounded-[50.5px] pointer-events-none" />
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   )

@@ -61,12 +61,15 @@
     "more": "View More"
   },
   "footer": {
-    "address": "Address",
-    "tel": "Tel",
-    "email": "Email",
-    "copyright": "© 2024 Taejae University. All rights reserved.",
-    "quickLinks": "Quick Links",
-    "contact": "Contact"
+    "academyInfo": "Academy info",
+    "privacyPolicy": "Privacy Policy",
+    "recruitment": "Recruitment",
+    "address": "22-8 Changdeokgung 5-gil, Jongro-gu, Seoul 03051",
+    "email": "info@taejae.co.kr",
+    "copyright": "Copyright 2025 Taejae University All Rights Reserved.",
+    "facebookUrl": "https://facebook.com/taejaeuniversity",
+    "instagramUrl": "https://instagram.com/taejaeuniversity",
+    "linkedinUrl": "https://linkedin.com/company/taejaeuniversity"
   },
   "academics": {
     "whatLearn": {

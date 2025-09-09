@@ -1,104 +1,98 @@
 'use client'
 
-import Image from 'next/image'
 import { useTranslation } from '@/lib/translations'
 import { Locale } from '@/lib/types/locale'
-import { MAX_CONTENT_WIDTH } from '@/lib/constants/layout'
-import { AdaptiveCarousel } from '@/components/ui/adaptive-carousel'
+
+const imgNews1 = "http://localhost:3845/assets/793a330fa24f0707650a4133583d9f4f87b6c832.png"
+const imgNews2 = "http://localhost:3845/assets/bd0cf68aa19df3e25d87b93c5bdd9ffc501c617b.png"
+const imgNews3 = "http://localhost:3845/assets/7ca2789f33150ddffa017aae82a529e524ee4704.png"
 
 interface TaejaeNowProps {
   locale: Locale
 }
 
-const imgImage11 = '/assets/taejae-now-1.png'
-const imgImage12 = '/assets/taejae-now-2.png'
-const imgImage13 = '/assets/taejae-now-3.png'
-
-const newsItems = [
-  {
-    id: 1,
-    title:
-      "President Yeom Jae-ho attends the 'Digital Universities Asia 2025' conference as a panelist.",
-    date: 'Jul 17. 2025',
-    image: imgImage11,
-    excerpt:
-      'President Yeom Jae-ho of Taejae attended an event held at Lingnan University in Hong Kong from July 8-9.',
-  },
-  {
-    id: 2,
-    title: 'The fellowship of Oxford x Stanford x Taejae continues',
-    date: 'Mar 20. 2025',
-    image: imgImage12,
-    excerpt:
-      'Taejae University has selected eight students to participate in the 2025 Oxford-Stanford-Taejae Fellowship (OST Fellowship) program and held an congratulatory ceremony on March 17, 2025.',
-  },
-  {
-    id: 3,
-    title: 'First place winners in CHI 2025!',
-    date: 'May 8. 2025',
-    image: imgImage13,
-    excerpt:
-      'We are elated to announce that a team of four Taejae University students was awarded first place in the Student Design Competition at 2025 CHI (Conference on Human Factors in Computing Systems).',
-  },
-]
-
-const NewsCard = ({ item }: { item: (typeof newsItems)[0] }) => (
-  <article className="flex flex-col gap-5 w-full">
-    <div
-      className="aspect-[450/281] rounded-3xl bg-cover bg-center w-full"
-      style={{ backgroundImage: `url(${item.image})` }}
-    />
-    <div className="flex flex-col gap-1">
-      <h3
-        data-key={`taejae-now-card-title-${item.id}`}
-        className="text-[22px] font-['Instrument_Sans'] font-medium text-black tracking-[-0.66px] leading-[1.35]"
-      >
-        {item.title}
-      </h3>
-      <p
-        data-key={`taejae-now-card-date-${item.id}`}
-        className="text-[20px] text-[#767676] font-['Instrument_Sans'] tracking-[-1px] leading-[1.21]"
-      >
-        {item.date}
-      </p>
-    </div>
-    <p
-      data-key={`taejae-now-card-excerpt-${item.id}`}
-      className="text-[16px] leading-[1.3] font-['Instrument_Sans'] text-black tracking-[-0.48px]"
-    >
-      {item.excerpt}
-    </p>
-  </article>
-)
+interface NewsItem {
+  id: string
+  title: string
+  date: string
+  image: string
+}
 
 export function TaejaeNow({ locale }: TaejaeNowProps) {
   const { t } = useTranslation(locale)
 
-  const newsCards = newsItems.map((item) => <NewsCard key={item.id} item={item} />)
+  const newsItems: NewsItem[] = [
+    {
+      id: '1',
+      title: "President Yeom Jae-ho attends the 'Digital Universities Asia 2025' conference as a panelist.",
+      date: 'Jul 17. 2025',
+      image: imgNews1
+    },
+    {
+      id: '2', 
+      title: 'The fellowship of Oxford x Stanford x Taejae continues',
+      date: 'Jul 17. 2025',
+      image: imgNews2
+    },
+    {
+      id: '3',
+      title: 'First place winners in CHI 2025!',
+      date: 'Jul 17. 2025',
+      image: imgNews3
+    }
+  ]
 
   return (
-    <section className="py-20">
-      <div className="mx-auto px-4" style={{ maxWidth: `${MAX_CONTENT_WIDTH}px` }}>
-        <h2
-          data-key="taejae-now-title"
-          className="text-[64px] font-['Instrument_Sans'] font-medium text-black tracking-[-3.2px] leading-[1] mb-12"
-        >
-          Taejae Now
-        </h2>
+    <section className="flex flex-col gap-12 items-end justify-end px-12 py-[100px] w-full max-w-[1920px] mx-auto">
+      {/* Header with Title and Learn More Button */}
+      <div className="flex items-end justify-between w-full">
+        {/* Title */}
+        <div className="font-eb-garamond font-normal text-[44px] leading-[1.2] tracking-[-1.32px] text-[#111111] whitespace-nowrap">
+          <h1>
+            <span>Taejae </span>
+            <span className="text-[#1da597]">Now</span>
+          </h1>
+        </div>
 
-        <AdaptiveCarousel
-          itemWidth={450}
-          gap={20}
-          maxWidth={MAX_CONTENT_WIDTH}
-          carouselOptions={{
-            align: 'start',
-            loop: false,
-            skipSnaps: false,
-            containScroll: 'trimSnaps',
-          }}
-        >
-          {newsCards}
-        </AdaptiveCarousel>
+        {/* Learn More Button */}
+        <div className="bg-white rounded-[50px] relative">
+          <div className="flex flex-col items-center justify-center overflow-hidden px-[22px] py-2.5">
+            <div className="font-inter font-medium text-[15px] leading-[1.5] tracking-[-0.3px] text-[#111111] whitespace-nowrap">
+              Learn more
+            </div>
+          </div>
+          <div className="absolute border border-neutral-200 inset-[-0.5px] pointer-events-none rounded-[50.5px]" />
+        </div>
+      </div>
+
+      {/* News Cards Grid */}
+      <div className="flex gap-8 items-start justify-start w-full">
+        {newsItems.map((item) => (
+          <div
+            key={item.id}
+            className="basis-0 flex flex-col gap-5 grow items-start justify-start min-h-px min-w-px relative"
+          >
+            {/* News Image */}
+            <div
+              className="aspect-[413.333/239.799] bg-center bg-cover bg-no-repeat min-h-[143.88px] min-w-[248px] rounded-[24px] w-full"
+              style={{ backgroundImage: `url('${item.image}')` }}
+              aria-label={`News image for ${item.title}`}
+            />
+
+            {/* News Content */}
+            <div className="flex flex-col gap-2 items-start justify-center w-full">
+              {/* Title */}
+              <div className="font-eb-garamond font-normal text-[24px] leading-[1.3] tracking-[-0.48px] text-[#111111] w-full">
+                <h3>{item.title}</h3>
+              </div>
+
+              {/* Date */}
+              <div className="font-inter font-normal text-[16px] leading-[1.5] text-[#5b5b5b] w-full">
+                <p>{item.date}</p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   )

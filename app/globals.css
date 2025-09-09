@@ -178,10 +178,10 @@
   }
 
   /* Selection Styles */
-  ::selection {
+  /* ::selection {
     background-color: rgba(var(--color-primary), 0.2);
     color: rgb(var(--color-text-primary));
-  }
+  } */
 
   /* Smooth Transitions for Theme Changes */
   body,
@@ -202,6 +202,7 @@
     @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
     max-width: 1920px;
   }
+
 
   /* Section Padding */
   .section-padding {

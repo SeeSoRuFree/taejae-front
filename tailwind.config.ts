@@ -90,6 +90,9 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['Instrument Sans', 'system-ui', 'sans-serif'],
+        'eb-garamond': ['var(--font-eb-garamond)', 'serif'],
+        'inter': ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        'playfair': ['var(--font-playfair)', 'serif'],
       },
       fontSize: {
         // Headings

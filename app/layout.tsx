@@ -1,5 +1,22 @@
 import type { Metadata } from 'next'
+import { EB_Garamond, Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
+
+const ebGaramond = EB_Garamond({
+  subsets: ['latin'],
+  variable: '--font-eb-garamond',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  variable: '--font-playfair',
+})
 
 export const metadata: Metadata = {
   title: 'Taejae University',
@@ -10,7 +27,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body className={`${ebGaramond.variable} ${inter.variable} ${playfairDisplay.variable}`}>{children}</body>
     </html>
   )
 }
