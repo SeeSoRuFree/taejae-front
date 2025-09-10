@@ -37,7 +37,7 @@ export function EducationalPurposes({ locale }: EducationalPurposesProps) {
 
   return (
     <section className="w-full px-12 py-[100px]">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-[100px]">
+      <div className="max-w-[1440px] mx-auto flex flex-col gap-[120px]">
         {/* Section Title */}
         <div className="py-2.5">
           <h2 className="font-['EB_Garamond'] text-[44px] font-normal leading-[1.1] tracking-[-0.88px] text-[#111111] max-w-[720px]">

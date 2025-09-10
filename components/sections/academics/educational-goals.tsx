@@ -43,8 +43,8 @@ export function EducationalGoals({ locale }: EducationalGoalsProps) {
   const { t } = useTranslation(locale)
 
   return (
-    <section className="w-full px-12 py-[100px]">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-[100px]">
+    <section className="w-full px-12 py-[100px] mb-20">
+      <div className="max-w-[1440px] mx-auto flex flex-col gap-[120px]">
         {/* Section Title */}
         <div className="py-2.5">
           <div className="flex flex-col gap-2.5 max-w-[720px]">
