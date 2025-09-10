@@ -1,0 +1,7 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 48 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="earth">
+<path id="oval" d="M24 49.001C37.2548 49.001 48 38.2558 48 25.001C48 11.7462 37.2548 1.001 24 1.001C10.7452 1.001 0 11.7462 0 25.001C0 38.2558 10.7452 49.001 24 49.001Z" fill="var(--fill-0, #501D83)"/>
+<path id="path" d="M33.999 25C33.999 38.255 29.523 49 23.999 49C18.475 49 13.999 38.255 13.999 25C13.999 11.745 18.477 1 23.999 1C29.521 1 33.999 11.745 33.999 25Z" stroke="var(--stroke-0, white)" stroke-width="2"/>
+<path id="line" d="M0 25H48" stroke="var(--stroke-0, white)" stroke-width="2"/>
+</g>
+</svg>
