@@ -93,7 +93,7 @@ const config: Config = {
         'eb-garamond': ['var(--font-eb-garamond)', 'serif'],
         inter: ['var(--font-inter)', 'system-ui', 'sans-serif'],
         playfair: ['var(--font-playfair)', 'serif'],
-        'bodoni': ['Bodoni 72', 'serif'],
+        bodoni: ['Bodoni 72', 'serif'],
         'rethink-sans': ['Rethink Sans', 'system-ui', 'sans-serif'],
       },
       fontSize: {

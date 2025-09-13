@@ -92,6 +92,47 @@
         "viewMore": "View More"
       }
     },
+    "whatLearn": {
+      "pageTitle": "What do you learn?",
+      "hero": {
+        "title": "What do you learn?",
+        "description1": "At Taejae University, learning goes beyond traditional study—it's about becoming a person who can thrive in a rapidly changing world.",
+        "description2": "Our curriculum is designed around six core competencies that shape both our academic and everyday practices: Critical Thinking, Creative Thinking, Self-Directed Learning, Communication & Collaboration, Diversity & Empathy, and Global Harmony & Sustainability. These values are not just ideals—they guide every decision we make, from classroom instruction to institutional strategy.",
+        "description3": "In your first year at the School of Innovation Foundations, you'll develop the ability to think critically and creatively, take ownership of your learning, and collaborate with peers from around the world. As you grow into a skilled communicator, team player, and compassionate global citizen, you'll lay a strong foundation for your academic journey.",
+        "description4": "From your second year onward, through the School of Future Convergence Major, you'll deepen the six core competencies while pursuing specialized programs tailored to your academic pathway. Whether you're addressing real-world challenges or exploring bold ideas, you'll be equipped not just to keep pace with a rapidly changing world—but to lead it into the future."
+      },
+      "competencies": {
+        "title": "What are six competencies?",
+        "criticalThinking": {
+          "title": "Critical Thinking",
+          "description": "Critical thinking is the ability to think analytically and systematically, examining information and ideas with depth and precision. You can apply critical thinking to evaluate diverse perspectives, uncover underlying assumptions, and assess the strength of arguments. This empowers you to make informed decisions and solve complex problems with clarity, logic, and confidence."
+        },
+        "creativeThinking": {
+          "title": "Creative Thinking",
+          "description": "Creative thinking is the ability to generate original, innovative, and practical solutions by thinking beyond conventional boundaries. You can develop creative thinking at Taejae by exploring diverse heuristics, practicing problem-solving strategies, and applying fresh ideas in real-world contexts. This enables you to approach challenges with curiosity, embrace bold intellectual risks, and lead meaningful, transformative change."
+        },
+        "selfDirectedLearning": {
+          "title": "Self-Directed Learning",
+          "description": "Self-directed learning is the ability to take initiative, set goals, and manage your own learning process in a purposeful and reflective way. Throughout your academic journey at Taejae, you'll develop this skill by identifying your learning needs, seeking out resources, and regularly assessing your progress—both inside and outside the classroom. In the end, you will become a lifelong learner, ready to adapt to new challenges and pursue personal and professional growth with independence and confidence."
+        },
+        "communicationCollaboration": {
+          "title": "Communication & Collaboration",
+          "description": "Communication and collaboration involve the ability to express ideas clearly, listen actively, and work effectively with others to achieve shared goals."
+        },
+        "diversityEmpathy": {
+          "title": "Diversity & Empathy",
+          "description": "Diversity and empathy involve understanding, respecting, and valuing different perspectives, backgrounds, and experiences while developing the ability to connect with others on a deeper level."
+        },
+        "globalHarmony": {
+          "title": "Global Harmony & Sustainability",
+          "description": "Global harmony and sustainability involve understanding the interconnectedness of environmental, social, and economic systems and acting responsibly to promote their long-term well-being. At Taejae, you'll cultivate this competency by studying sustainable practices, reflecting on global challenges, and designing innovative solutions that balance the needs of people and the planet. This prepares you to make decisions that foster a sustainable future and contribute positively to communities worldwide."
+        }
+      },
+      "interdisciplinary": {
+        "title": "Curious about what an interdisciplinary journey really looks like?",
+        "subtitle": "Hear what the Taejae Squad has to say."
+      }
+    },
     "visionsGoals": {
       "pageTitle": "Educational Visions & Goals",
       "hero": {
@@ -140,6 +181,12 @@
             "description": "who contributes to the harmony between East and West"
           }
         ]
+      }
+    },
+    "visions": {
+      "philosophy": {
+        "description1": "It is our educational philosophy to foster your critical and creative thinking for global harmony and sustainability. We are committed to nurturing you as global leaders equipped with the vision, agility, and integrity to navigate and shape a rapidly evolving world.",
+        "description2": "Grounded in our belief in the power of education to unite humanity, we are committed to nurturing you into a leader who bridges Eastern and Western cultures, contributes to a sustainable future, and leads with empathy and innovation."
       }
     }
   }

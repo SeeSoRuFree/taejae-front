@@ -6,24 +6,20 @@ import { TaejaeImperatives } from '@/components/sections/taejae-imperatives'
 import { GlobalCampuses } from '@/components/sections/global-campuses'
 import { VoiceOfSquad } from '@/components/sections/voice-of-squad'
 import { TaejaeNow } from '@/components/sections/taejae-now'
-import { Footer } from '@/components/sections/footer'
-import { Header } from '@/components/sections/header'
+import { PageLayout } from '@/components/layout/page-layout'
+import { useLocaleStore } from '@/lib/store/locale-store'
 
 export default function HomePage() {
-  const locale = 'ko'
+  const locale = useLocaleStore((state) => state.locale)
 
   return (
-    <div className="bg-white flex flex-col items-center justify-start relative w-full min-h-screen">
-      <Header locale={locale} />
-      <main className="w-full">
-        <Hero locale={locale} />
-        <TaejaeImperatives locale={locale} />
-        <GlobalCampuses locale={locale} />
-        <PresidentBanner locale={locale} />
-        <VoiceOfSquad locale={locale} />
-        <TaejaeNow locale={locale} />
-      </main>
-      <Footer locale={locale} />
-    </div>
+    <PageLayout>
+      <Hero locale={locale} />
+      <TaejaeImperatives locale={locale} />
+      <GlobalCampuses locale={locale} />
+      <PresidentBanner locale={locale} />
+      <VoiceOfSquad locale={locale} />
+      <TaejaeNow locale={locale} />
+    </PageLayout>
   )
 }

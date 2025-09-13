@@ -2,6 +2,7 @@
 
 import { useTranslation } from '@/lib/translations'
 import { Locale } from '@/lib/types/locale'
+import { ASSETS, DIMENSIONS } from '@/lib/constants'
 import Image from 'next/image'
 
 interface VisionHeroProps {
@@ -12,58 +13,59 @@ export function VisionHero({ locale }: VisionHeroProps) {
   const { t } = useTranslation(locale)
 
   return (
-    <section className="w-full px-12 py-[100px] mt-[66px]">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-16">
+    <section
+      className="w-full px-12 mt-[66px]"
+      style={{
+        paddingTop: DIMENSIONS.SECTION_SPACING.LARGE,
+        paddingBottom: DIMENSIONS.SECTION_SPACING.LARGE,
+      }}
+    >
+      <div className="flex flex-col gap-16">
         {/* Title Section */}
-        <div className="py-2.5">
-          <h1 className="font-['EB_Garamond'] text-[64px] font-normal leading-[1.1] tracking-[-1.28px] text-[#111111] max-w-[720px]">
-            Educational
-            <br />
-            <span className="text-[#1da597]">Visions & Goals</span>
-          </h1>
+        <div className="px-0 py-2.5 w-full">
+          <div className="max-w-[720px]">
+            <h1 className="font-['EB_Garamond'] text-[64px] font-normal leading-[1.1] tracking-[-1.28px] text-[#111111] w-full">
+              <p className="mb-0">Educational </p>
+              <p className="text-[#1da597]">Visions & Goals</p>
+            </h1>
+          </div>
         </div>
 
         {/* Infinity Card */}
         <div
-          className="relative w-full h-[360px] rounded-[32px] overflow-hidden flex items-center justify-center"
-          style={{ 
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('/assets/infinity-bg.png')`,
+          className="relative w-full overflow-hidden bg-[#ffffffe6]"
+          style={{
+            height: DIMENSIONS.COMPONENTS.INFINITY_CARD_HEIGHT,
+            borderRadius: DIMENSIONS.COMPONENTS.CARD_BORDER_RADIUS,
+            backgroundImage: `url('${ASSETS.BACKGROUNDS.INFINITY_VISION_BG}')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
           }}
         >
           <div className="absolute flex flex-col items-center justify-center text-center left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="w-[685px] relative shrink-0">
-              <div className="font-bodoni italic text-[120px] leading-[1.1] tracking-[-2.4px] text-[#111111] mb-0">
+              <div className="font-['Bodoni_72'] not-italic text-[120px] leading-[1.1] tracking-[-2.4px] text-[#111111]">
                 ∞
               </div>
             </div>
             <div className="w-[685px] relative shrink-0">
-              {locale === 'ko' ? (
-                <>
-                  <p className="font-rethink-sans font-normal text-[20px] leading-[1.5] tracking-[-0.6px] text-[#111111] mb-0">
-                    태제에서 무한한 가능성을 탐험하세요.
-                  </p>
-                  <p className="font-rethink-sans font-normal text-[20px] leading-[1.5] tracking-[-0.6px] text-[#111111] mb-0">
-                    당신만의 학문적 여정을 만들어가세요.
-                  </p>
-                  <p className="font-rethink-sans font-normal text-[20px] leading-[1.5] tracking-[-0.6px] text-[#111111]">
-                    기하급수적으로 성장하세요.
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p className="font-rethink-sans font-normal text-[20px] leading-[1.5] tracking-[-0.6px] text-[#111111] mb-0">
-                    Explore an infinite range of possibilities at Taejae.
-                  </p>
-                  <p className="font-rethink-sans font-normal text-[20px] leading-[1.5] tracking-[-0.6px] text-[#111111] mb-0">
-                    Shape your own academic journey.
-                  </p>
-                  <p className="font-rethink-sans font-normal text-[20px] leading-[1.5] tracking-[-0.6px] text-[#111111]">
-                    Grow exponentially.
-                  </p>
-                </>
-              )}
+              <div className="font-['Rethink_Sans'] font-normal text-[20px] leading-[1.5] tracking-[-0.6px] text-[#111111]">
+                <p className="mb-0">{t('academics.visionsGoals.hero.infinityText')}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Description Text Section */}
+        <div className="px-0 py-2.5 w-full">
+          <div className="flex gap-20 items-start justify-start">
+            <div className="flex gap-11 items-start justify-start min-h-px min-w-px flex-1">
+              <div className="font-['Rethink_Sans'] font-normal text-[20px] leading-[1.5] tracking-[-0.6px] text-[#111111] w-[960px]">
+                <p className="mb-0">{t('academics.visions.philosophy.description1')}</p>
+                <p className="mb-0">&nbsp;</p>
+                <p>{t('academics.visions.philosophy.description2')}</p>
+              </div>
             </div>
           </div>
         </div>

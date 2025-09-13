@@ -16,6 +16,48 @@
 - `npm run format` - Prettier로 코드 포맷팅
 - `npm run typecheck` - TypeScript 타입 검사 실행
 
+## 코드 컨벤션 및 개발 규칙
+
+### 코드 품질 규칙
+
+1. **Critical Issues 우선 해결**: TypeScript 에러 → 성능 → 일관성 순서
+2. **3-2-1 규칙**: 3번 이상 반복되는 코드는 즉시 컴포넌트화
+3. **컴포넌트 제거 규칙**: 컴포넌트 제거 전 반드시 `grep -r "ComponentName"` 검색
+4. **번역 키 우선 확인**: 새 텍스트 추가 전 기존 번역 키 검토
+5. **상수화 원칙**: Magic Number 발견 시 즉시 `lib/constants`로 이동
+6. **Error Handling 필수**: 모든 비동기 작업과 사용자 입력에 에러 처리 구현
+7. **Loading States 필수**: 사용자 경험을 위한 로딩 상태 반드시 구현
+8. **Image 최적화**: 모든 이미지는 Next.js Image 컴포넌트 사용 (width/height 명시)
+9. **전역 상태 일관성**: Locale 등 전역 상태는 반드시 store를 통해 관리
+10. **className 속성 규칙**: 스타일이 필요 없으면 속성 자체를 제거
+11. **번역 시스템 fallback**: 사용자 친화적 에러 메시지 (`[Missing: key]`) 제공
+
+### 프로젝트 구성 규칙
+
+#### 컴포넌트 구조
+
+- `components/layout/` - 페이지 레이아웃 (PageLayout 등)
+- `components/sections/` - 페이지별 섹션 컴포넌트
+- `components/ui/` - 재사용 가능한 기본 UI 컴포넌트
+- `components/error/` - Error Boundary 컴포넌트
+
+#### 에러 처리 시스템
+
+- Error Boundaries: Class Component 기반, 개발/프로덕션 환경별 차별화
+- PageLayout에 섹션별 Error Boundary 적용 필수
+
+#### Loading 시스템
+
+- `components/ui/loading.tsx` - 다양한 로딩 스피너
+- `components/ui/skeleton.tsx` - 스켈레톤 컴포넌트
+- `app/loading.tsx` - Next.js Suspense 지원
+
+#### Constants 관리
+
+- `lib/constants/assets.ts` - 이미지 경로 상수화
+- `lib/constants/dimensions.ts` - 레이아웃 치수 상수화
+- `lib/constants/index.ts` - 애니메이션, z-index, 색상 상수
+
 ## 아키텍처
 
 ### 기술 스택
@@ -59,19 +101,30 @@ messages/            # 번역 JSON 파일
 
 ### 주요 아키텍처 결정사항
 
-1. **라우팅**: 현재 locale 기반 라우팅 없이 Next.js App Router 사용 중. URL 기반 라우팅 (/ko, /en)은 계획되어 있으나 아직 구현되지 않음.
+1. **상태 관리**: 전역 상태에 Zustand 사용, locale 설정은 localStorage에 지속 저장.
 
-2. **상태 관리**: 전역 상태에 Zustand 사용, locale 설정은 localStorage에 지속 저장.
+2. **레이아웃 시스템**: PageLayout wrapper 컴포넌트로 Header/Footer 패턴 통합, 섹션별 Error Boundary 적용.
 
-3. **스타일링 시스템**:
+3. **에러 처리**: Class Component 기반 Error Boundary로 프로덕션급 에러 격리 및 사용자 친화적 fallback 제공.
+
+4. **로딩 상태**: Next.js Suspense와 skeleton 컴포넌트를 활용한 포괄적인 로딩 상태 관리.
+
+5. **국제화 시스템**: 
+   - 커스텀 번역 시스템 with 한국어 fallback
+   - 타입 안전한 번역 키 관리
+   - 사용자 친화적 에러 메시지 (`[Missing: key]`)
+
+6. **상수 관리**: assets, dimensions, colors 등 체계적인 상수 관리 시스템.
+
+7. **스타일링 시스템**:
    - 광범위한 커스텀 설정의 Tailwind CSS
    - 디자인 토큰용 CSS 변수 (opacity 지원을 위한 RGB 형식)
    - 커스텀 브레이크포인트: mobile (<768px), tablet (768-1919px), desktop (≥1920px)
    - 유틸리티 우선 접근법과 커스텀 컴포넌트 클래스
 
-4. **이미지 처리**: localhost:3845 에셋 서버용으로 구성된 Next.js Image 컴포넌트.
+8. **이미지 최적화**: 모든 이미지에 Next.js Image 컴포넌트 사용, width/height 명시로 성능 최적화.
 
-5. **코드 스타일** (Prettier 설정):
+9. **코드 스타일** (Prettier 설정):
    - JavaScript/TypeScript에서 세미콜론 없음
    - 문자열에 작은따옴표 사용
    - 2칸 들여쓰기

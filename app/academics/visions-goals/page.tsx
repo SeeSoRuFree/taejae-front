@@ -1,8 +1,7 @@
 'use client'
 
 import { useLocaleStore } from '@/lib/store/locale-store'
-import { Header } from '@/components/sections/header'
-import { Footer } from '@/components/sections/footer'
+import { PageLayout } from '@/components/layout/page-layout'
 import { VisionHero } from '@/components/sections/academics/vision-hero'
 import { PhilosophySection } from '@/components/sections/academics/philosophy-section'
 import { SocialImageSection } from '@/components/sections/academics/social-image-section'
@@ -13,18 +12,16 @@ export default function EducationalVisionsGoalsPage() {
   const locale = useLocaleStore((state) => state.locale)
 
   return (
-    <>
-      <Header locale={locale} />
-      <main className="min-h-screen bg-white">
-        <div className="max-w-[1920px] mx-auto">
-          <VisionHero locale={locale} />
-          <PhilosophySection locale={locale} />
-          <SocialImageSection />
-          <EducationalPurposes locale={locale} />
-          <EducationalGoals locale={locale} />
-        </div>
-      </main>
-      <Footer locale={locale} />
-    </>
+    <PageLayout className="min-h-screen bg-white">
+      <div className="max-w-[1440px] mx-auto">
+        <VisionHero locale={locale} />
+        <PhilosophySection locale={locale} />
+      </div>
+      <SocialImageSection />
+      <div className="max-w-[1440px] mx-auto">
+        <EducationalPurposes locale={locale} />
+        <EducationalGoals locale={locale} />
+      </div>
+    </PageLayout>
   )
 }

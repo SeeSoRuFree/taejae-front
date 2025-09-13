@@ -15,6 +15,8 @@ interface FacultyMember {
   universityKo?: string
   image: string
   linkedIn?: string
+  website?: string
+  youtube?: string
 }
 
 interface FacultyGridProps {
@@ -30,7 +32,10 @@ const facultyMembers: FacultyMember[] = [
     fieldKo: '중국어 및 중국 문화',
     university: 'Stanford Univ.',
     universityKo: '스탠포드 대학교',
-    image: '/assets/faculty-placeholder-1.png',
+    image: '/assets/academics/faculty/david-hazard.png',
+    website: 'https://example.com',
+    linkedIn: 'https://linkedin.com/in/david-hazard',
+    youtube: 'https://youtube.com/@david-hazard',
   },
   {
     name: 'Steve Justice',
@@ -86,8 +91,9 @@ const facultyMembers: FacultyMember[] = [
 
 function FacultyCard({ member, locale }: { member: FacultyMember; locale: Locale }) {
   return (
-    <div className="flex flex-col">
-      <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gray-100">
+    <div className="flex flex-col w-full">
+      {/* 이미지 - 피그마의 aspect-[305/301] 비율 적용 */}
+      <div className="relative aspect-[305/301] w-full overflow-hidden bg-gray-100">
         <Image
           src={member.image}
           alt={locale === 'ko' && member.nameKo ? member.nameKo : member.name}
@@ -96,33 +102,63 @@ function FacultyCard({ member, locale }: { member: FacultyMember; locale: Locale
         />
       </div>
 
-      <div className="flex flex-col justify-between flex-1">
-        <div className="flex flex-col gap-7 py-4">
-          <div className="flex flex-col gap-1">
-            <h3 className="text-[22px] font-medium tracking-[-0.66px] text-black">
+      {/* 콘텐츠 - 피그마의 h-[222.013px] 높이에 맞춤 */}
+      <div className="flex flex-col justify-between h-[222px] w-full">
+        {/* 텍스트 섹션 - py-4와 gap-[30px] 적용 */}
+        <div className="flex flex-col gap-[30px] px-0 py-4 w-full">
+          {/* 이름과 학위 */}
+          <div className="flex flex-col gap-1 w-full">
+            <h3 className="text-[24px] font-eb-garamond font-normal leading-[1.3] tracking-[-0.48px] text-[#111111]">
               {locale === 'ko' && member.nameKo ? member.nameKo : member.name}
             </h3>
-            <p className="text-[16px] font-normal tracking-[-0.48px] text-black">{member.degree}</p>
+            <p className="text-[16px] font-rethink-sans font-normal leading-[1.5] text-[#5B5B5B]">
+              {member.degree}
+            </p>
           </div>
 
-          <div className="flex flex-col gap-1">
-            <p className="text-[16px] font-normal tracking-[-0.48px] text-black leading-[1.1]">
+          {/* 전공과 대학 */}
+          <div className="flex flex-col gap-1 w-full">
+            <p className="text-[16px] font-rethink-sans font-normal leading-[1.5] tracking-[-0.48px] text-[#111111]">
               {locale === 'ko' && member.fieldKo ? member.fieldKo : member.field}
             </p>
-            <p className="text-[16px] font-normal tracking-[-0.48px] text-black leading-[1.1]">
+            <p className="text-[16px] font-rethink-sans font-normal leading-[1.5] text-[#111111] whitespace-nowrap">
               {locale === 'ko' && member.universityKo ? member.universityKo : member.university}
             </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
-          <Image
-            src="/assets/linkedin-icon.svg"
-            alt="LinkedIn"
-            width={44}
-            height={44}
-            className="cursor-pointer hover:opacity-70 transition-opacity"
-          />
+        {/* 소셜 링크 - gap-2, size-8 적용 */}
+        <div className="flex items-start gap-2">
+          {member.website && (
+            <div className="relative w-8 h-8">
+              <Image
+                src="/assets/icons/social/icon-website.svg"
+                alt="Website"
+                fill
+                className="cursor-pointer hover:opacity-70 transition-opacity"
+              />
+            </div>
+          )}
+          {member.linkedIn && (
+            <div className="relative w-8 h-8">
+              <Image
+                src="/assets/icons/social/icon-linkedin.svg"
+                alt="LinkedIn"
+                fill
+                className="cursor-pointer hover:opacity-70 transition-opacity"
+              />
+            </div>
+          )}
+          {member.youtube && (
+            <div className="relative w-8 h-8">
+              <Image
+                src="/assets/icons/social/icon-youtube.svg"
+                alt="YouTube"
+                fill
+                className="cursor-pointer hover:opacity-70 transition-opacity"
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

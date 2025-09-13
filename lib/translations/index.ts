@@ -21,7 +21,32 @@ export function useTranslation(locale: Locale) {
     for (const k of keys) {
       value = value?.[k]
       if (value === undefined) {
+        // Try fallback to Korean if current locale is not Korean
+        if (locale !== 'ko') {
+          const fallbackValue = getFallbackTranslation(key, 'ko')
+          if (fallbackValue !== key) {
+            console.warn(`Translation key not found for ${locale}: ${key}, using Korean fallback`)
+            return fallbackValue
+          }
+        }
+
         console.warn(`Translation key not found: ${key}`)
+        // Return a more user-friendly fallback
+        return `[Missing: ${key}]`
+      }
+    }
+
+    return typeof value === 'string' ? value : `[Invalid: ${key}]`
+  }
+
+  const getFallbackTranslation = (key: string, fallbackLocale: Locale): string => {
+    const fallbackMessages = getTranslations(fallbackLocale)
+    const keys = key.split('.')
+    let value: any = fallbackMessages
+
+    for (const k of keys) {
+      value = value?.[k]
+      if (value === undefined) {
         return key
       }
     }
