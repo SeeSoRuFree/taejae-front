@@ -2,98 +2,128 @@
 
 import { useTranslation } from '@/lib/translations'
 import { Locale } from '@/lib/types/locale'
-import { MAX_CONTENT_WIDTH } from '@/lib/constants/layout'
 
 interface InnovationFoundationsProps {
   locale: Locale
 }
 
-const foundationCourses = [
-  {
-    categoryEn: 'Communication & Language',
-    categoryKo: '커뮤니케이션 & 언어',
-    courses: [
-      { en: 'Academic Writing & Research', ko: '학술 작문 및 연구' },
-      { en: 'Global English Communication', ko: '글로벌 영어 커뮤니케이션' },
-      { en: 'Digital Storytelling', ko: '디지털 스토리텔링' },
-      { en: 'Cross-cultural Communication', ko: '다문화 커뮤니케이션' },
-    ],
-  },
-  {
-    categoryEn: 'Analytical Thinking',
-    categoryKo: '분석적 사고',
-    courses: [
-      { en: 'Data Analysis & Statistics', ko: '데이터 분석 및 통계' },
-      { en: 'Logic & Critical Reasoning', ko: '논리 및 비판적 추론' },
-      { en: 'Systems Thinking', ko: '시스템 사고' },
-      { en: 'Research Methodology', ko: '연구 방법론' },
-    ],
-  },
-  {
-    categoryEn: 'Digital Foundations',
-    categoryKo: '디지털 기초',
-    courses: [
-      { en: 'Introduction to AI & Machine Learning', ko: 'AI 및 머신러닝 입문' },
-      { en: 'Computational Thinking', ko: '컴퓨팅 사고' },
-      { en: 'Digital Ethics & Society', ko: '디지털 윤리와 사회' },
-      { en: 'Web Technologies & Platforms', ko: '웹 기술과 플랫폼' },
-    ],
-  },
-  {
-    categoryEn: 'Innovation & Creativity',
-    categoryKo: '혁신과 창의성',
-    courses: [
-      { en: 'Design Thinking Workshop', ko: '디자인 사고 워크숍' },
-      { en: 'Entrepreneurship Fundamentals', ko: '기업가정신 기초' },
-      { en: 'Creative Problem Solving', ko: '창의적 문제 해결' },
-      { en: 'Innovation Lab', ko: '혁신 실험실' },
-    ],
-  },
-]
+interface Course {
+  code: string
+  title: string
+  url?: string
+}
 
 export function InnovationFoundations({ locale }: InnovationFoundationsProps) {
   const { t } = useTranslation(locale)
 
+  const courses: Course[] = [
+    { code: 'F 101', title: 'Critical and Rational Thinking' },
+    { code: 'F 113', title: 'Creative Problem Solving' },
+    { code: 'F 103', title: 'Diversity, Empathy, and Global Citizenship' },
+    { code: 'F 111', title: 'Empowered Learning' },
+    { code: 'F 107', title: 'Data Analysis and Storytelling' },
+    { code: 'F 108', title: 'Judgment and Decision-Making' },
+    { code: 'F 112', title: 'Rhetoric and Persuasion' },
+    { code: 'F 104', title: 'Leadership and Collaboration' },
+    { code: 'F 110', title: 'Navigating Social Systems' },
+    { code: 'F 106', title: 'Sustainability and Equity' },
+  ]
+
   return (
-    <section className="relative w-full py-16 md:py-20 lg:py-24 bg-gray-50">
-      <div className="mx-auto px-4 md:px-6 lg:px-8" style={{ maxWidth: MAX_CONTENT_WIDTH }}>
-        <div className="mb-12">
-          <h2 className="text-[36px] md:text-[48px] lg:text-[56px] font-medium leading-tight tracking-[-1.8px] md:tracking-[-2.8px] text-black mb-4">
-            {locale === 'ko' ? '혁신 기초 학교' : 'School of Innovation Foundations'}
-          </h2>
-          <p className="text-[18px] md:text-[20px] font-normal leading-[1.35] tracking-[-0.6px] text-gray-700 w-full">
-            {locale === 'ko'
-              ? '모든 학생들이 미래를 준비할 수 있도록 필수적인 기초 역량을 구축하는 핵심 교육과정입니다.'
-              : 'Core curriculum that builds essential foundational competencies to prepare all students for the future.'}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {foundationCourses.map((category, index) => (
-            <div key={index} className="bg-white rounded-2xl p-8">
-              <h3 className="text-[22px] font-medium tracking-[-0.66px] text-purple-600 mb-6">
-                {locale === 'ko' ? category.categoryKo : category.categoryEn}
-              </h3>
-              <ul className="space-y-3">
-                {category.courses.map((course, courseIndex) => (
-                  <li key={courseIndex} className="flex items-start">
-                    <span className="inline-block w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span className="text-[16px] font-normal tracking-[-0.48px] text-gray-700 leading-[1.5]">
-                      {locale === 'ko' ? course.ko : course.en}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+    <section className="w-full bg-white">
+      <div className="max-w-[1440px] mx-auto px-[50px] py-[100px] mobile:px-6 mobile:py-16">
+        <div className="flex flex-col gap-[100px] items-center justify-start relative w-full mobile:gap-16">
+          {/* Title Section */}
+          <div className="flex items-start justify-start px-0 py-2.5 relative w-full">
+            <div className="flex flex-col gap-11 items-start justify-start relative w-full">
+              <div className="w-full">
+                <h2 className="font-eb-garamond font-normal text-[64px] text-black leading-[1.1] tracking-[-1.28px] w-full mobile:text-4xl">
+                  <span>School of </span>
+                  <span className="text-[#1da597]">Innovation Foundations</span>
+                </h2>
+              </div>
+              <div className="w-full">
+                <h3 className="font-eb-garamond font-normal text-[44px] text-black leading-[1.1] tracking-[-0.88px] w-full mobile:text-2xl">
+                  Begin your learning journey with six key competencies
+                </h3>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-[16px] font-normal tracking-[-0.48px] text-gray-600 leading-[1.5]">
-            {locale === 'ko'
-              ? '* 모든 Foundation 과정은 온라인과 오프라인 하이브리드 형태로 제공됩니다.'
-              : '* All Foundation courses are offered in hybrid online-offline format.'}
-          </p>
+          {/* Content with right alignment and gap */}
+          <div className="flex gap-[339px] items-start justify-end relative w-full mobile:justify-start mobile:gap-0">
+          <div className="flex flex-col gap-14 items-start justify-center max-w-[840px] w-[840px] relative mobile:w-full mobile:max-w-none">
+            {/* Description Text */}
+            <div className="flex flex-col gap-4 items-start justify-start relative w-[840px] mobile:w-full">
+              <div className="font-rethink-sans font-normal leading-[1.5] text-[#111111] text-[20px] tracking-[-0.6px] w-full mobile:text-lg">
+                <p className="mb-0">
+                  At the School of Innovation Foundations, your learning experience starts with you. As a first-year student, you'll begin with Innovative Foundation—a one-year mandatory module designed to help you thrive in a rapidly changing world. This foundational program focuses on six key competencies: critical thinking, creative thinking, self-directed learning, empathy and diversity, communication and collaboration, and global harmony and sustainability.
+                </p>
+                <p className="mb-0">&nbsp;</p>
+                <p className="mb-0">
+                  Through this module, you'll gain the tools to think deeply, act thoughtfully, and lead with purpose. You'll build not only a strong academic base but also the mindset and skills needed to engage meaningfully with others and create positive change.
+                </p>
+                <p className="mb-0">
+                  Learning here is anything but passive. You'll dive into hands-on projects, group challenges, and real-world case studies that turn ideas into action. Our classrooms are dynamic, collaborative spaces where you're encouraged to question, create, and grow.
+                </p>
+                <p className="mb-0">&nbsp;</p>
+                <p>
+                  Whether you're discovering new passions or preparing for a specific path, the School of Innovation Foundations is where your journey as a future-ready, globally minded changemaker truly begins.
+                </p>
+              </div>
+            </div>
+
+            {/* Course List */}
+            <div className="flex flex-col gap-4 items-start justify-start relative w-[840px] mobile:w-full">
+              <h4 className="font-eb-garamond font-normal text-[44px] text-black leading-[1.1] tracking-[-0.88px] w-full mobile:text-2xl">
+                Here are what you'll learn…
+              </h4>
+              
+              <div className="flex flex-col gap-6 items-start justify-start pt-8 relative w-full">
+                {courses.map((course, index) => (
+                  <div key={course.code} className="w-full">
+                    {index === 0 && (
+                      <div className="h-0 relative w-full mb-6">
+                        <img 
+                          alt="Divider" 
+                          className="block max-w-none w-full h-px" 
+                          src="/assets/divider-line.svg" 
+                        />
+                      </div>
+                    )}
+                    <a 
+                      href="#"
+                      className="flex font-rethink-sans font-normal items-center justify-between text-[18px] tracking-[-0.54px] w-full hover:text-[#1da597] transition-colors mobile:text-base"
+                    >
+                      <div className="text-[#767676] w-20 shrink-0">
+                        <p className="leading-[1.5]">{course.code}</p>
+                      </div>
+                      <div className="basis-0 grow max-w-[600px] text-black">
+                        <p className="leading-[1.5]">{course.title}</p>
+                      </div>
+                    </a>
+                    <div className="h-0 relative w-full mt-6">
+                      <img 
+                        alt="Divider" 
+                        className="block max-w-none w-full h-px" 
+                        src="/assets/divider-line.svg" 
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Learn More Button */}
+            <div className="bg-[#111111] relative rounded-[50px] shrink-0">
+              <div className="flex flex-col items-center justify-center px-[22px] py-2.5 relative">
+                <p className="font-rethink-sans font-medium text-[15px] leading-[1.5] text-white tracking-[-0.3px] whitespace-pre">
+                  Learn more 
+                </p>
+              </div>
+            </div>
+          </div>
+          </div>
         </div>
       </div>
     </section>

@@ -140,11 +140,26 @@ messages/            # 번역 JSON 파일
 - **Imperatives**: Taejae Imperatives 카드용 5가지 고유 색상
 - **그라디언트**: 히어로 섹션용 프라이머리 그라디언트 (cyan to purple)
 
-### 타이포그래피
+### 타이포그래피 및 폰트 시스템
 
-- **폰트**: Instrument Sans (시스템 폴백 포함)
-- **반응형 크기**: 모바일/데스크톱 별도 크기 (예: H1: 데스크톱 64px, 모바일 40px)
+#### 폰트 패밀리
+- **기본 폰트**: Instrument Sans (`font-sans`) - 시스템 폴백 포함
+- **serif 폰트**: EB Garamond (`font-eb-garamond`) - 제목 및 강조용
+- **디스플레이 폰트**: Bodoni 72 (`font-bodoni`) - 심볼 및 특수 표시용
+- **보조 sans 폰트**: Rethink Sans (`font-rethink-sans`) - 본문 보조용
+- **기타**: Inter (`font-inter`), Playfair (`font-playfair`)
+
+#### 폰트 사용 규칙
+- **✅ 올바른 사용법**: Tailwind 폰트 클래스 사용 (`font-eb-garamond`, `font-bodoni`)
+- **❌ 잘못된 사용법**: 직접 폰트명 사용 (`font-['EB_Garamond']`, `font-['Bodoni_72']`)
+- **일관성 원칙**: 같은 용도의 텍스트는 동일한 폰트 패밀리 사용
+- **폰트 폴백**: 모든 폰트는 적절한 시스템 폴백 포함
+
+#### 반응형 타이포그래피
+- **데스크톱/모바일 별도 크기**: 예시 H1 (데스크톱 64px, 모바일 40px)
 - **폰트 굵기**: 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
+- **라인 하이트**: 제목 1.1-1.3, 본문 1.5-1.6
+- **레터 스페이싱**: 큰 제목은 음수 값 사용 (예: -0.02em)
 
 ### 컴포넌트 패턴
 
