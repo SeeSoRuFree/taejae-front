@@ -23,7 +23,7 @@ export function WhatLearnHero({ locale }: WhatLearnHeroProps) {
           </h1>
         </div>
 
-        <div className="max-w-[840px]">
+        <div className="w-full">
           <p className="text-[18px] md:text-[20px] font-normal leading-[1.35] tracking-[-0.6px] text-black">
             {locale === 'ko' ? (
               <>

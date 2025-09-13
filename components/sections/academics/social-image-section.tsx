@@ -7,8 +7,8 @@ export function SocialImageSection() {
     <section className="w-full h-[480px] overflow-hidden">
       <div className="relative w-full h-full">
         <Image
-          src="/assets/social-main.png"
-          alt="Students collaborating"
+          src="/assets/academics/img_social_main-lg.png"
+          alt="Students collaborating in social learning environment"
           fill
           className="object-cover object-center"
           priority

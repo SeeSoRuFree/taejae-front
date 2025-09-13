@@ -10,7 +10,7 @@ export function PhilosophySection({ locale }: PhilosophySectionProps) {
   return (
     <section className="w-full px-12 py-2.5">
       <div className="max-w-[1440px] mx-auto">
-        <div className="max-w-[960px]">
+        <div className="w-full">
           <p className="font-['Rethink_Sans'] text-[20px] font-normal leading-[1.5] tracking-[-0.6px] text-[#111111]">
             {locale === 'ko' ? (
               <>

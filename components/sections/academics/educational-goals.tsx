@@ -43,15 +43,15 @@ export function EducationalGoals({ locale }: EducationalGoalsProps) {
   const { t } = useTranslation(locale)
 
   return (
-    <section className="w-full px-12 py-[100px] mb-20">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-[120px]">
+    <section className="w-full px-12 py-[100px]">
+      <div className="max-w-[1440px] mx-auto flex flex-col gap-[100px]">
         {/* Section Title */}
         <div className="py-2.5">
-          <div className="flex flex-col gap-2.5 max-w-[720px]">
+          <div className="flex flex-col gap-2.5 w-full">
             <h2 className="font-['EB_Garamond'] text-[44px] font-normal leading-[1.1] tracking-[-0.88px] text-[#111111]">
               {locale === 'ko' ? '우리의 교육 목표' : 'Our educational goals'}
             </h2>
-            <p className="font-['Rethink_Sans'] text-[20px] font-normal leading-[1.5] tracking-[-0.6px] text-[#111111] max-w-[685px]">
+            <p className="font-['Rethink_Sans'] text-[20px] font-normal leading-[1.5] tracking-[-0.6px] text-[#111111] w-full">
               {locale === 'ko'
                 ? '글로벌 리더이자 변화를 만드는 사람이 되도록 준비시키기 위해.'
                 : 'To equip you to become a global leader and changemaker.'}

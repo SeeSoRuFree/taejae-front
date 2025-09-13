@@ -87,7 +87,7 @@ export function FutureConvergence({ locale }: FutureConvergenceProps) {
           <h2 className="text-[36px] md:text-[48px] lg:text-[56px] font-medium leading-tight tracking-[-1.8px] md:tracking-[-2.8px] text-black mb-4">
             {locale === 'ko' ? '미래 융합 연구 학교' : 'School of Future Convergence Studies'}
           </h2>
-          <p className="text-[18px] md:text-[20px] font-normal leading-[1.35] tracking-[-0.6px] text-gray-700 max-w-[800px]">
+          <p className="text-[18px] md:text-[20px] font-normal leading-[1.35] tracking-[-0.6px] text-gray-700 w-full">
             {locale === 'ko'
               ? '학문의 경계를 넘어서는 융합 프로그램으로 미래 사회가 필요로 하는 창의적 인재를 양성합니다.'
               : 'Cultivating creative talents for future society through convergence programs that transcend disciplinary boundaries.'}

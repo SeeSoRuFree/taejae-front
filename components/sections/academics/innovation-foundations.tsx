@@ -61,7 +61,7 @@ export function InnovationFoundations({ locale }: InnovationFoundationsProps) {
           <h2 className="text-[36px] md:text-[48px] lg:text-[56px] font-medium leading-tight tracking-[-1.8px] md:tracking-[-2.8px] text-black mb-4">
             {locale === 'ko' ? '혁신 기초 학교' : 'School of Innovation Foundations'}
           </h2>
-          <p className="text-[18px] md:text-[20px] font-normal leading-[1.35] tracking-[-0.6px] text-gray-700 max-w-[800px]">
+          <p className="text-[18px] md:text-[20px] font-normal leading-[1.35] tracking-[-0.6px] text-gray-700 w-full">
             {locale === 'ko'
               ? '모든 학생들이 미래를 준비할 수 있도록 필수적인 기초 역량을 구축하는 핵심 교육과정입니다.'
               : 'Core curriculum that builds essential foundational competencies to prepare all students for the future.'}

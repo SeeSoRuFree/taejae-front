@@ -88,7 +88,7 @@ export function GlobalCampuses({ locale }: GlobalCampusesProps) {
       </div>
 
       {/* World Map Container */}
-      <div className="relative w-full max-w-[1200px] h-[400px] flex items-center justify-center">
+      <div className="relative w-full max-w-[1440px] h-[400px] flex items-center justify-center">
         {/* World Map Image */}
         <div className="relative w-full h-full">
           <Image
@@ -96,7 +96,7 @@ export function GlobalCampuses({ locale }: GlobalCampusesProps) {
             alt="World map showing global campus locations"
             fill
             className="object-contain"
-            sizes="(max-width: 768px) 100vw, 1200px"
+            sizes="(max-width: 768px) 100vw, 1440px"
           />
         </div>
 

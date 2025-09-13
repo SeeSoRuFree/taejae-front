@@ -18,7 +18,6 @@ export const ASSETS = {
 
   // Background decorations
   BACKGROUNDS: {
-    GRADIENT_GLASS_18: '/assets/gradient-glass-18.png',
     INFINITY_VISION_BG: '/assets/infinity-vision-bg.png',
   },
 

@@ -13,13 +13,13 @@ function HeroSection({ locale }: { locale: Locale }) {
   return (
     <section className="relative w-full bg-white py-16 md:py-20 lg:py-24">
       <div className="mx-auto px-4 md:px-6 lg:px-8" style={{ maxWidth: MAX_CONTENT_WIDTH }}>
-        <div className="max-w-[720px]">
+        <div className="w-full">
           <h1 className="text-[40px] md:text-[56px] lg:text-[64px] font-medium leading-tight tracking-[-2px] md:tracking-[-3.2px] text-black mb-12">
             {t('academics.whatLearn.hero.title')}
           </h1>
         </div>
 
-        <div className="max-w-[840px]">
+        <div className="w-full">
           <div className="text-[18px] md:text-[20px] font-normal leading-[1.35] tracking-[-0.6px] text-black space-y-5">
             <p>{t('academics.whatLearn.hero.description1')}</p>
             <p>{t('academics.whatLearn.hero.description2')}</p>
@@ -38,7 +38,7 @@ function CompetenciesDiagram({ locale }: { locale: Locale }) {
   return (
     <section className="relative w-full bg-white py-16 md:py-20 lg:py-24">
       <div className="mx-auto px-4 md:px-6 lg:px-8" style={{ maxWidth: MAX_CONTENT_WIDTH }}>
-        <div className="max-w-[720px] mb-12">
+        <div className="w-full mb-12">
           <h2 className="text-[40px] md:text-[56px] lg:text-[64px] font-medium leading-tight tracking-[-2px] md:tracking-[-3.2px] text-black">
             {t('academics.whatLearn.competencies.title')}
           </h2>
@@ -140,7 +140,7 @@ function CompetenciesDiagram({ locale }: { locale: Locale }) {
         </div>
 
         {/* Competency details grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1380px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1440px]">
           <div className="space-y-2">
             <h3 className="text-[22px] font-medium leading-[1.35] tracking-[-0.66px] text-black">
               {t('academics.whatLearn.competencies.criticalThinking.title')}

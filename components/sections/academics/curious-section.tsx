@@ -24,7 +24,7 @@ export function CuriousSection({ locale }: CuriousSectionProps) {
             : "Curious about what we'll learn in our interdisciplinary journey to solve humanity&apos;s challenges?"}
         </h2>
 
-        <p className="text-[18px] md:text-[20px] font-normal leading-[1.35] tracking-[-0.6px] text-gray-300 max-w-[800px] mx-auto mb-12">
+        <p className="text-[18px] md:text-[20px] font-normal leading-[1.35] tracking-[-0.6px] text-gray-300 w-full mx-auto mb-12">
           {locale === 'ko'
             ? '태제대학교의 혁신적인 커리큘럼과 프로그램에 대해 더 알아보고 싶으시다면 연락해주세요.'
             : 'Get in touch to learn more about Taejae University&apos;s innovative curriculum and programs.'}

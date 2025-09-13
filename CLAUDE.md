@@ -109,7 +109,7 @@ messages/            # 번역 JSON 파일
 
 4. **로딩 상태**: Next.js Suspense와 skeleton 컴포넌트를 활용한 포괄적인 로딩 상태 관리.
 
-5. **국제화 시스템**: 
+5. **국제화 시스템**:
    - 커스텀 번역 시스템 with 한국어 fallback
    - 타입 안전한 번역 키 관리
    - 사용자 친화적 에러 메시지 (`[Missing: key]`)
