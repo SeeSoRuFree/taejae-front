@@ -14,7 +14,7 @@ export function getTranslations(locale: Locale) {
 export function useTranslation(locale: Locale) {
   const messages = getTranslations(locale)
 
-  const t = (key: string): string => {
+  const t = (key: string): any => {
     const keys = key.split('.')
     let value: any = messages
 
@@ -36,7 +36,7 @@ export function useTranslation(locale: Locale) {
       }
     }
 
-    return typeof value === 'string' ? value : `[Invalid: ${key}]`
+    return value
   }
 
   const getFallbackTranslation = (key: string, fallbackLocale: Locale): string => {

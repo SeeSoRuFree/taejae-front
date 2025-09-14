@@ -77,9 +77,9 @@ export function SixCompetencies({ locale }: SixCompetenciesProps) {
           <div className="flex items-start justify-start px-0 py-2.5 relative w-full">
             <div className="flex flex-col gap-11 items-start justify-start max-w-[720px] relative w-full">
               <h2 className="font-eb-garamond font-normal text-[64px] text-[#111111] leading-[1.1] tracking-[-1.28px] w-full mobile:text-4xl">
-                <span>What are </span>
+                {t('academics.whatLearn.competencies.title').split(' ').slice(0, 2).join(' ')}{' '}
                 <br className="mobile:hidden" />
-                <span className="text-[#1da597]">Six competencies?</span>
+                <span className="text-[#1da597]">{t('academics.whatLearn.competencies.title').split(' ').slice(2).join(' ')}</span>
               </h2>
             </div>
           </div>

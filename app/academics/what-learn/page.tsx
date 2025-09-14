@@ -1,6 +1,7 @@
 'use client'
 
 import { useLocaleStore } from '@/lib/store/locale-store'
+import { useTranslation } from '@/lib/translations'
 import { PageLayout } from '@/components/layout/page-layout'
 import { WhatLearnHero } from '@/components/sections/academics/what-learn-hero'
 import { SixCompetencies } from '@/components/sections/academics/six-competencies'
@@ -10,46 +11,98 @@ import { AcademicCurriculumSection } from '@/components/sections/academics/acade
 
 export default function WhatLearnPage() {
   const locale = useLocaleStore((state) => state.locale)
+  const { t } = useTranslation(locale)
 
-  // Natural Sciences curriculum data (피그마에서 가져온 정확한 데이터)
-  const naturalSciencesData = {
-    title: 'Natural Sciences',
-    subtitle: 'Explore the fundamental principles of the natural world',
-    backgroundImage: '/assets/academics/ns-background.png',
-    categories: [
-      {
-        title: 'Fundamentals',
-        courses: [
-          'Perspectives on Humans and Society',
-          'Global History I',
-          'Global Narratives',
-          'Domestic and International Politics'
-        ]
-      },
-      {
-        title: 'Advanced',
-        courses: [
-          'Global History II',
-          'Global Philosophy',
-          'Humanities Special Seminar I & II',
-          'Social Science Special Seminar II'
-        ]
-      },
-      {
-        title: 'Interdisciplinary',
-        courses: [
-          'Literary and Cultural Connections',
-          'Creative Digital Humanities',
-          'Domestic Problems and Social Changes',
-          'Global Challenges and Governance',
-          'Navigating Tomorrow : Emerging Technologies and Future Society',
-          'Special Cross-disciplinary Seminar I & II'
-        ]
-      }
-    ],
-    buttonText: 'Learn more ',
-    buttonHref: '/academics/natural-sciences'
-  }
+  // Curriculum data for all 4 sections
+  const curriculumSections = [
+    {
+      title: t('academics.whatLearn.curriculum.naturalSciences.title'),
+      subtitle: t('academics.whatLearn.curriculum.naturalSciences.subtitle'),
+      backgroundImage: '/assets/academics/ns-background.png',
+      categories: [
+        {
+          title: t('academics.whatLearn.curriculum.naturalSciences.fundamentals'),
+          courses: t('academics.whatLearn.curriculum.naturalSciences.courses.fundamentals') as string[]
+        },
+        {
+          title: t('academics.whatLearn.curriculum.naturalSciences.advanced'),
+          courses: t('academics.whatLearn.curriculum.naturalSciences.courses.advanced') as string[]
+        },
+        {
+          title: t('academics.whatLearn.curriculum.naturalSciences.interdisciplinary'),
+          courses: t('academics.whatLearn.curriculum.naturalSciences.courses.interdisciplinary') as string[]
+        }
+      ],
+      buttonText: t('academics.whatLearn.curriculum.naturalSciences.buttonText'),
+      buttonHref: '/academics/natural-sciences'
+    },
+    {
+      title: t('academics.whatLearn.curriculum.naturalSciences2.title'),
+      subtitle: t('academics.whatLearn.curriculum.naturalSciences2.subtitle'),
+      backgroundImage: '/assets/academics/social-sciences-bg.png',
+      decorativeImage: '/assets/academics/social-sciences-decoration.png',
+      categories: [
+        {
+          title: t('academics.whatLearn.curriculum.naturalSciences2.fundamentals'),
+          courses: t('academics.whatLearn.curriculum.naturalSciences2.courses.fundamentals') as string[]
+        },
+        {
+          title: t('academics.whatLearn.curriculum.naturalSciences2.advanced'),
+          courses: t('academics.whatLearn.curriculum.naturalSciences2.courses.advanced') as string[]
+        },
+        {
+          title: t('academics.whatLearn.curriculum.naturalSciences2.interdisciplinary'),
+          courses: t('academics.whatLearn.curriculum.naturalSciences2.courses.interdisciplinary') as string[]
+        }
+      ],
+      buttonText: t('academics.whatLearn.curriculum.naturalSciences2.buttonText'),
+      buttonHref: '/academics/natural-sciences-2'
+    },
+    {
+      title: t('academics.whatLearn.curriculum.dataScienceAI.title'),
+      subtitle: t('academics.whatLearn.curriculum.dataScienceAI.subtitle'),
+      backgroundImage: '/assets/academics/data-science-bg.png',
+      decorativeImage: '/assets/academics/data-science-robot.png',
+      categories: [
+        {
+          title: t('academics.whatLearn.curriculum.dataScienceAI.fundamentals'),
+          courses: t('academics.whatLearn.curriculum.dataScienceAI.courses.fundamentals') as string[]
+        },
+        {
+          title: t('academics.whatLearn.curriculum.dataScienceAI.advanced'),
+          courses: t('academics.whatLearn.curriculum.dataScienceAI.courses.advanced') as string[]
+        },
+        {
+          title: t('academics.whatLearn.curriculum.dataScienceAI.interdisciplinary'),
+          courses: t('academics.whatLearn.curriculum.dataScienceAI.courses.interdisciplinary') as string[]
+        }
+      ],
+      buttonText: t('academics.whatLearn.curriculum.dataScienceAI.buttonText'),
+      buttonHref: '/academics/data-science-ai'
+    },
+    {
+      title: t('academics.whatLearn.curriculum.businessInnovation.title'),
+      subtitle: t('academics.whatLearn.curriculum.businessInnovation.subtitle'),
+      backgroundImage: '/assets/academics/business-innovation-bg.png',
+      decorativeImage: '/assets/academics/business-innovation-decoration.png',
+      categories: [
+        {
+          title: t('academics.whatLearn.curriculum.businessInnovation.fundamentals'),
+          courses: t('academics.whatLearn.curriculum.businessInnovation.courses.fundamentals') as string[]
+        },
+        {
+          title: t('academics.whatLearn.curriculum.businessInnovation.advanced'),
+          courses: t('academics.whatLearn.curriculum.businessInnovation.courses.advanced') as string[]
+        },
+        {
+          title: t('academics.whatLearn.curriculum.businessInnovation.interdisciplinary'),
+          courses: t('academics.whatLearn.curriculum.businessInnovation.courses.interdisciplinary') as string[]
+        }
+      ],
+      buttonText: t('academics.whatLearn.curriculum.businessInnovation.buttonText'),
+      buttonHref: '/academics/business-innovation'
+    }
+  ]
 
   return (
     <PageLayout className="min-h-screen bg-white">
@@ -57,7 +110,13 @@ export default function WhatLearnPage() {
       <SixCompetencies locale={locale} />
       <InnovationFoundations locale={locale} />
       <FutureConvergence locale={locale} />
-      <AcademicCurriculumSection {...naturalSciencesData} />
+      {curriculumSections.map((section, index) => (
+        <AcademicCurriculumSection 
+          key={index} 
+          {...section} 
+          hideImageTitle={index === 0} 
+        />
+      ))}
     </PageLayout>
   )
 }

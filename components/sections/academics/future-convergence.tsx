@@ -15,12 +15,7 @@ interface Program {
 export function FutureConvergence({ locale }: FutureConvergenceProps) {
   const { t } = useTranslation(locale)
 
-  const programs: Program[] = [
-    { name: 'Humanities and Social Sciences' },
-    { name: 'Natural Sciences' },
-    { name: 'Data Science and Artificial Intelligence' },
-    { name: 'Business and Innovation' },
-  ]
+  const programs = (t('academics.whatLearn.futureConvergence.programmes') as string[]).map(name => ({ name }))
 
   return (
     <section className="w-full bg-white">
@@ -32,16 +27,16 @@ export function FutureConvergence({ locale }: FutureConvergenceProps) {
               <div className="max-w-[720px] w-full">
                 <h2 className="font-eb-garamond font-normal text-[64px] text-black leading-[1.1] tracking-[-1.28px] w-full mobile:text-4xl">
                   <p className="leading-[1.1]">
-                    <span>School of </span>
-                    <span className="text-[#1da597]">Future</span>
+                    <span>{t('academics.whatLearn.futureConvergence.title').split(' ').slice(0, 2).join(' ')} </span>
+                    <span className="text-[#1da597]">{t('academics.whatLearn.futureConvergence.title').split(' ')[2]}</span>
                     <br />
-                    <span className="text-[#1da597]">Convergence Studies</span>
+                    <span className="text-[#1da597]">{t('academics.whatLearn.futureConvergence.title').split(' ').slice(3).join(' ')}</span>
                   </p>
                 </h2>
               </div>
               <div className="w-full">
                 <h3 className="font-eb-garamond font-normal text-[44px] text-black leading-[1.1] tracking-[-0.88px] w-full mobile:text-2xl">
-                  <p className="leading-[1.1]">Design your own learning pathway from Year 2 to Year 4</p>
+                  <p className="leading-[1.1]">{t('academics.whatLearn.futureConvergence.subtitle')}</p>
                 </h3>
               </div>
             </div>
@@ -63,7 +58,7 @@ export function FutureConvergence({ locale }: FutureConvergenceProps) {
               {/* Description Text */}
               <div className="flex flex-col gap-2 items-start justify-start relative w-[840px] mobile:w-full">
                 <div className="font-sans font-normal text-[20px] text-black tracking-[-0.6px] w-full mobile:text-lg" style={{ fontVariationSettings: "'wdth' 100" }}>
-                  <p className="leading-[1.35]">Beginning in your second year, you'll shape your own academic journey by choosing courses that align with your interests and aspirations. These courses are offered across four interdisciplinary academic programmes:</p>
+                  <p className="leading-[1.35]">{t('academics.whatLearn.futureConvergence.description1')}</p>
                 </div>
               </div>
 
@@ -147,7 +142,7 @@ export function FutureConvergence({ locale }: FutureConvergenceProps) {
               {/* Closing Text */}
               <div className="flex flex-col gap-2 items-start justify-start relative w-[840px] mobile:w-full">
                 <div className="font-sans font-normal text-[20px] text-black tracking-[-0.6px] w-full mobile:text-lg" style={{ fontVariationSettings: "'wdth' 100" }}>
-                  <p className="leading-[1.35]">With support and mentorship from dedicated faculty, you'll design a personalized learning pathway that reflects your goals. At Taejae, your education is not predefined—you have the freedom to explore, combine, and deepen your areas of focus as you choose. This is your opportunity to create an academic track that's uniquely yours.</p>
+                  <p className="leading-[1.35]">{t('academics.whatLearn.futureConvergence.description2')}</p>
                 </div>
               </div>
             </div>

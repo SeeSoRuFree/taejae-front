@@ -12,6 +12,8 @@ interface AcademicCurriculumSectionProps {
   categories: CourseCategory[]
   buttonText: string
   buttonHref?: string
+  hideImageTitle?: boolean
+  decorativeImage?: string
 }
 
 export function AcademicCurriculumSection({
@@ -20,7 +22,9 @@ export function AcademicCurriculumSection({
   backgroundImage,
   categories,
   buttonText,
-  buttonHref = '#'
+  buttonHref = '#',
+  hideImageTitle = false,
+  decorativeImage
 }: AcademicCurriculumSectionProps) {
   return (
     <section className="w-full bg-white">
@@ -28,30 +32,58 @@ export function AcademicCurriculumSection({
         <div className="flex gap-28 items-start justify-end relative w-full mobile:flex-col mobile:gap-8">
           {/* Image Section */}
           <div 
-            className="basis-0 grow min-h-[903px] relative rounded-[24px] overflow-hidden"
+            className="basis-0 grow self-stretch relative rounded-[24px] overflow-hidden"
             style={{
               backgroundImage: `url('${backgroundImage}')`,
               backgroundPosition: '0% 0%, 50% 50%',
-              backgroundSize: 'auto, cover',
-              backgroundColor: 'rgba(255,255,255,0.9)'
+              backgroundSize: 'auto, cover'
             }}
           >
+            {/* White overlay for better text visibility */}
+            <div className="absolute inset-0 bg-white/90 rounded-[24px]" />
             {/* Bottom overlay image */}
-            <div 
-              className="absolute bg-center bg-cover bg-no-repeat h-[903px] left-[-13px] top-0 w-[456px]"
-              style={{
-                backgroundImage: `url('/assets/academics/ns-main-overlay.png')`
-              }}
-            />
+            {decorativeImage ? (
+              title === 'Data Science and Artificial Intelligence' ? (
+                <div 
+                  className="absolute bg-center bg-cover bg-no-repeat h-[509px] left-[-61px] top-[566px] w-[299px] opacity-90 z-10"
+                  style={{
+                    backgroundImage: `url('${decorativeImage}')`
+                  }}
+                />
+              ) : title === 'Business Innovation' ? (
+                <div 
+                  className="absolute bg-center bg-cover bg-no-repeat h-[220px] left-6 top-[696px] w-[146px] z-10"
+                  style={{
+                    backgroundImage: `url('${decorativeImage}')`
+                  }}
+                />
+              ) : (
+                <div 
+                  className="absolute bg-center bg-cover bg-no-repeat h-[312px] left-[-32px] bottom-0 w-[269px] z-10"
+                  style={{
+                    backgroundImage: `url('${decorativeImage}')`
+                  }}
+                />
+              )
+            ) : (
+              <div 
+                className="absolute bg-center bg-cover bg-no-repeat h-[903px] left-[-13px] top-0 w-[456px] z-10"
+                style={{
+                  backgroundImage: `url('/assets/academics/ns-main-overlay.png')`
+                }}
+              />
+            )}
             
             {/* Title overlay */}
-            <div className="absolute font-eb-garamond font-normal text-[44px] text-black tracking-[-0.88px] left-9 top-[50px] w-[292px]">
-              <p className="leading-[1.1]">
-                {title.split(' ')[0]} 
-                <br />
-                {title.split(' ').slice(1).join(' ')}
-              </p>
-            </div>
+            {!hideImageTitle && (
+              <div className="absolute font-eb-garamond font-normal text-[44px] text-black tracking-[-0.88px] left-9 top-[50px] w-[292px] z-20">
+                <p className="leading-[1.1]">
+                  {title.split(' ')[0]} 
+                  <br />
+                  {title.split(' ').slice(1).join(' ')}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Content Section */}

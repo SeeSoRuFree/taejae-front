@@ -188,6 +188,200 @@
         "description1": "It is our educational philosophy to foster your critical and creative thinking for global harmony and sustainability. We are committed to nurturing you as global leaders equipped with the vision, agility, and integrity to navigate and shape a rapidly evolving world.",
         "description2": "Grounded in our belief in the power of education to unite humanity, we are committed to nurturing you into a leader who bridges Eastern and Western cultures, contributes to a sustainable future, and leads with empathy and innovation."
       }
+    },
+    "whatLearn": {
+      "hero": {
+        "titleMain": "What do you",
+        "titleAccent": "learn",
+        "description1": "At Taejae University, learning goes beyond traditional study—it's about becoming a person who can thrive in a rapidly changing world. Our curriculum is designed around six core competencies that shape both our academic and everyday practices: Critical Thinking, Creative Thinking, Self-Directed Learning, Communication & Collaboration, Diversity & Empathy, and Global Harmony & Sustainability. These values are not just ideals—they guide every decision we make, from classroom instruction to institutional strategy.",
+        "description2": "In your first year at the School of Innovation Foundations, you'll develop the ability to think critically and creatively, take ownership of your learning, and collaborate with peers from around the world. As you grow into a skilled communicator, team player, and compassionate global citizen, you'll lay a strong foundation for your academic journey.",
+        "description3": "From your second year onward, through the School of Future Convergence Major, you'll deepen the six core competencies while pursuing specialized programs tailored to your academic pathway. Whether you're addressing real-world challenges or exploring bold ideas, you'll be equipped not just to keep pace with a rapidly changing world—but to lead it into the future."
+      },
+      "competencies": {
+        "title": "What are Six competencies?",
+        "criticalThinking": {
+          "title": "Critical Thinking",
+          "description": "Critical thinking is the ability to think analytically and systematically, examining information and ideas with depth and precision. You can apply critical thinking to evaluate diverse perspectives, uncover underlying assumptions, and assess the strength of arguments. This empowers you to make informed decisions and solve complex problems with clarity, logic, and confidence."
+        },
+        "creativeThinking": {
+          "title": "Creative Thinking",
+          "description": "Creative thinking is the ability to generate original, innovative, and practical solutions by thinking beyond conventional boundaries. You can develop creative thinking at Taejae by exploring diverse heuristics, practicing problem-solving strategies, and applying fresh ideas in real-world contexts. This enables you to approach challenges with curiosity, embrace bold intellectual risks, and lead meaningful, transformative change."
+        },
+        "selfDirectedLearning": {
+          "title": "Self-Directed Learning",
+          "description": "Self-directed learning is the ability to take initiative, set goals, and manage your own learning process in a purposeful and reflective way. Throughout your academic journey at Taejae, you'll develop this skill by identifying your learning needs, seeking out resources, and regularly assessing your progress—both inside and outside the classroom. In the end, you will become a lifelong learner, ready to adapt to new challenges and pursue personal and professional growth with independence and confidence."
+        },
+        "communicationCollaboration": {
+          "title": "Communication & Collaboration",
+          "description": "Critical thinking is the ability to think analytically and systematically, examining information and ideas with depth and precision. You can apply critical thinking to evaluate diverse perspectives, uncover underlying assumptions, and assess the strength of arguments. This empowers you to make informed decisions and solve complex problems with clarity, logic, and confidence."
+        },
+        "diversityEmpathy": {
+          "title": "Diversity & Empathy",
+          "description": "Critical thinking is the ability to think analytically and systematically, examining information and ideas with depth and precision. You can apply critical thinking to evaluate diverse perspectives, uncover underlying assumptions, and assess the strength of arguments. This empowers you to make informed decisions and solve complex problems with clarity, logic, and confidence."
+        },
+        "globalHarmony": {
+          "title": "Global Harmony & Sustainability",
+          "description": "Global harmony and sustainability involve understanding the interconnectedness of environmental, social, and economic systems and acting responsibly to promote their long-term well-being. At Taejae, you'll cultivate this competency by studying sustainable practices, reflecting on global challenges, and designing innovative solutions that balance the needs of people and the planet. This prepares you to make decisions that foster a sustainable future and contribute positively to communities worldwide."
+        }
+      },
+      "innovationFoundations": {
+        "title": "School of Innovation Foundations",
+        "subtitle": "Begin your learning journey grounded in six competencies in First year.",
+        "description1": "At the School of Innovation Foundations, your learning experience starts with you. As a first-year student, you'll begin with Innovative Foundation—a one-year mandatory module designed to help you thrive in a rapidly changing world. This foundational program focuses on six key competencies: critical thinking, creative thinking, self-directed learning, empathy and diversity, communication and collaboration, and global harmony and sustainability.",
+        "description2": "Through this module, you'll gain the tools to think deeply, act thoughtfully, and lead with purpose. You'll build not only a strong academic base but also the mindset and skills needed to engage meaningfully with others and create positive change.",
+        "description3": "Learning here is anything but passive. You'll dive into hands-on projects, group challenges, and real-world case studies that turn ideas into action. Our classrooms are dynamic, collaborative spaces where you're encouraged to question, create, and grow.",
+        "description4": "Whether you're discovering new passions or preparing for a specific path, the School of Innovation Foundations is where your journey as a future-ready, globally minded changemaker truly begins.",
+        "coursesTitle": "Here are what you'll learn…",
+        "courses": [
+          {"code": "F 101", "title": "Critical and Rational Thinking"},
+          {"code": "F 113", "title": "Creative Problem Solving"},
+          {"code": "F 103", "title": "Diversity, Empathy, and Global Citizenship"},
+          {"code": "F 111", "title": "Empowered Learning"},
+          {"code": "F 107", "title": "Data Analysis and Storytelling"},
+          {"code": "F 108", "title": "Judgment and Decision-Making"},
+          {"code": "F 112", "title": "Rhetoric and Persuasion"},
+          {"code": "F 104", "title": "Leadership and Collaboration"},
+          {"code": "F 110", "title": "Navigating Social Systems"},
+          {"code": "F 106", "title": "Sustainability and Equity"}
+        ],
+        "buttonText": "Learn more"
+      },
+      "futureConvergence": {
+        "title": "School of Future Convergence Studies",
+        "subtitle": "Design your own learning pathway from Year 2 to Year 4",
+        "description1": "Beginning in your second year, you'll shape your own academic journey by choosing courses that align with your interests and aspirations. These courses are offered across four interdisciplinary academic programmes:",
+        "description2": "With support and mentorship from dedicated faculty, you'll design a personalized learning pathway that reflects your goals. At Taejae, your education is not predefined—you have the freedom to explore, combine, and deepen your areas of focus as you choose. This is your opportunity to create an academic track that's uniquely yours.",
+        "programmes": [
+          "Humanities and Social Sciences",
+          "Natural Sciences", 
+          "Data Science and Artificial Intelligence",
+          "Business and Innovation"
+        ]
+      },
+      "curriculum": {
+        "naturalSciences": {
+          "title": "Natural Sciences",
+          "subtitle": "Explore the fundamental principles of the natural world",
+          "fundamentals": "Fundamentals",
+          "advanced": "Advanced",
+          "interdisciplinary": "Interdisciplinary",
+          "buttonText": "Learn more",
+          "courses": {
+            "fundamentals": [
+              "Physics Principles",
+              "Chemistry Foundations",
+              "Biology Essentials",
+              "Mathematics for Sciences"
+            ],
+            "advanced": [
+              "Quantum Physics",
+              "Organic Chemistry",
+              "Molecular Biology",
+              "Statistical Analysis"
+            ],
+            "interdisciplinary": [
+              "Scientific Method",
+              "Laboratory Techniques",
+              "Data Analysis",
+              "Research Ethics"
+            ]
+          }
+        },
+        "naturalSciences2": {
+          "title": "Natural Sciences",
+          "subtitle": "Explore the fundamental principles of the natural world",
+          "fundamentals": "Fundamentals",
+          "advanced": "Advanced",
+          "interdisciplinary": "Interdisciplinary",
+          "buttonText": "Learn more",
+          "courses": {
+            "fundamentals": [
+              "Energy and Matter in Systems",
+              "Atoms to Systems",
+              "A study of Life",
+              "Earth Systems and Climate Science",
+              "Quantitative Modeling in Social and Natural Sciences",
+              "Experimental Design and Statistics : Scientific Inqury & Methodology"
+            ],
+            "advanced": [
+              "Thermodynamics & Sustainable Energy Systems",
+              "Smart Systems for a Sustainable Future",
+              "Genetics and Biotechnology",
+              "Ecology and Environmental Sustainability",
+              "Quantum and Nano Frontiers for Net Zero",
+              "Organismal Biology"
+            ],
+            "interdisciplinary": [
+              "Technopreneurship and Innovation",
+              "Science and Society : Historical Perspectives and Ethical Dilemmas",
+              "Data-Driven Discovery Across the Sciences",
+              "Science, Ethics, and Policy for Environmental and Urban Challenges",
+              "Science Communication & Public Engagement",
+              "Emerging Technologies and Future Society"
+            ]
+          }
+        },
+        "dataScienceAI": {
+          "title": "Data Science and Artificial Intelligence",
+          "subtitle": "Exploring data-driven insights and AI technologies",
+          "fundamentals": "Fundamentals",
+          "advanced": "Advanced",
+          "interdisciplinary": "Interdisciplinary",
+          "buttonText": "Learn more",
+          "courses": {
+            "fundamentals": [
+              "Design of AI and Data-Driven Services",
+              "Computational Thinking and Data Literacy",
+              "Global Narratives",
+              "Domestic and International Politics"
+            ],
+            "advanced": [
+              "Global History II",
+              "Global Philosophy",
+              "Humanities Special Seminar I & II",
+              "Social Science Special Seminar II"
+            ],
+            "interdisciplinary": [
+              "Literary and Cultural Connections",
+              "Creative Digital Humanities",
+              "Domestic Problems and Social Changes",
+              "Global Challenges and Governance",
+              "Navigating Tomorrow : Emerging Technologies and Future Society",
+              "Special Cross-disciplinary Seminar I & II"
+            ]
+          }
+        },
+        "businessInnovation": {
+          "title": "Business Innovation",
+          "subtitle": "Driving entrepreneurship and business transformation",
+          "fundamentals": "Fundamentals",
+          "advanced": "Advanced",
+          "interdisciplinary": "Interdisciplinary",
+          "buttonText": "Learn more",
+          "courses": {
+            "fundamentals": [
+              "Perspectives on Humans and Society",
+              "Global History I",
+              "Global Narratives",
+              "Domestic and International Politics"
+            ],
+            "advanced": [
+              "Global History II",
+              "Global Philosophy",
+              "Humanities Special Seminar I & II",
+              "Social Science Special Seminar II"
+            ],
+            "interdisciplinary": [
+              "Literary and Cultural Connections",
+              "Creative Digital Humanities",
+              "Domestic Problems and Social Changes",
+              "Global Challenges and Governance",
+              "Navigating Tomorrow : Emerging Technologies and Future Society",
+              "Special Cross-disciplinary Seminar I & II"
+            ]
+          }
+        }
+      }
     }
   }
 }
