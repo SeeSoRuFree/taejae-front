@@ -539,6 +539,64 @@
           "4년간의 공유된 경험을 통해 형성된 유대감은 강한 집단 정체성과 지속적인 우정을 만들어냅니다. ",
           "이것이 바로 우리가 태제 정신이라고 부르는 것입니다—졸업생들이 어떤 길을 걷든 평생 지원의 원천이 되는 것입니다."
         ]
+      },
+      "studentSupportCareer": {
+        "hero": {
+          "title": "Student Support",
+          "subtitle": "At Taejae University, we believe",
+          "subtitleHighlight": "your growth is about more than grades or career success."
+        },
+        "introduction": {
+          "text": "At Taejae University, we believe your growth is about more than grades or career success.\nWe're here to support you in becoming a thoughtful leader who looks beyond personal gain and strives for a better, more sustainable world for everyone.\nHere, you'll be encouraged to pursue shared goals, think deeply about your role\nin society, and explore how humans and nature can thrive together.\nWe measure success not just by what you achieve, but by who you become -\na curious, confident, and compassionate person who makes a real difference\nin the world."
+        },
+        "globalLanguage": {
+          "title": "Global Language Programs",
+          "description": "Global Language Programs help you continue developing your linguistic skills while studying at Taejae University. In addition to your native language and English, you can further master other languages such as Chinese, Japanese, Russian, and even programming languages through supplementary courses offered at Taejae.\nTo receive official recognition for proficiency in more than two of these additional languages approved by Taejae University, you must submit valid language proficiency test results prior to graduation."
+        },
+        "careerDevelopment": {
+          "title": "Career Development Program",
+          "quote": "\"A career is not merely chosen;\nit is carefully designed and built, one decision at a time.\"",
+          "description": "At Taejae University, self-directed learning isn't just something you practice\nwhile you're a student. It becomes even more important after you graduate.\n\nYour career isn't just about picking a job. It's about asking yourself\nbig questions like:\n\"What kind of life do I want to live?\"\n    \"Who do I want to become?\"\nAnd then actively exploring the answers.\n\nThat's where our Career Design Program (C.D.P.) comes in. Through C.D.P., you'll work with real-world professionals who'll mentor you in understanding how your strengths and interests align with different career paths (Job-Person Fit), and what skills you might need to build along the way.\n\nThis isn't just about getting a job - it's about growing into someone who keeps learning, keeps challenging themselves, and ultimately makes a difference in the world. C.D.P. is here to help you succeed - not only by building your personal strengths, but also by preparing you to become someone who contributes meaningfully to society.\n\nThat's what Student Success means to us.",
+          "programs": [
+            {
+              "name": "Job Search"
+            },
+            {
+              "name": "Career Coaching"
+            },
+            {
+              "name": "Mentoring by Professions"
+            },
+            {
+              "name": "Job - Person Fit"
+            },
+            {
+              "name": "Self Analysis"
+            }
+          ]
+        },
+        "mentalHealth": {
+          "title": "Mental Health Support",
+          "description": "At Taejae University, the Student Wellness Program is a core resource that supports your academic performance and personal growth.\nIt's designed to be accessible in your daily life—with a professional support system you can turn to anytime, without complicated procedures.\nYou can freely reach out to Wellness Center staff or counselors without needing to make a formal request.\nMore than just solving immediate problems, the program helps you develop a sustainable cycle of:\nself-awareness → self-care → self-renewal, empowering you to build long-term resilience on your own terms.\n\nHere's what the program offers:",
+          "services": [
+            {
+              "title": "One-on-one\ncheck-ins",
+              "description": "Open to all students every semester, available anytime you choose."
+            },
+            {
+              "title": "Practical\nworkshops",
+              "description": "Hands-on sessions on stress management, time management, self-understanding, and other real-life topics."
+            },
+            {
+              "title": " Personalized\ncoaching",
+              "description": "Expert guidance tailored to your specific needs and concerns."
+            },
+            {
+              "title": "Referral to\nspecialists",
+              "description": "If in-depth assessment or counseling is needed, we'll connect you to trusted external professionals."
+            }
+          ]
+        }
       }
     }
   }

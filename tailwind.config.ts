@@ -57,6 +57,14 @@ const config: Config = {
           4: '#FFD93D', // Yellow
           5: '#6C5CE7', // Purple
         },
+        // Career Purple Colors (from Figma design)
+        career: {
+          1: '#a670f0',
+          2: '#9360db',
+          3: '#7d4ebe',
+          4: '#653b9e',
+          5: '#512d83',
+        },
         // Base Colors
         white: '#FFFFFF',
         black: '#000000',
