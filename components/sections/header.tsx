@@ -69,7 +69,32 @@ export function Header({ locale }: HeaderProps) {
         },
       ],
     },
-    { href: '/student-life', label: 'Student Life' },
+    {
+      href: '/student-life/residence',
+      label: 'Student Life',
+      subItems: [
+        {
+          href: '/student-life/residence',
+          label: 'Residence',
+          labelKo: '기숙사',
+        },
+        {
+          href: '/student-life/student-support-career',
+          label: 'Student Support, Career',
+          labelKo: '학생 지원 및 진로',
+        },
+        {
+          href: '/student-life/student-achievement',
+          label: 'Student Achievement',
+          labelKo: '학생 성과',
+        },
+        {
+          href: '/student-life/pursuit-of-happiness',
+          label: 'Pursuit of Happiness',
+          labelKo: '행복 추구',
+        },
+      ],
+    },
     { href: '/about-taejae', label: 'About Taejae' },
   ]
 

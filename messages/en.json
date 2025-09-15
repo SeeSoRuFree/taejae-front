@@ -530,6 +530,16 @@
           ]
         }
       }
+    },
+    "studentLife": {
+      "residence": {
+        "title": "Residence",
+        "subtitle": {
+          "question": "No Campus at Taejae University?",
+          "answer": "Think again."
+        },
+        "description": "Taejae University is a hybrid university\nwhere students experience a four-year journey that blends both online and offline learning. While academic courses are delivered online, all students live together in shared residences from admission to graduation.  These dormitories are the very campus of Taejae University.\nThroughout their studies, students rotate across seven cities in five countries—\nKorea, the United States, China, Russia, and Japan—\nresiding in partner universities' dormitories or nearby residential facilities.  They don't just take classes—they live, learn, and grow together.\nMuch of the learning at Taejae is team-based.\nStudents engage in group discussions, tackle assignments collaboratively, and design and implement Civic Projects that address real-world issues.\n\nBeyond academics they cook and dine together, join clubs with peers who share similar interests, and participate in sports and other activities.\n \nThrough this immersive community life, students develop vital competencies such as social relationships, communication skills, and—most crucially for the future—integrative problem-solving abilities.\n \nThe bonds formed through four years of shared experiences create a strong sense of collective identity and lasting friendships. \nThis is what we call the Taejae Spirit—a lifelong source of support for our graduates, wherever their paths may lead."
+      }
     }
   }
 }
