@@ -597,6 +597,19 @@
             }
           ]
         }
+      },
+      "studentAchievement": {
+        "title": "Student Achievement",
+        "videos": {
+          "first": {
+            "title": "CHI movie name here",
+            "description": "Sub description of below movie"
+          },
+          "second": {
+            "title": "CHI movie name here number 2",
+            "description": "Sub description of below movie"
+          }
+        }
       }
     }
   }
