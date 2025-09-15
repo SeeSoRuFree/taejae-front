@@ -610,6 +610,29 @@
             "description": "Sub description of below movie"
           }
         }
+      },
+      "pursuitOfHappiness": {
+        "title": "Pursuit of Happiness",
+        "activities": {
+          "sportsMonster1": {
+            "title": "Sports Monster"
+          },
+          "sportsMonster2": {
+            "title": "Sports Monster"
+          },
+          "operaTour": {
+            "title": "Opera Tour"
+          },
+          "bandPerformance": {
+            "title": "Band Performance"
+          },
+          "shamisenLesson": {
+            "title": "Japan Shamisen lesson"
+          },
+          "teamActivity": {
+            "title": "Team activity"
+          }
+        }
       }
     }
   }
