@@ -95,7 +95,8 @@
     "whatLearn": {
       "pageTitle": "What do you learn?",
       "hero": {
-        "titleMain": "What do you", "titleAccent": "learn?",
+        "titleMain": "What do you",
+        "titleAccent": "learn?",
         "description1": "At Taejae University, learning goes beyond traditional study—it's about becoming a person who can thrive in a rapidly changing world.",
         "description2": "Our curriculum is designed around six core competencies that shape both our academic and everyday practices: Critical Thinking, Creative Thinking, Self-Directed Learning, Communication & Collaboration, Diversity & Empathy, and Global Harmony & Sustainability. These values are not just ideals—they guide every decision we make, from classroom instruction to institutional strategy.",
         "description3": "In your first year at the School of Innovation Foundations, you'll develop the ability to think critically and creatively, take ownership of your learning, and collaborate with peers from around the world. As you grow into a skilled communicator, team player, and compassionate global citizen, you'll lay a strong foundation for your academic journey.",
@@ -131,6 +132,11 @@
       "interdisciplinary": {
         "title": "Curious about what an interdisciplinary journey really looks like?",
         "subtitle": "Hear what the Taejae Squad has to say."
+      },
+      "voiceOfSquad": {
+        "title": "Curious about what an interdisciplinary journey really looks like?",
+        "subtitle": "Hear what the Taejae Squad has to say.",
+        "playVideo": "Play video"
       }
     },
     "visionsGoals": {
@@ -233,16 +239,16 @@
         "description4": "Whether you're discovering new passions or preparing for a specific path, the School of Innovation Foundations is where your journey as a future-ready, globally minded changemaker truly begins.",
         "coursesTitle": "Here are what you'll learn…",
         "courses": [
-          {"code": "F 101", "title": "Critical and Rational Thinking"},
-          {"code": "F 113", "title": "Creative Problem Solving"},
-          {"code": "F 103", "title": "Diversity, Empathy, and Global Citizenship"},
-          {"code": "F 111", "title": "Empowered Learning"},
-          {"code": "F 107", "title": "Data Analysis and Storytelling"},
-          {"code": "F 108", "title": "Judgment and Decision-Making"},
-          {"code": "F 112", "title": "Rhetoric and Persuasion"},
-          {"code": "F 104", "title": "Leadership and Collaboration"},
-          {"code": "F 110", "title": "Navigating Social Systems"},
-          {"code": "F 106", "title": "Sustainability and Equity"}
+          { "code": "F 101", "title": "Critical and Rational Thinking" },
+          { "code": "F 113", "title": "Creative Problem Solving" },
+          { "code": "F 103", "title": "Diversity, Empathy, and Global Citizenship" },
+          { "code": "F 111", "title": "Empowered Learning" },
+          { "code": "F 107", "title": "Data Analysis and Storytelling" },
+          { "code": "F 108", "title": "Judgment and Decision-Making" },
+          { "code": "F 112", "title": "Rhetoric and Persuasion" },
+          { "code": "F 104", "title": "Leadership and Collaboration" },
+          { "code": "F 110", "title": "Navigating Social Systems" },
+          { "code": "F 106", "title": "Sustainability and Equity" }
         ],
         "buttonText": "Learn more"
       },
@@ -253,7 +259,7 @@
         "description2": "With support and mentorship from dedicated faculty, you'll design a personalized learning pathway that reflects your goals. At Taejae, your education is not predefined—you have the freedom to explore, combine, and deepen your areas of focus as you choose. This is your opportunity to create an academic track that's uniquely yours.",
         "programmes": [
           "Humanities and Social Sciences",
-          "Natural Sciences", 
+          "Natural Sciences",
           "Data Science and Artificial Intelligence",
           "Business and Innovation"
         ]
@@ -381,6 +387,121 @@
             ]
           }
         }
+      },
+      "voiceOfSquad": {
+        "title": "Curious about what an interdisciplinary journey really looks like?",
+        "subtitle": "Hear what the Taejae Squad has to say.",
+        "playVideo": "Play video"
+      }
+    },
+    "howLearn": {
+      "pageTitle": "How do you learn",
+      "hero": {
+        "titleMain": "How Do you ",
+        "titleAccent": "learn?",
+        "description1": "This is how you learn.",
+        "description2": "At Taejae, you don't just memorize answers — you learn to create them.",
+        "description3": "Through real-world challenges, you'll apply your knowledge to solve complex, unstructured problems.",
+        "description4": "We don't just ask what you know, but what you can do with it.",
+        "description5": "Now, discover how you'll study at Taejae."
+      },
+      "activeLearning": {
+        "title": "What is Active Learning?",
+        "titlePrefix": "What is ",
+        "titleHighlight": "Active Learning?",
+        "introduction": [
+          "At Taejae, learning isn't something that just happens to you — it's something you actively do. Instead of memorizing facts or passively listening, you'll take part in discussions, solve real-world problems, and collaborate with others to make sense of complex ideas. This is what we call Active Learning — and it's at the core of everything we do.",
+          "To support your learning, we use a Tripartite Instructional Model that breaks the class experience into three parts:"
+        ],
+        "steps": [
+          {
+            "id": "step1",
+            "title": "Step 1. Pre-class:\nYour Time to Explore and Think Ahead",
+            "description": [
+              "Before joining the live online active learning sessions, Pre-class is your chance to dive into the material on your own and start expanding your own thinking. During this time, you'll engage with video lectures, reading materials, and quizzes that introduce the key concepts of the upcoming class.",
+              "This stage isn't just about absorbing information — it's about taking control of your learning. You explore ideas independently and begin to form your own perspectives and questions. By doing this, you prepare yourself to actively contribute to class discussions, team projects, and other interactive activities.",
+              "In short, Pre-class is your personal launchpad — a time to build a foundation, spark curiosity, and bring your own unique ideas to the learning journey."
+            ]
+          },
+          {
+            "id": "step2",
+            "title": "Step 2. In class:\nEngage, Collaborate, and Create Together",
+            "description": [
+              "Critical thinking is the ability to think analytically and systematically, examining information and ideas with depth and precision.",
+              "You can apply critical thinking to evaluate diverse perspectives, uncover underlying assumptions, and assess the strength of arguments.",
+              "This empowers you to make informed decisions and solve complex problems with clarity, logic, and confidence."
+            ]
+          },
+          {
+            "id": "step3",
+            "title": "Step 3. Post-class:\nReflect, Create, and Make It Your Own",
+            "description": [
+              "Critical thinking is the ability to think analytically and systematically, examining information and ideas with depth and precision.",
+              "You can apply critical thinking to evaluate diverse perspectives, uncover underlying assumptions, and assess the strength of arguments.",
+              "This empowers you to make informed decisions and solve complex problems with clarity, logic, and confidence."
+            ]
+          }
+        ],
+        "learningProcess": [
+          {
+            "id": "learning-objective",
+            "title": "Learning Objective",
+            "subtitle": "교수가 '학습목표'를 제시"
+          },
+          {
+            "id": "pre-reading", 
+            "title": "Pre-reading",
+            "subtitle": "수업 전 공유된 자료와 영상 등을 통해\n학생 스스로 사전 학습"
+          },
+          {
+            "id": "reading-quiz",
+            "title": "Reading Quiz", 
+            "subtitle": "사전 학습을 위한 간단한 귀즈"
+          },
+          {
+            "id": "interactive-acquisition",
+            "title": "Interactive Acquisition",
+            "subtitle": "사전 설계된  Lessn Plan에 따라\n교수- 학생 간 상호작용을 통해 지식 습득"
+          },
+          {
+            "id": "breakout-groups",
+            "title": "Break-out-groups", 
+            "subtitle": "수업 전 공유된 자료와 영상 등을 통해\n학생 스스로 사전 학습"
+          },
+          {
+            "id": "summary-recap",
+            "title": "Summary & Recap",
+            "subtitle": "수업 전 공유된 자료와 영상 등을 통해\n학생 스스로 사전 학습"
+          },
+          {
+            "id": "post-reading",
+            "title": "Post-reading & Assignments",
+            "subtitle": "수업 전 공유된 자료와 영상 등을 통해\n학생 스스로 사전 학습"
+          }
+        ]
+      },
+      "essence": {
+        "title": "So the essence of Active\nLearning is…",
+        "titlePrefix": "So the essence of ",
+        "titleHighlight": "Active\nLearning is…",
+        "description": [
+          "This whole Active Learning process isn't just about getting through the material. It's about helping you think critically, solve problems creatively, and grow into someone who can confidently navigate a rapidly changing world.",
+          "Whether you're debating a perspective you don't agree with, stepping into real-world scenarios through role play, or creating something new as part of a team, you will be fully immersed. Beyond intellectual growth through pre-reading and in-class activities, you will engage in dynamic interactions with your peers on real-world problems, activating one another's insights. Together, you will collaboratively create the wisdom of crowds.",
+          "In essence, the goal of Active Learning is for you to think deeply, engage actively, and build skills that will stay with you long after class ends.",
+          "At Taejae, learning is never passive. You're not just a student. You're a thinker, a creator, and a problem solver.",
+          "And we're here to support you every step of the way."
+        ]
+      },
+      "engageli": {
+        "title": "Engageli: Real-time Active Learning Platform",
+        "titlePrefix": "Engageli: ",
+        "titleHighlight": "Real-time Active Learning Platform",
+        "description": [
+          "At Taejae University, your learning doesn't stop at borders. With Engageli program, our powerful digital classroom platform, you can fully participate in live, interactive classes—wherever you are in the world.",
+          "Engageli makes learning feel personal and engaging. You'll collaborate at virtual tables, ask questions in real time, use shared whiteboards, and get meaningful feedback through tools that track your progress.\nYour instructors use this data to adjust how they teach—so you get exactly the support you need to succeed.",
+          "Recognized as one of the world's leading EdTech innovations, Engageli helps make your Taejae education flexible, interactive, and future-ready.",
+          "Using the Engageli platform, the entire class sessions are recorded in real time. The results are then summarized in an infographic format. Professors receive this feedback, which includes insights into student engagement, participation, and perceived difficulty of the class. They can immediately incorporate these findings into the planning and delivery of the next session."
+        ]
       }
     }
   }

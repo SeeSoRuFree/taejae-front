@@ -1,128 +1,115 @@
 'use client'
 
-import { useTranslation } from '@/lib/translations'
-import { Locale } from '@/lib/types/locale'
-import { useState } from 'react'
 import Image from 'next/image'
+import VideoCard from '@/components/ui/video-card'
+import { useTranslation } from '@/lib/translations'
+import { useLocaleStore } from '@/lib/store/locale-store'
 
-const imgStudentVideo1 = '/images/student-video-1.png'
-const imgStudentVideo2 = '/images/student-video-2.png'
-const imgStudentVideo3 = '/images/student-video-3.png'
-const imgPlayIcon = '/images/play-icon.svg'
-
-interface VoiceOfSquadProps {
-  locale: Locale
-}
-
-interface StudentVideo {
+interface VideoTestimonial {
   id: string
-  name: string
-  image: string
+  thumbnailUrl: string
   videoUrl?: string
+  altText: string
+  studentName?: string
+  program?: string
 }
 
-export function VoiceOfSquad({ locale }: VoiceOfSquadProps) {
+const videoTestimonials: VideoTestimonial[] = [
+  {
+    id: 'video-1',
+    thumbnailUrl: '/assets/voice-of-squad-video1.png',
+    altText: 'Photo of a man in a room using a tablet computer',
+    studentName: 'Taejae Student',
+    program: 'Interdisciplinary Studies',
+  },
+  {
+    id: 'video-2',
+    thumbnailUrl: '/assets/voice-of-squad-video2.png',
+    altText: 'Student sharing insights about global campus experience',
+    studentName: 'Taejae Student',
+    program: 'Global Program',
+  },
+]
+
+export default function VoiceOfSquadSection() {
+  const locale = useLocaleStore((state) => state.locale)
   const { t } = useTranslation(locale)
-  const [playingVideo, setPlayingVideo] = useState<string | null>(null)
 
-  const studentVideos: StudentVideo[] = [
-    {
-      id: '1',
-      name: 'Yijun Kim',
-      image: imgStudentVideo1,
-    },
-    {
-      id: '2',
-      name: 'Yijun Kim',
-      image: imgStudentVideo2,
-    },
-    {
-      id: '3',
-      name: 'Shahar Bezalel',
-      image: imgStudentVideo3,
-    },
-  ]
-
-  const handlePlayClick = (videoId: string) => {
-    setPlayingVideo(playingVideo === videoId ? null : videoId)
-    // TODO: 실제 비디오 재생 로직 추가
+  const handleVideoPlay = (video: VideoTestimonial) => {
+    // TODO: Implement video modal or navigation
+    console.log('Playing video:', video.id)
+    // For now, could open in a modal or redirect to video page
   }
 
   return (
-    <section className="flex gap-8 items-start justify-start px-12 py-24 w-full max-w-[1440px] mx-auto">
-      {/* Left Content - Title and Description */}
-      <div className="flex flex-col gap-14 items-start justify-start w-[312px] shrink-0 self-stretch">
-        {/* Title */}
-        <div className="font-eb-garamond font-normal text-[44px] leading-[1.2] tracking-[-1.32px] text-[#111111] whitespace-nowrap">
-          <h1>
-            <span>
-              The Voice of
-              <br />
-            </span>
-            <span className="text-[#1da597]">Taejae Squad</span>
-          </h1>
-        </div>
-
-        {/* Description */}
-        <div className="font-inter font-normal text-[20px] leading-[1.5] tracking-[-0.6px] text-[#111111] min-w-full">
-          <p>
-            Quick moment?
-            <br />
-            Meet our brightest minds and discover what it means to be a Taejaest under 3 minutes
-          </p>
-        </div>
-      </div>
-
-      {/* Right Content - Video Cards */}
-      <div className="basis-0 flex gap-8 grow items-start justify-start min-h-px min-w-px">
-        {studentVideos.map((student) => (
-          <div
-            key={student.id}
-            className="flex flex-col gap-5 items-start justify-start relative w-full"
-          >
-            <div
-              className="aspect-[413/734] flex flex-col items-center justify-start overflow-hidden p-8 rounded-[24px] w-full relative"
-              aria-label={`Video of ${student.name}`}
+    <section
+      className="
+        relative w-full
+        flex flex-col items-center justify-start
+        pt-[100px] pb-40 px-[50px]
+        bg-white/90 bg-blend-overlay
+        tablet:px-8 tablet:pt-20 tablet:pb-20
+        mobile:px-5 mobile:pt-16 mobile:pb-16
+      "
+      style={{
+        backgroundImage: `url('/assets/voice-of-squad-bg.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: '50% 50%',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div className="w-full max-w-[1820px] flex flex-col gap-[100px] tablet:gap-20 mobile:gap-12">
+        {/* Title Section */}
+        <div className="w-full flex items-start justify-start px-0 py-2.5">
+          <div className="flex-1 flex flex-col gap-11 tablet:gap-8 mobile:gap-6">
+            <h2
+              className="
+              font-eb-garamond font-normal text-[44px] leading-[1.1] tracking-[-0.88px]
+              text-[#111111] max-w-[1040px]
+              tablet:text-[36px] tablet:tracking-[-0.72px]
+              mobile:text-[28px] mobile:tracking-[-0.56px]
+            "
             >
-              {/* Background Image */}
-              <Image
-                src={student.image}
-                alt={`Video thumbnail of ${student.name}`}
-                fill
-                className="object-cover rounded-[24px]"
-                sizes="(max-width: 768px) 100vw, 33vw"
-                loading="lazy"
-              />
-              {/* Gradient Dimmer Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-[#0000004d] from-[63.61%] to-[#000000e6] rounded-[24px]"></div>
+              {t('academics.whatLearn.voiceOfSquad.title')}
+            </h2>
+          </div>
+        </div>
 
-              {/* Content - Above overlay */}
-              <div className="relative z-10 flex flex-col h-full w-full">
-                {/* Play Button Container - Centered */}
-                <div className="basis-0 flex items-center justify-center grow w-full">
-                  <button
-                    onClick={() => handlePlayClick(student.id)}
-                    className="backdrop-blur-sm bg-[rgba(17,17,17,0.5)] flex items-center justify-center p-3 rounded-full w-[72px] h-[72px] hover:bg-[rgba(17,17,17,0.6)] transition-colors duration-200"
-                    aria-label={`Play video of ${student.name}`}
-                  >
-                    <Image
-                      alt="Play icon"
-                      className="block w-8 h-8"
-                      src={imgPlayIcon}
-                      width={32}
-                      height={32}
-                    />
-                  </button>
-                </div>
-
-                {/* Student Name - At bottom */}
-                <div className="font-eb-garamond font-normal text-[24px] leading-[1.3] tracking-[-0.48px] text-white w-full">
-                  <p>{student.name}</p>
-                </div>
-              </div>
+        {/* Description Section */}
+        <div className="w-full flex gap-[339px] tablet:gap-20 mobile:gap-0">
+          <div className="flex-1 max-w-[840px] flex flex-col gap-14 tablet:gap-8 mobile:gap-6">
+            <div className="w-full flex flex-col gap-2">
+              <p
+                className="
+                font-rethink-sans font-normal text-[22px] leading-[1.5] tracking-[-0.66px]
+                text-[#111111]
+                tablet:text-[18px] tablet:tracking-[-0.54px]
+                mobile:text-[16px] mobile:tracking-[-0.48px]
+              "
+              >
+                {t('academics.whatLearn.voiceOfSquad.subtitle')}
+              </p>
             </div>
           </div>
-        ))}
+        </div>
+
+        {/* Video Cards */}
+        <div
+          className="w-full grid grid-cols-2 gap-8 
+                        desktop:grid-cols-2 desktop:gap-8
+                        tablet:grid-cols-2 tablet:gap-6  
+                        mobile:grid-cols-1 mobile:gap-4"
+        >
+          {videoTestimonials.map((video) => (
+            <VideoCard
+              key={video.id}
+              thumbnailUrl={video.thumbnailUrl}
+              altText={video.altText}
+              onPlay={() => handleVideoPlay(video)}
+              className="w-full"
+            />
+          ))}
+        </div>
       </div>
     </section>
   )

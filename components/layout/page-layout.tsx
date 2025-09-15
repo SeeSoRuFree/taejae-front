@@ -9,9 +9,10 @@ import { useLocaleStore } from '@/lib/store/locale-store'
 interface PageLayoutProps {
   children: ReactNode
   className?: string
+  isHomePage?: boolean
 }
 
-export function PageLayout({ children, className }: PageLayoutProps) {
+export function PageLayout({ children, className, isHomePage = false }: PageLayoutProps) {
   const locale = useLocaleStore((state) => state.locale)
 
   return (
@@ -21,7 +22,7 @@ export function PageLayout({ children, className }: PageLayoutProps) {
       </ErrorBoundary>
 
       <ErrorBoundary>
-        <main className={className || 'w-full'}>{children}</main>
+        <main className={`${isHomePage ? '' : 'pt-[66px]'} ${className || 'w-full'}`}>{children}</main>
       </ErrorBoundary>
 
       <ErrorBoundary>

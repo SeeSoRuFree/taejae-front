@@ -13,7 +13,7 @@ export function VisionHero({ locale }: VisionHeroProps) {
 
   return (
     <section
-      className="w-full px-12 mt-[66px]"
+      className="w-full px-12"
       style={{
         paddingTop: DIMENSIONS.SECTION_SPACING.LARGE,
         paddingBottom: DIMENSIONS.SECTION_SPACING.LARGE,

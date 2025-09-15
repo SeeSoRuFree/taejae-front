@@ -11,7 +11,7 @@ export function WhoLearnFromHero({ locale }: WhoLearnFromHeroProps) {
   const { t } = useTranslation(locale)
 
   return (
-    <section className="w-full bg-white pt-[66px]">
+    <section className="w-full bg-white">
       {/* Title and Description Section - Matching Figma Design */}
       <div className="w-full bg-white">
         <div className="max-w-[1440px] mx-auto px-[50px] py-[100px]">

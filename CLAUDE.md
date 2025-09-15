@@ -143,6 +143,7 @@ messages/            # 번역 JSON 파일
 ### 타이포그래피 및 폰트 시스템
 
 #### 폰트 패밀리
+
 - **기본 폰트**: Instrument Sans (`font-sans`) - 시스템 폴백 포함
 - **serif 폰트**: EB Garamond (`font-eb-garamond`) - 제목 및 강조용
 - **디스플레이 폰트**: Bodoni 72 (`font-bodoni`) - 심볼 및 특수 표시용
@@ -150,12 +151,14 @@ messages/            # 번역 JSON 파일
 - **기타**: Inter (`font-inter`), Playfair (`font-playfair`)
 
 #### 폰트 사용 규칙
+
 - **✅ 올바른 사용법**: Tailwind 폰트 클래스 사용 (`font-eb-garamond`, `font-bodoni`)
 - **❌ 잘못된 사용법**: 직접 폰트명 사용 (`font-['EB_Garamond']`, `font-['Bodoni_72']`)
 - **일관성 원칙**: 같은 용도의 텍스트는 동일한 폰트 패밀리 사용
 - **폰트 폴백**: 모든 폰트는 적절한 시스템 폴백 포함
 
 #### 반응형 타이포그래피
+
 - **데스크톱/모바일 별도 크기**: 예시 H1 (데스크톱 64px, 모바일 40px)
 - **폰트 굵기**: 400 (regular), 500 (medium), 600 (semibold), 700 (bold)
 - **라인 하이트**: 제목 1.1-1.3, 본문 1.5-1.6
@@ -201,4 +204,3 @@ messages/            # 번역 JSON 파일
 - **다중 컴포넌트로 구성된 피그마 디자인의 전체적인 분석이 필요할 때**
 
 figma-design-analyst는 피그마 디자인을 분석하여 구조화된 구현 지시사항을 제공하므로, 단순한 get_code 호출보다 복잡한 디자인 분석이 필요한 경우에 활용해야 합니다.
-

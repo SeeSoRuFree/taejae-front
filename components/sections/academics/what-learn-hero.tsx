@@ -12,7 +12,7 @@ export function WhatLearnHero({ locale }: WhatLearnHeroProps) {
   const { t } = useTranslation(locale)
 
   return (
-    <section className="w-full bg-white pt-[66px]">
+    <section className="w-full bg-white">
       <div className="w-full bg-white">
         <div className="max-w-[1440px] mx-auto px-[50px] py-[100px]">
           <div className="flex flex-col gap-[100px] items-center justify-start">

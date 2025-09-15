@@ -8,6 +8,7 @@ import { SixCompetencies } from '@/components/sections/academics/six-competencie
 import { InnovationFoundations } from '@/components/sections/academics/innovation-foundations'
 import { FutureConvergence } from '@/components/sections/academics/future-convergence'
 import { AcademicCurriculumSection } from '@/components/sections/academics/academic-curriculum-section'
+import VoiceOfSquadSection from '@/components/sections/voice-of-squad'
 
 export default function WhatLearnPage() {
   const locale = useLocaleStore((state) => state.locale)
@@ -22,19 +23,23 @@ export default function WhatLearnPage() {
       categories: [
         {
           title: t('academics.whatLearn.curriculum.naturalSciences.fundamentals'),
-          courses: t('academics.whatLearn.curriculum.naturalSciences.courses.fundamentals') as string[]
+          courses: t(
+            'academics.whatLearn.curriculum.naturalSciences.courses.fundamentals'
+          ) as string[],
         },
         {
           title: t('academics.whatLearn.curriculum.naturalSciences.advanced'),
-          courses: t('academics.whatLearn.curriculum.naturalSciences.courses.advanced') as string[]
+          courses: t('academics.whatLearn.curriculum.naturalSciences.courses.advanced') as string[],
         },
         {
           title: t('academics.whatLearn.curriculum.naturalSciences.interdisciplinary'),
-          courses: t('academics.whatLearn.curriculum.naturalSciences.courses.interdisciplinary') as string[]
-        }
+          courses: t(
+            'academics.whatLearn.curriculum.naturalSciences.courses.interdisciplinary'
+          ) as string[],
+        },
       ],
       buttonText: t('academics.whatLearn.curriculum.naturalSciences.buttonText'),
-      buttonHref: '/academics/natural-sciences'
+      buttonHref: '/academics/natural-sciences',
     },
     {
       title: t('academics.whatLearn.curriculum.naturalSciences2.title'),
@@ -44,19 +49,25 @@ export default function WhatLearnPage() {
       categories: [
         {
           title: t('academics.whatLearn.curriculum.naturalSciences2.fundamentals'),
-          courses: t('academics.whatLearn.curriculum.naturalSciences2.courses.fundamentals') as string[]
+          courses: t(
+            'academics.whatLearn.curriculum.naturalSciences2.courses.fundamentals'
+          ) as string[],
         },
         {
           title: t('academics.whatLearn.curriculum.naturalSciences2.advanced'),
-          courses: t('academics.whatLearn.curriculum.naturalSciences2.courses.advanced') as string[]
+          courses: t(
+            'academics.whatLearn.curriculum.naturalSciences2.courses.advanced'
+          ) as string[],
         },
         {
           title: t('academics.whatLearn.curriculum.naturalSciences2.interdisciplinary'),
-          courses: t('academics.whatLearn.curriculum.naturalSciences2.courses.interdisciplinary') as string[]
-        }
+          courses: t(
+            'academics.whatLearn.curriculum.naturalSciences2.courses.interdisciplinary'
+          ) as string[],
+        },
       ],
       buttonText: t('academics.whatLearn.curriculum.naturalSciences2.buttonText'),
-      buttonHref: '/academics/natural-sciences-2'
+      buttonHref: '/academics/natural-sciences-2',
     },
     {
       title: t('academics.whatLearn.curriculum.dataScienceAI.title'),
@@ -66,19 +77,23 @@ export default function WhatLearnPage() {
       categories: [
         {
           title: t('academics.whatLearn.curriculum.dataScienceAI.fundamentals'),
-          courses: t('academics.whatLearn.curriculum.dataScienceAI.courses.fundamentals') as string[]
+          courses: t(
+            'academics.whatLearn.curriculum.dataScienceAI.courses.fundamentals'
+          ) as string[],
         },
         {
           title: t('academics.whatLearn.curriculum.dataScienceAI.advanced'),
-          courses: t('academics.whatLearn.curriculum.dataScienceAI.courses.advanced') as string[]
+          courses: t('academics.whatLearn.curriculum.dataScienceAI.courses.advanced') as string[],
         },
         {
           title: t('academics.whatLearn.curriculum.dataScienceAI.interdisciplinary'),
-          courses: t('academics.whatLearn.curriculum.dataScienceAI.courses.interdisciplinary') as string[]
-        }
+          courses: t(
+            'academics.whatLearn.curriculum.dataScienceAI.courses.interdisciplinary'
+          ) as string[],
+        },
       ],
       buttonText: t('academics.whatLearn.curriculum.dataScienceAI.buttonText'),
-      buttonHref: '/academics/data-science-ai'
+      buttonHref: '/academics/data-science-ai',
     },
     {
       title: t('academics.whatLearn.curriculum.businessInnovation.title'),
@@ -88,20 +103,26 @@ export default function WhatLearnPage() {
       categories: [
         {
           title: t('academics.whatLearn.curriculum.businessInnovation.fundamentals'),
-          courses: t('academics.whatLearn.curriculum.businessInnovation.courses.fundamentals') as string[]
+          courses: t(
+            'academics.whatLearn.curriculum.businessInnovation.courses.fundamentals'
+          ) as string[],
         },
         {
           title: t('academics.whatLearn.curriculum.businessInnovation.advanced'),
-          courses: t('academics.whatLearn.curriculum.businessInnovation.courses.advanced') as string[]
+          courses: t(
+            'academics.whatLearn.curriculum.businessInnovation.courses.advanced'
+          ) as string[],
         },
         {
           title: t('academics.whatLearn.curriculum.businessInnovation.interdisciplinary'),
-          courses: t('academics.whatLearn.curriculum.businessInnovation.courses.interdisciplinary') as string[]
-        }
+          courses: t(
+            'academics.whatLearn.curriculum.businessInnovation.courses.interdisciplinary'
+          ) as string[],
+        },
       ],
       buttonText: t('academics.whatLearn.curriculum.businessInnovation.buttonText'),
-      buttonHref: '/academics/business-innovation'
-    }
+      buttonHref: '/academics/business-innovation',
+    },
   ]
 
   return (
@@ -111,12 +132,9 @@ export default function WhatLearnPage() {
       <InnovationFoundations locale={locale} />
       <FutureConvergence locale={locale} />
       {curriculumSections.map((section, index) => (
-        <AcademicCurriculumSection 
-          key={index} 
-          {...section} 
-          hideImageTitle={index === 0} 
-        />
+        <AcademicCurriculumSection key={index} {...section} hideImageTitle={index === 0} />
       ))}
+      <VoiceOfSquadSection />
     </PageLayout>
   )
 }
