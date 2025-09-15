@@ -36,7 +36,7 @@ export function Header({ locale }: HeaderProps) {
 
   const navItems: NavItem[] = [
     {
-      href: '/academics',
+      href: '/academics/visions-goals',
       label: 'Academics',
       subItems: [
         {
@@ -53,10 +53,24 @@ export function Header({ locale }: HeaderProps) {
         { href: '/academics/how-learn', label: 'How do you learn', labelKo: '어떻게 배우나' },
       ],
     },
-    { href: '/global-experience', label: 'Global Experience' },
-    { href: '/admissions', label: 'Admissions' },
-    { href: '/life-at-taejae', label: 'Life at Taejae' },
-    { href: '/who-we-are', label: 'Who we are' },
+    {
+      href: '/global-rotations',
+      label: 'Global Rotations',
+      subItems: [
+        {
+          href: '/global-rotations',
+          label: 'Global Rotations',
+          labelKo: '글로벌 로테이션',
+        },
+        {
+          href: '/global-rotations/experiential-learning',
+          label: 'Experiential Learning',
+          labelKo: '체험적 학습',
+        },
+      ],
+    },
+    { href: '/student-life', label: 'Student Life' },
+    { href: '/about-taejae', label: 'About Taejae' },
   ]
 
   const currentLocale = locale === 'ko' ? 'KO' : 'EN'
@@ -95,7 +109,7 @@ export function Header({ locale }: HeaderProps) {
               >
                 <Link
                   href={item.href}
-                  className="flex items-center gap-1 text-[15px] text-black font-normal pb-1 hover:opacity-70 transition-opacity"
+                  className="flex items-center gap-1 font-rethink-sans text-[15px] text-black font-normal tracking-[-0.3px] pb-1 hover:opacity-70 transition-opacity"
                 >
                   {item.label}
                   {item.subItems && (
@@ -134,6 +148,14 @@ export function Header({ locale }: HeaderProps) {
                 </AnimatePresence>
               </div>
             ))}
+            
+            {/* Apply Now Button - positioned after menu items */}
+            <Link
+              href="/apply"
+              className="bg-[#111111] text-white px-3 py-2 rounded-[20px] font-rethink-sans text-[15px] font-normal tracking-[-0.3px] hover:bg-gray-800 transition-colors"
+            >
+              Apply Now
+            </Link>
           </div>
 
           {/* Desktop Right Side */}
@@ -246,20 +268,29 @@ export function Header({ locale }: HeaderProps) {
 
                 {/* Mobile Bottom Actions */}
                 <motion.div
-                  className="flex items-center justify-end gap-8 pt-3"
+                  className="flex items-center justify-between pt-3"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.25, duration: 0.3 }}
                 >
-                  <button className="p-0" aria-label="Search">
-                    <MagnifyingGlassIcon className="w-5 h-5 text-black" />
-                  </button>
-                  <button
-                    onClick={handleLocaleToggle}
-                    className="text-[15px] font-normal text-black"
+                  <Link
+                    href="/apply"
+                    className="bg-[#111111] text-white px-3 py-2 rounded-[20px] text-[15px] font-rethink-sans font-normal tracking-[-0.3px] hover:bg-gray-800 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
                   >
-                    {currentLocale}
-                  </button>
+                    Apply Now
+                  </Link>
+                  <div className="flex items-center gap-8">
+                    <button className="p-0" aria-label="Search">
+                      <MagnifyingGlassIcon className="w-5 h-5 text-black" />
+                    </button>
+                    <button
+                      onClick={handleLocaleToggle}
+                      className="text-[15px] font-normal text-black"
+                    >
+                      {currentLocale}
+                    </button>
+                  </div>
                 </motion.div>
               </motion.div>
             </motion.div>

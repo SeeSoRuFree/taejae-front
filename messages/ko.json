@@ -488,6 +488,33 @@
           "Engageli 플랫폼을 사용하여 전체 수업 세션이 실시간으로 기록됩니다. 결과는 인포그래픽 형식으로 요약됩니다. 교수들은 학생 참여도, 참여율, 수업의 체감 난이도에 대한 통찰력을 포함한 이 피드백을 받습니다. 그들은 이러한 발견을 다음 세션의 계획과 진행에 즉시 통합할 수 있습니다."
         ]
       }
+    },
+    "globalRotations": {
+      "experientialLearning": {
+        "globalStudyEngagement": {
+          "title": "Global Study and Engagement",
+          "description": [
+            "Global Study and Engagement (GSE) is a field-based humanities program designed to help you explore the flow of human civilization and understand the shifting world order. As part of the Global Rotation, you'll travel to five countries: Korea, Japan, China, the United States, and Russia.",
+            "With guidance from faculty, you'll visit major historical landmarks and key sites that reflect each country's present-day society. These academic journeys offer meaningful opportunities to examine each location through both national and global lenses.",
+            "Along the way, you'll gain deeper insight into each society's past, the challenges it faces today, and the direction it's heading.",
+            "Expert-led lectures and on-site discussions will help you analyze paths to modernization, social and political transformations, and the balance between cultural uniqueness and shared values.",
+            "Through GSE, you'll develop the historical perspective and cross-cultural understanding you need to thrive in today's interconnected world."
+          ],
+          "videoTitles": [
+            "Name of this movie clip - youtube name abcdd",
+            "Name of this movie clip - youtube name abcdd"
+          ]
+        },
+        "europeGrandTour": {
+          "title": "Europe Grand Tour",
+          "description": [
+            "Experience the rich history and cultural heritage of Europe where ancient ideas shaped the modern world. On this unforgettable journey, you will walk through the very sites where Western civilization took root and evolved.",
+            "From ancient Greece and Rome to the Middle Ages, the Renaissance, the Age of Exploration, and the Industrial Revolution, you will explore how Europe's political systems, social structures, and intellectual traditions continue to shape our world today.",
+            "You will also visit places like Istanbul to see how Europe interacted with non European societies revealing a bigger picture of global history.",
+            "This tour is not just about the past. It is about understanding how history helps you make sense of the present and imagine the future with clarity and confidence."
+          ]
+        }
+      }
     }
   }
 }

@@ -503,6 +503,33 @@
           "Using the Engageli platform, the entire class sessions are recorded in real time. The results are then summarized in an infographic format. Professors receive this feedback, which includes insights into student engagement, participation, and perceived difficulty of the class. They can immediately incorporate these findings into the planning and delivery of the next session."
         ]
       }
+    },
+    "globalRotations": {
+      "experientialLearning": {
+        "globalStudyEngagement": {
+          "title": "Global Study and Engagement",
+          "description": [
+            "Global Study and Engagement (GSE) is a field-based humanities program designed to help you explore the flow of human civilization and understand the shifting world order. As part of the Global Rotation, you'll travel to five countries: Korea, Japan, China, the United States, and Russia.",
+            "With guidance from faculty, you'll visit major historical landmarks and key sites that reflect each country's present-day society. These academic journeys offer meaningful opportunities to examine each location through both national and global lenses.",
+            "Along the way, you'll gain deeper insight into each society's past, the challenges it faces today, and the direction it's heading.",
+            "Expert-led lectures and on-site discussions will help you analyze paths to modernization, social and political transformations, and the balance between cultural uniqueness and shared values.",
+            "Through GSE, you'll develop the historical perspective and cross-cultural understanding you need to thrive in today's interconnected world."
+          ],
+          "videoTitles": [
+            "Name of this movie clip - youtube name abcdd",
+            "Name of this movie clip - youtube name abcdd"
+          ]
+        },
+        "europeGrandTour": {
+          "title": "Europe Grand Tour",
+          "description": [
+            "Experience the rich history and cultural heritage of Europe where ancient ideas shaped the modern world. On this unforgettable journey, you will walk through the very sites where Western civilization took root and evolved.",
+            "From ancient Greece and Rome to the Middle Ages, the Renaissance, the Age of Exploration, and the Industrial Revolution, you will explore how Europe's political systems, social structures, and intellectual traditions continue to shape our world today.",
+            "You will also visit places like Istanbul to see how Europe interacted with non European societies revealing a bigger picture of global history.",
+            "This tour is not just about the past. It is about understanding how history helps you make sense of the present and imagine the future with clarity and confidence."
+          ]
+        }
+      }
     }
   }
 }
