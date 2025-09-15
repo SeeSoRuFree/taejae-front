@@ -635,5 +635,43 @@
         }
       }
     }
+  },
+  "about": {
+    "title": {
+      "prefix": "About ",
+      "highlight": "Taejae"
+    },
+    "description": {
+      "paragraph1": "Today, we stand amidst one of the most profound transformations in human history. The rapid advancement of digitalization and artificial intelligence is reshaping every dimension of our lives. At the same time, our global ecosystem faces urgent challenges from climate change and shifting world orders to deepening geopolitical tensions.",
+      "paragraph2": "In this era of sweeping change, what role will you play and how can higher education prepare you for it?",
+      "paragraph3": "The compartmentalized and specialized knowledge once valued in the age of mass industrial production is now swiftly being replaced by automation and digital technologies. What the world needs today is integrative thinking and creativity.",
+      "paragraph4": "At Taejae University, we are dedicated to helping you become a future leader who can navigate complexity and drive meaningful change. Our personalized and optimized educational programs are designed to unlock your full potential.",
+      "paragraph5": "Through your journey at Taejae, you will cultivate not only a deep sense of global harmony and sustainability, but also the essential capacities of empathy and appreciation for diversity, communication and collaboration, creative and critical thinking, and self-directed learning.",
+      "paragraph6": "Taejae University is pioneering a new model of higher education for the 21st century empowering you to become a global citizen, an innovator, and a transformative leader committed to building a more sustainable and interconnected world.",
+      "paragraph7": "",
+      "tagline": "Taejae, The Next Answer"
+    },
+    "logo": {
+      "alt": "Taejae University Logo"
+    },
+    "tagline": {
+      "the": "THE ",
+      "next": "NEXT",
+      "answer": " ANSWER"
+    },
+    "faculty": {
+      "image": {
+        "alt": "Taejae University Faculty"
+      }
+    },
+    "team": {
+      "leadership": "Leadership",
+      "boardOfTrustees": "Board of Trustees",
+      "eminentProfessors": "Eminent Professors",
+      "administrativeProfessors": "Administrative Professors",
+      "globalPartners": "Global Partners",
+      "taejaeNow": "Taejae Now",
+      "pressMedia": "Press & Media"
+    }
   }
 }

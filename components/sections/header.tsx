@@ -95,7 +95,27 @@ export function Header({ locale }: HeaderProps) {
         },
       ],
     },
-    { href: '/about-taejae', label: 'About Taejae' },
+    {
+      href: '/about-taejae',
+      label: 'About Taejae',
+      subItems: [
+        {
+          href: '/about-taejae',
+          label: 'About Taejae',
+          labelKo: '태제대학교 소개',
+        },
+        {
+          href: '/about-taejae/leadership',
+          label: 'Leadership',
+          labelKo: '리더십',
+        },
+        {
+          href: '/about-taejae/governance',
+          label: 'Governance',
+          labelKo: '거버넌스',
+        },
+      ],
+    },
   ]
 
   const currentLocale = locale === 'ko' ? 'KO' : 'EN'
@@ -173,7 +193,7 @@ export function Header({ locale }: HeaderProps) {
                 </AnimatePresence>
               </div>
             ))}
-            
+
             {/* Apply Now Button - positioned after menu items */}
             <Link
               href="/apply"

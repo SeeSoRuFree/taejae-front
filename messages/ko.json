@@ -635,5 +635,43 @@
         }
       }
     }
+  },
+  "about": {
+    "title": {
+      "prefix": "About ",
+      "highlight": "Taejae"
+    },
+    "description": {
+      "paragraph1": "오늘날 우리는 인류 역사상 가장 심오한 변화 중 하나의 한가운데 서 있습니다. 디지털화와 인공지능의 급속한 발전이 우리 삶의 모든 차원을 재편하고 있습니다. 동시에 우리의 지구 생태계는 기후 변화와 변화하는 세계 질서에서 심화되는 지정학적 긴장에 이르기까지 긴급한 도전에 직면하고 있습니다.",
+      "paragraph2": "이러한 급격한 변화의 시대에 당신은 어떤 역할을 할 것이며, 고등교육은 어떻게 당신을 준비시킬 수 있을까요?",
+      "paragraph3": "대량 산업 생산 시대에 가치를 인정받았던 구획화되고 전문화된 지식은 이제 자동화와 디지털 기술로 빠르게 대체되고 있습니다. 오늘날 세계가 필요로 하는 것은 통합적 사고와 창의성입니다.",
+      "paragraph4": "태제대학교에서 우리는 복잡성을 탐색하고 의미 있는 변화를 주도할 수 있는 미래 리더가 되도록 여러분을 돕는 데 전념하고 있습니다. 우리의 개인화되고 최적화된 교육 프로그램은 여러분의 잠재력을 최대한 발휘하도록 설계되었습니다.",
+      "paragraph5": "태제에서의 여정을 통해 글로벌 조화와 지속가능성에 대한 깊은 감각뿐만 아니라 공감과 다양성에 대한 감사, 소통과 협업, 창의적이고 비판적 사고, 자기주도적 학습의 필수 역량을 함양하게 될 것입니다.",
+      "paragraph6": "태제대학교는 21세기를 위한 고등교육의 새로운 모델을 개척하고 있으며, 여러분이 글로벌 시민, 혁신가, 그리고 더 지속가능하고 상호 연결된 세계를 건설하는 데 전념하는 변혁적 리더가 될 수 있도록 힘을 실어주고 있습니다.",
+      "paragraph7": "",
+      "tagline": "Taejae, The Next Answer"
+    },
+    "logo": {
+      "alt": "태제대학교 로고"
+    },
+    "tagline": {
+      "the": "THE ",
+      "next": "NEXT",
+      "answer": " ANSWER"
+    },
+    "faculty": {
+      "image": {
+        "alt": "태제대학교 교수진"
+      }
+    },
+    "team": {
+      "leadership": "Leadership",
+      "boardOfTrustees": "Board of Trustees",
+      "eminentProfessors": "Eminent Professors",
+      "administrativeProfessors": "Administrative Professors",
+      "globalPartners": "Global Partners",
+      "taejaeNow": "Taejae Now",
+      "pressMedia": "Press & Media"
+    }
   }
 }
